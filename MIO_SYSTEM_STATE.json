@@ -3,7 +3,7 @@
   "directiveVersion": "3.0",
   "repository": "elanghaqeem-hash/Takane-Mio",
   "branch": "regenesis/t0-foundation",
-  "lastVerifiedCommit": "a4a011ab874178318c70fc353199eaabb67b5b92",
+  "lastVerifiedCommit": "5503a3b3fcdc35b0c45e45cec531ebff846738c8",
   "currentPhase": "T-19.08.01 (local transport resource hardening; final security acceptance pending)",
   "completedTasks": [
     "T-0.01 repository metadata and initial commit audit",
@@ -64,8 +64,8 @@
   },
   "lastSuccessfulBuild": null,
   "lastSuccessfulTest": {
-    "scope": "T-19.06 five encrypted text restore tests with actual temporary files; three Git blobs identical; Windows/full regression and external recovery drill not exercised",
-    "passed": 5,
+    "scope": "T-19.08.01 five runtime budget tests and five inference smoke regression tests; four Git blobs match local files; simulated streams only; Windows/full suite not exercised",
+    "passed": 10,
     "failed": 0,
     "node": "22.16.0",
     "platform": "Linux",
