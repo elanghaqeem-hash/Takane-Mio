@@ -101,9 +101,10 @@
     "Clock rollback or clock failure permanently disables this GrantAuthority instance; does not stop unrelated engine instances or already executing work. Grants remain process-local.",
     "Model probe checks exact inventory entry only, does not authenticate server or verify inference; no model installed in test container. Ollama connection refused; port 8080 /v1/models HTTP 404.",
     "Galaxy reader opt-in by environment, read-only existing ~/.mio/memory.sqlite, metadata only. No model retrieval binding, encrypted storage, trusted consent UI or Electron execution validation.",
-    "UAT uses browser-only simulation; no model, credentials, data, persistence or desktop connection. STOP affects only current demo session."
+    "UAT uses browser-only simulation; no model, credentials, data, persistence or desktop connection. STOP affects only current demo session.",
+    "Live worker code differs from repository UAT; existing BYOK source archived separately, no deployment changed. Public HTTP DNS unavailable locally."
   ],
-  "deploymentStatus": "NOT DEPLOYED",
+  "deploymentStatus": "Existing BYOK web staging deployed (Cloudflare metadata verified, HTTP unverified); distinct repository UAT and desktop not verified deployed",
   "backupReference": null,
   "recoveryCheckpoint": "RG-T18-WEB-UAT",
   "recommendedNextAction": "Validate UAT deployment before T-19; desktop and local inference acceptance gates remain pending",
