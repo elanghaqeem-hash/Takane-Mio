@@ -1,2 +1,5 @@
 # T-19.10.04 Local activation
 Run npm run model:activate -- ollama MODEL --confirm-local-inference (or llamacpp). Use an installed, independently reviewed local runtime and explicit model ID. Performs inventory probe then random challenge; even match returns REVIEW_REQUIRED, not identity, reasoning or offline proof. No model download, auto-install, desktop activation or cloud fallback. Five synthetic transport tests passed Node 22.16 Linux; actual Ollama port refused and llama.cpp endpoint returned 404; no binaries on PATH. CLI and full suite not yet tested.
+
+## T-19.10.05 CLI safety gate — 2026-11-20
+The activation command deliberately returns nonzero even for a matching challenge: exit 2 means REVIEW_REQUIRED, exit 1 means blocked, invalid or unknown result, and handled SIGINT maps to 130. No successful activation is claimed. Five local subprocess checks with a stubbed activation backend covered review, blocked, unknown, thrown error and absent consent; live inference, actual SIGINT handling and full repository tests were not exercised. Code commit: e53d3f2858d1b787a4e17bba1ea78f2b01e7d220.
