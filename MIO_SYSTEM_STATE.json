@@ -3,7 +3,7 @@
   "directiveVersion": "3.0",
   "repository": "elanghaqeem-hash/Takane-Mio",
   "branch": "regenesis/t0-foundation",
-  "lastVerifiedCommit": "d27dccb0caccb9c8fab36fb02f516eea25d4efa4",
+  "lastVerifiedCommit": "959d1650fa0fbe21fe3096141430bac1cd02a612",
   "currentPhase": "T-19.03 (desktop source staging; installer blocked)",
   "completedTasks": [
     "T-0.01 repository metadata and initial commit audit",
@@ -59,7 +59,7 @@
   },
   "lastSuccessfulBuild": null,
   "lastSuccessfulTest": {
-    "scope": "T-19.02 four pure Windows preflight evaluator tests; two Git blobs match locally tested files; CLI and actual Windows not exercised",
+    "scope": "T-19.03 four source staging fixture tests; two remote blobs match local tested files; full checkout and Windows not exercised",
     "passed": 4,
     "failed": 0,
     "node": "22.16.0",
