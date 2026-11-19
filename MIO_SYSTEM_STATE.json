@@ -3,7 +3,7 @@
   "directiveVersion": "3.0",
   "repository": "elanghaqeem-hash/Takane-Mio",
   "branch": "regenesis/t0-foundation",
-  "lastVerifiedCommit": "6835747a19b54c177a7b4438377a4dbeda206220",
+  "lastVerifiedCommit": "f47b0fbbe32765179731e3c59455a7a4e5fab529",
   "currentPhase": "T-15 (implementation; earlier gates outstanding)",
   "completedTasks": [
     "T-0.01 repository metadata and initial commit audit",
@@ -39,8 +39,8 @@
   },
   "lastSuccessfulBuild": null,
   "lastSuccessfulTest": {
-    "scope": "T-14 six audio tests; both Git blobs match local tested files",
-    "passed": 6,
+    "scope": "T-15 five music tests; three Git blobs match local tested files",
+    "passed": 5,
     "failed": 0,
     "node": "22.16.0",
     "platform": "Linux",
