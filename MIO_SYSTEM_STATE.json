@@ -1,10 +1,10 @@
 {
-  "productVersion": "0.0.38-dev",
+  "productVersion": "0.0.39-dev",
   "directiveVersion": "3.0",
   "repository": "elanghaqeem-hash/Takane-Mio",
   "branch": "regenesis/t0-foundation",
   "lastVerifiedCommit": "a4a011ab874178318c70fc353199eaabb67b5b92",
-  "currentPhase": "T-19.06 (authenticated text checkpoint restoration; full reconstruction pending)",
+  "currentPhase": "T-19.07 (development installation and operator guides drafted; target validation pending)",
   "completedTasks": [
     "T-0.01 repository metadata and initial commit audit",
     "T-0.02 initial repository inventory"
@@ -51,7 +51,8 @@
     "T-19.03 actual dependency resolution, verified Windows Electron binary, portable package, installer/signing and clean-machine test",
     "T-19.04 real model inference, endpoint identity, verified offline operation and target Windows validation",
     "T-19.05 actual unified creative facade regression, desktop UI, shared core/audit authority for all engines and integrated STOP",
-    "T-19.06 actual full release recovery, external backup, original directive, key custody, SQLite database and model recovery, Windows ACL verification"
+    "T-19.06 actual full release recovery, external backup, original directive, key custody, SQLite database and model recovery, Windows ACL verification",
+    "T-19.07 independent guide walkthrough on clean Windows, actual model and dependency install, manual acceptance"
   ],
   "activeEngines": [],
   "modelInventory": [],
@@ -116,8 +117,8 @@
   ],
   "deploymentStatus": "Two isolated Cloudflare staging Workers deployed (BYOK and simulation UAT; management API verified); public HTTP/browser unverified; desktop not deployed",
   "backupReference": null,
-  "recoveryCheckpoint": "RG-T19-RESTORE",
-  "recommendedNextAction": "T-19.07 installation and user manual; complete full directive archive, SQLite backup/restore and external recovery drill before V1",
+  "recoveryCheckpoint": "RG-T19-OPERATOR-GUIDES",
+  "recommendedNextAction": "T-19.08 final security assessment; execute clean Windows install and validate manuals before V1",
   "product": "MIO",
   "auditCommit": "d10cdf06a438e8d7456a233c1d96082ea57a12a3",
   "disabledEngines": [],

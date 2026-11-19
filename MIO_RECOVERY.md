@@ -118,3 +118,6 @@ Parent 634c8bd26a8354900aa13aa7463f69838a46c097. Bounded procedural creative ada
 
 ## RG-T19-RESTORE
 Parent 30c8cfd76ce3f6439db899cd74ce2561ef08d610. Authenticated text restore to new directory; full reconstruction pending.
+
+## RG-T19-OPERATOR-GUIDES
+Parent 17519ae7693498b3bce4540bffe9db10dead718b. Draft Indonesian install/operator guides; independent acceptance pending.
