@@ -3,7 +3,7 @@
   "directiveVersion": "3.0",
   "repository": "elanghaqeem-hash/Takane-Mio",
   "branch": "regenesis/t0-foundation",
-  "lastVerifiedCommit": "44a6df5e745a4f5217d97e40f9a74dcdeca7cfa6",
+  "lastVerifiedCommit": "bfe0df62389f809e68d914645abe10f31793db2e",
   "currentPhase": "T-18.16 (grant authority hardening; integrated security incomplete)",
   "completedTasks": [
     "T-0.01 repository metadata and initial commit audit",
@@ -53,8 +53,8 @@
   },
   "lastSuccessfulBuild": null,
   "lastSuccessfulTest": {
-    "scope": "T-18.15 three session budget tests and four revised suite gate tests (injected subprocess fixtures); four Git blobs verified; full repository tests pending",
-    "passed": 7,
+    "scope": "T-18.16 six authority hardening tests; three Git blobs match local tested files; no full integration or revised suite gate run",
+    "passed": 6,
     "failed": 0,
     "node": "22.16.0",
     "platform": "Linux",
