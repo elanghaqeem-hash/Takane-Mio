@@ -139,3 +139,6 @@ Parent 13fd93469c12000e19e5dd0203cdcbbd18844352. Shared CORE stop propagation; i
 
 ## RG-T19-CENTRAL-STOP
 Parent 94a63902ea24af90825dc2b4a61c7b8f58f07ffa. Failure-isolated STOP coordinator; integration acceptance pending.
+
+## RG-T19-DEPENDENCY-GATE
+Parent 235a088419e9a70a071d99e82058b34b1d2384c2. Conservative dependency metadata review; missing lock and release evidence remain blocking.
