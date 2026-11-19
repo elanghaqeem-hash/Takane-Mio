@@ -1,0 +1,2 @@
+# Reproducible SessionMemory microbenchmark
+Run npm run benchmark:memory. Seven alternating rounds per implementation, 100000 appends per round, warmup. Node 22.16.0 Linux: reference median 12.096523 ms, optimized median 5.364010 ms. Three targeted local correctness tests independently rerun; source and test blobs match. Benchmark does not measure RAM, inference, UI, GPU or Windows. Array eviction remains O(n), bounded to 64 messages. Full regression remains pending.

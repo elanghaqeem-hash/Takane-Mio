@@ -134,5 +134,14 @@
     "node": "22.16.0",
     "platform": "Linux",
     "date": "2026-11-19"
+  },
+  "performanceEvidence": {
+    "scope": "synthetic SessionMemory append only",
+    "operationsPerRound": 100000,
+    "rounds": 7,
+    "referenceMedianMs": 12.096523,
+    "optimizedMedianMs": 5.36401,
+    "platform": "Linux",
+    "node": "22.16.0"
   }
 }

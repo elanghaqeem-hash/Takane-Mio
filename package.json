@@ -15,7 +15,8 @@
     "chat:local": "node scripts/chat-local.mjs",
     "memory:local": "node scripts/memory-local.mjs",
     "agent:local": "node scripts/agent-local.mjs",
-    "verify:suite": "node scripts/verify-suite.mjs"
+    "verify:suite": "node scripts/verify-suite.mjs",
+    "benchmark:memory": "node scripts/benchmark-memory.mjs"
   },
   "devDependencies": {
     "electron": "45.3.4"
