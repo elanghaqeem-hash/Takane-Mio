@@ -1,0 +1,2 @@
+# T-6 Trust foundation
+GrantAuthority must be owned by trusted process only; issue is not an authentication interface. Audit is in-memory HMAC chain, requires independently protected expected count/head and key; no durable storage, no claim of nonrepudiation. Seal/unseal are AES-256-GCM primitives, not integrated with SQLite or key vault. Existing agent still uses its original scoped grants. No new external tools, no OS sandbox, no prompt-injection defense claimed. Linux Node 22.16.0: 6 new tests and 7 agent regression tests passed; Windows/Electron and CI pending.

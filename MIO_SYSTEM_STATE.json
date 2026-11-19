@@ -1,10 +1,10 @@
 {
-  "productVersion": "0.0.6-dev",
+  "productVersion": "0.0.7-dev",
   "directiveVersion": "3.0",
   "repository": "elanghaqeem-hash/Takane-Mio",
   "branch": "regenesis/t0-foundation",
-  "lastVerifiedCommit": "31e7777899e3686c8841f115a6c85c593cac17e7",
-  "currentPhase": "T-5 (implementation; earlier gates outstanding)",
+  "lastVerifiedCommit": "8d3e88a004bbf3e9df391b024ce3606b95ac9238",
+  "currentPhase": "T-6 (implementation; earlier gates outstanding)",
   "completedTasks": [
     "T-0.01 repository metadata and initial commit audit",
     "T-0.02 initial repository inventory"
@@ -18,7 +18,8 @@
     "T-2 live authorized knowledge provider, renderer runtime and performance validation",
     "T-3 live model, desktop chat, streaming UI, OpenRouter opt-in, benchmark",
     "T-4 SQLite target verification, memory UI, consent audit, encryption, retrieval integration, backup restore",
-    "T-5 model planning, trusted approval UI, durable task journal, desktop integration and target validation"
+    "T-5 model planning, trusted approval UI, durable task journal, desktop integration and target validation",
+    "T-6 integrate authority/audit/encryption, persistent key management, prompt injection defense, OS sandbox and Windows tests"
   ],
   "activeEngines": [],
   "modelInventory": [],
@@ -29,14 +30,12 @@
   },
   "lastSuccessfulBuild": null,
   "lastSuccessfulTest": {
-    "scope": "T-5 agent tests; all six source/test Git blobs matched",
-    "passed": 7,
+    "scope": "T-5 agent regression plus six T-6 primitive tests; Linux Node 22.16.0",
+    "passed": 13,
     "failed": 0,
-    "node": "22.16.0",
-    "platform": "Linux",
     "date": "2026-11-19"
   },
-  "securityStatus": "Desktop IPC source and cooperative STOP; runtime validation pending",
+  "securityStatus": "Grant authority, HMAC audit and AES-GCM primitives locally tested; not integrated",
   "knownIssues": [
     "No Windows target access",
     "No local model installed or tested",
@@ -50,8 +49,8 @@
   ],
   "deploymentStatus": "NOT DEPLOYED",
   "backupReference": null,
-  "recoveryCheckpoint": "RG-T5-AGENT",
-  "recommendedNextAction": "Verify agent tests, then integrate trusted grant authority and audit journal in T-6",
+  "recoveryCheckpoint": "RG-T6-TRUST",
+  "recommendedNextAction": "Integrate trusted security services before external tools",
   "product": "MIO",
   "auditCommit": "d10cdf06a438e8d7456a233c1d96082ea57a12a3",
   "disabledEngines": [],

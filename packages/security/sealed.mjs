@@ -1,0 +1,4 @@
+import {randomBytes,createCipheriv,createDecipheriv} from 'node:crypto';
+function check(key){if(!Buffer.isBuffer(key)||key.length!==32)throw new TypeError('Expected 32-byte key');}
+export function seal(key,text){check(key);if(typeof text!=='string'||text.length>16000)throw new TypeError('Invalid text');const iv=randomBytes(12),cipher=createCipheriv('aes-256-gcm',key,iv);const data=Buffer.concat([cipher.update(text,'utf8'),cipher.final()]);return Buffer.concat([iv,cipher.getAuthTag(),data]).toString('base64');}
+export function unseal(key,value){check(key);if(typeof value!=='string'||value.length>100000)throw new TypeError('Invalid ciphertext');const b=Buffer.from(value,'base64');if(b.length<28)throw new Error('Invalid ciphertext');const decipher=createDecipheriv('aes-256-gcm',key,b.subarray(0,12));decipher.setAuthTag(b.subarray(12,28));return Buffer.concat([decipher.update(b.subarray(28)),decipher.final()]).toString('utf8');}

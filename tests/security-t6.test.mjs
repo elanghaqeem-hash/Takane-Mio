@@ -1,0 +1,13 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {randomBytes} from 'node:crypto';
+import {GrantAuthority} from '../packages/security/authority.mjs';
+import {AuditTrail} from '../packages/security/audit.mjs';
+import {seal,unseal} from '../packages/security/sealed.mjs';
+const op={scope:'internal:text',purpose:'analyze',level:0};
+test('grant expiry and exact scope',()=>{let now=100;const a=new GrantAuthority(()=>now);assert.equal(a.allows(op),false);a.issue({...op,ttlMs:10});assert.equal(a.allows(op),true);assert.equal(a.allows({...op,scope:'other'}),false);now=110;assert.equal(a.allows(op),false);});
+test('revocation, stop and explicit critical consent',()=>{const a=new GrantAuthority();assert.throws(()=>a.issue({...op,level:4,ttlMs:10}));const id=a.issue({...op,ttlMs:10000});assert.equal(a.revoke(id),true);assert.equal(a.allows(op),false);a.issue({...op,ttlMs:10000});a.stop();assert.equal(a.allows(op),false);assert.throws(()=>a.issue({...op,ttlMs:10000}));});
+test('audit chain detects modification and truncation using trusted head',()=>{const a=new AuditTrail(randomBytes(32));a.append('START','text.words');const end=a.append('SUCCESS','text.words');const rows=a.snapshot();assert.equal(a.verify(rows,2,end.mac),true);rows[0].kind='DENIED';assert.equal(a.verify(rows,2,end.mac),false);assert.equal(a.verify(a.snapshot().slice(0,1),2,end.mac),false);});
+test('audit rejects arbitrary event labels',()=>{const a=new AuditTrail(randomBytes(32));assert.throws(()=>a.append('secret user text'));assert.throws(()=>a.append('START','some private text'));});
+test('authenticated encryption round trip and nonce uniqueness',()=>{const key=randomBytes(32),a=seal(key,'halo MIO'),b=seal(key,'halo MIO');assert.notEqual(a,b);assert.equal(unseal(key,a),'halo MIO');assert.throws(()=>unseal(randomBytes(32),a));});
+test('ciphertext tampering rejected',()=>{const key=randomBytes(32),b=Buffer.from(seal(key,'secret'),'base64');b[b.length-1]^=1;assert.throws(()=>unseal(key,b.toString('base64')));});

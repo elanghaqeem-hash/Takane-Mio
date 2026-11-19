@@ -19,3 +19,6 @@ Parent source 2111884a89dde8b2b472a97773613f8a18528da0. SQLite schema 1 source o
 
 ## RG-T5-AGENT
 Parent d35e7e2d0aa9f6d9be9987877805e3c50194f356. Structured agent source; no durable task resume or external backup.
+
+## RG-T6-TRUST
+Parent 8d3e88a004bbf3e9df391b024ce3606b95ac9238. Security primitives only; never commit keys or private logs. External backup still pending.
