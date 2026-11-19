@@ -127,3 +127,6 @@ Parent cbc07fe9375b28cdcbe0db7b6e09a5ef464ba36b. Local response resource budgets
 
 ## RG-T19-APPROVAL
 Parent 690ec7c448766067970cc6ddeb761fb20f05e990. Monotonic approval boundary; integrated security acceptance pending.
+
+## RG-T19-PROPOSAL-BOUNDARY
+Parent 0bc72fe243cb0673978351d8251cc9081cb905a4. Strict proposal parsing and tool allowlist; independent security acceptance pending.

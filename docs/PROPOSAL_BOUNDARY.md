@@ -1,0 +1,2 @@
+# T-19.08.03 strict proposal boundary
+JSON syntax validation plus duplicate decoded key rejection, nesting maximum eight, 32000 UTF-16 units. Requested tool ID must be allowlisted before registry lookup; returned ID must match and level must be zero. Text arguments remain data. Six targeted tests passed Node 22.16 Linux with synthetic registry and streaming model. Does not guarantee injection-free model output or trusted registry, authenticated approvals, sandboxing, or integrated security. No actual inference, full suite, Windows or deployment changes.
