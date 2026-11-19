@@ -3,7 +3,7 @@
   "directiveVersion": "3.0",
   "repository": "elanghaqeem-hash/Takane-Mio",
   "branch": "regenesis/t0-foundation",
-  "lastVerifiedCommit": "b79b245693934fb3e62544da3df643bcbdaeb0ef",
+  "lastVerifiedCommit": "13a3fa20410806f4602fa19fc6b19701a3f337ce",
   "currentPhase": "T-3 (implementation; earlier gates outstanding)",
   "completedTasks": [
     "T-0.01 repository metadata and initial commit audit",
@@ -27,8 +27,8 @@
   },
   "lastSuccessfulBuild": null,
   "lastSuccessfulTest": {
-    "scope": "Galaxy layout unit tests only; Git blob matched",
-    "passed": 5,
+    "scope": "T-3 adapter/router mocks; all three source/test Git blobs matched",
+    "passed": 6,
     "failed": 0,
     "node": "22.16.0",
     "platform": "Linux",
@@ -41,7 +41,8 @@
     "Full directive not yet archived verbatim",
     "Merge commit rejected by connector; main history not reconciled despite manifest archived",
     "Electron lockfile and runtime not verified",
-    "Galaxy renderer Electron file module loading and live provider not verified"
+    "Galaxy renderer Electron file module loading and live provider not verified",
+    "No live inference; local endpoint authentication and desktop streaming pending"
   ],
   "deploymentStatus": "NOT DEPLOYED",
   "backupReference": null,
