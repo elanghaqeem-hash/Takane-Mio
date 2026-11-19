@@ -15,7 +15,7 @@ Initial baseline: README and gitignore only. No engine is verified. Foundation b
 | S10 Research | IN DEVELOPMENT |
 | S11 File Intelligence | IN DEVELOPMENT |
 | S12 Creative | IN DEVELOPMENT |
-| S13 Automation | NOT STARTED |
+| S13 Automation | IN DEVELOPMENT |
 | S14 Desktop Integration | IN DEVELOPMENT |
 | S15 Security | IN DEVELOPMENT |
 | S16 Reliability | IN DEVELOPMENT |

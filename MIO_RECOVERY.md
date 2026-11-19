@@ -61,3 +61,6 @@ Parent ff6294aef92c6cd369539c38178ae6e1bc3dcb5b. Reviewed session source; local 
 
 ## RG-T18-LOCAL-ASSISTANT
 Parent 6c66d88a9c390077260c3505c4f362feaacbf11f. Local runtime integration with simulated model transport. No external backup or live model verification.
+
+## RG-T18-AUTOMATION
+Parent 3aa01b7265b910fb9fff17b78e1f348286668e4f. Process-local manually polled scheduler; no durable backup or production integration.
