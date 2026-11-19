@@ -3,7 +3,7 @@
   "directiveVersion": "3.0",
   "repository": "elanghaqeem-hash/Takane-Mio",
   "branch": "regenesis/t0-foundation",
-  "lastVerifiedCommit": "504faa67abdd9a9f0887deba8e3e1e6f254697",
+  "lastVerifiedCommit": "5d76853bae09a82cb42ce5cd227d6a933e8bcc1f",
   "currentPhase": "T-1 (implementation; T-0 gates outstanding)",
   "completedTasks": [
     "T-0.01 repository metadata and initial commit audit",
@@ -25,18 +25,18 @@
   },
   "lastSuccessfulBuild": null,
   "lastSuccessfulTest": {
-    "scope": "new hardware and execution-gate tests only",
-    "passed": 7,
+    "scope": "desktop controller and foundation (Linux Node 22.16.0; not Electron runtime)",
+    "passed": 6,
     "failed": 0,
-    "node": "22.16.0",
-    "platform": "linux-x64",
     "date": "2026-11-19"
   },
   "securityStatus": "Desktop IPC source and cooperative STOP; runtime validation pending",
   "knownIssues": [
     "No Windows target access",
     "No local model installed or tested",
-    "Full directive not yet archived verbatim"
+    "Full directive not yet archived verbatim",
+    "Merge commit rejected by connector; main history not reconciled despite manifest archived",
+    "Electron lockfile and runtime not verified"
   ],
   "deploymentStatus": "NOT DEPLOYED",
   "backupReference": null,
