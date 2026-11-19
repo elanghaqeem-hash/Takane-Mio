@@ -49,3 +49,6 @@ Parent dfc989acff76fae9c9499bfee9560ae71c1aab5d. Audio primitives and WAV serial
 
 ## RG-T15-MUSIC
 Parent 5e7f343f8235ac81bc730d79da08970388d7e08f. Note sequences and MIDI/WAV serialization; no external backup or DAW validation.
+
+## RG-T16-ORCHESTRATION
+Parent c6053a8e5517a9328eff5c424e4889371c0bd993. Orchestrator foundation with in-memory audit and scoped grants; external backup and production integration pending.
