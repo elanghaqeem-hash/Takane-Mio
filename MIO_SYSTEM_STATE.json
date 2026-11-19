@@ -1,0 +1,36 @@
+{
+  "productVersion": "0.0.1-dev",
+  "directiveVersion": "3.0",
+  "repository": "elanghaqeem-hash/Takane-Mio",
+  "branch": "regenesis/t0-foundation",
+  "lastVerifiedCommit": "1c3901de6fa32e7a9099190e7e0e136d6f10f46d",
+  "currentPhase": "T-0",
+  "completedTasks": [
+    "T-0.01 repository metadata and initial commit audit",
+    "T-0.02 initial repository inventory"
+  ],
+  "pendingTasks": [
+    "T-0.03 target dependency assessment",
+    "T-0.04 integrated security baseline",
+    "T-0.05 external recovery package",
+    "T-0.06 architecture validation"
+  ],
+  "activeEngines": [],
+  "modelInventory": [],
+  "databaseVersion": null,
+  "dependencyVersions": {
+    "node": "24 (target)"
+  },
+  "lastSuccessfulBuild": null,
+  "lastSuccessfulTest": null,
+  "securityStatus": "Partial primitives; execution mediation not integrated",
+  "knownIssues": [
+    "No Windows target access",
+    "No local model installed or tested",
+    "Full directive not yet archived verbatim"
+  ],
+  "deploymentStatus": "NOT DEPLOYED",
+  "backupReference": null,
+  "recoveryCheckpoint": "RG-T0-BASE",
+  "recommendedNextAction": "Verify CI and archive directive; complete T-0 gates"
+}
