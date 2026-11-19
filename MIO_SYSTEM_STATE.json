@@ -3,7 +3,7 @@
   "directiveVersion": "3.0",
   "repository": "elanghaqeem-hash/Takane-Mio",
   "branch": "regenesis/t0-foundation",
-  "lastVerifiedCommit": "9289375ffadab90ee419eabfceb470fc2b015ed4",
+  "lastVerifiedCommit": "fa74b22197c1be51702f11cbcab6a49cf74d3762",
   "currentPhase": "T-18.04 (automation foundation; release gates outstanding)",
   "completedTasks": [
     "T-0.01 repository metadata and initial commit audit",
@@ -44,8 +44,8 @@
   },
   "lastSuccessfulBuild": null,
   "lastSuccessfulTest": {
-    "scope": "T-18.03 six assistant runtime integration tests and four reviewed session regressions; actual HTTP loopback with simulated Ollama server; thirteen Git blobs match tested files",
-    "passed": 10,
+    "scope": "T-18.04 six scheduler tests with actual L0 tools, grant authority and execution gate; six Git blobs match locally tested files",
+    "passed": 6,
     "failed": 0,
     "node": "22.16.0",
     "platform": "Linux",
