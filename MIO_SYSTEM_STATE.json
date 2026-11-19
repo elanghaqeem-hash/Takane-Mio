@@ -3,7 +3,7 @@
   "directiveVersion": "3.0",
   "repository": "elanghaqeem-hash/Takane-Mio",
   "branch": "regenesis/t0-foundation",
-  "lastVerifiedCommit": "07c6c1f8f68a0483fdfee16d473afe833eb9f75f",
+  "lastVerifiedCommit": "b30da981c20b844a16ac1c5c828917e563b9e634",
   "currentPhase": "T-9 (implementation; earlier gates outstanding)",
   "completedTasks": [
     "T-0.01 repository metadata and initial commit audit",
@@ -33,10 +33,11 @@
   },
   "lastSuccessfulBuild": null,
   "lastSuccessfulTest": {
-    "scope": "T-8 PCM, mocked STT/TTS, consent, STOP and explicit profile tests; local Linux",
-    "passed": 5,
+    "scope": "T-9 six file primitive tests; both Git blobs match local tested files",
+    "passed": 6,
     "failed": 0,
     "node": "22.16.0",
+    "platform": "Linux",
     "date": "2026-11-19"
   },
   "securityStatus": "Grant authority, HMAC audit and AES-GCM primitives locally tested; not integrated",
