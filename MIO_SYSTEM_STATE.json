@@ -3,7 +3,7 @@
   "directiveVersion": "3.0",
   "repository": "elanghaqeem-hash/Takane-Mio",
   "branch": "regenesis/t0-foundation",
-  "lastVerifiedCommit": "0513c74aa3ccadc887f517de36201f4683f3cda9",
+  "lastVerifiedCommit": "d2f21a45015eb3428f5e3b6faa5b27f2c503edf1",
   "currentPhase": "T-18.06 (developer inspection foundation; release gates outstanding)",
   "completedTasks": [
     "T-0.01 repository metadata and initial commit audit",
@@ -46,8 +46,8 @@
   },
   "lastSuccessfulBuild": null,
   "lastSuccessfulTest": {
-    "scope": "T-18.06 five developer inspection tests; two Git blobs match locally tested files",
-    "passed": 5,
+    "scope": "T-18.06 six additional developer review tests on Linux; source and test Git blobs match locally tested files; existing inspection tests retained separately",
+    "passed": 6,
     "failed": 0,
     "node": "22.16.0",
     "platform": "Linux",
@@ -79,7 +79,8 @@
     "AssistantRuntime uses actual local transport and tools but tested against simulated model only; no desktop binding or persistence",
     "Automation scheduler is process-local, manually polled, restricted to L0 text operations; no background timer, external event source or restart persistence",
     "Project workspace is in RAM only; caller consent is not a trusted authorization boundary; no automatic risk inference, subtask hierarchy or scheduling integration.",
-    "Developer inspection uses line-based heuristics only; false positives/negatives expected; no AST, vulnerability database, code execution or repository access."
+    "Developer inspection uses line-based heuristics only; false positives/negatives expected; no AST, vulnerability database, code execution or repository access.",
+    "Developer review proposals check hash consistency only, not authenticity; no file or repository writes."
   ],
   "deploymentStatus": "NOT DEPLOYED",
   "backupReference": null,
