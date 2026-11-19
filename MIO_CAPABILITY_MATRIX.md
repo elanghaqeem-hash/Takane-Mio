@@ -14,7 +14,7 @@ Initial baseline: README and gitignore only. No engine is verified. Foundation b
 | S09 Emotional Intelligence | IN DEVELOPMENT |
 | S10 Research | IN DEVELOPMENT |
 | S11 File Intelligence | IN DEVELOPMENT |
-| S12 Creative | NOT STARTED |
+| S12 Creative | IN DEVELOPMENT |
 | S13 Automation | NOT STARTED |
 | S14 Desktop Integration | IN DEVELOPMENT |
 | S15 Security | IN DEVELOPMENT |

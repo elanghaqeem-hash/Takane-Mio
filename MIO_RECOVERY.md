@@ -34,3 +34,6 @@ Parent 4298b6fd1b38bc05f14b5f11e3c8abf40e9fb435. Byte-level inspection and revie
 
 ## RG-T10-PERCEPTION
 Parent 75664f721f7e11c29f0008c8fdd18350f9cb3e14. Perception orchestration only; no model/media backup or full restore drill.
+
+## RG-T11-MESH
+Parent f187faf4fd0a118880bbaabd9041a844c754adc0. Procedural geometry and OBJ serialization; no external backup or Blender validation.

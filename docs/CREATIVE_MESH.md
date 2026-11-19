@@ -1,0 +1,2 @@
+# T-11 procedural mesh foundation
+Box and cylinder triangular mesh generation, bounded geometry validation, positive scale, translation and Y rotation, OBJ text serialization. No file writes by engine, no arbitrary code or network, no renderer, GPU or Blender integration. Validation checks indices and count, not arbitrary manifoldness or degenerate geometric triangles. Text/image-to-3D, materials, UVs, normals, camera, lighting and general mesh editing are pending. Run node --test tests/mesh.test.mjs. Local six tests on Node 22.16.0 Linux.
