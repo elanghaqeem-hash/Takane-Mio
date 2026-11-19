@@ -2,6 +2,7 @@ import {AssistantRuntime} from './assistant.mjs';
 import {GrantAuthority} from '../security/authority.mjs';
 import {TaskScheduler} from '../automation/scheduler.mjs';
 import {ProjectWorkspace} from '../project/workspace.mjs';
+import {createMeshPreview} from './creative.mjs';
 export class UnifiedRuntime {
  #assistant; #authority; #scheduler; #projects=new ProjectWorkspace(); #stopped=false; #busy=false; #clock;
  constructor({modelConfig,clock=Date.now}={}){this.#clock=clock;this.#assistant=new AssistantRuntime(modelConfig);this.#authority=new GrantAuthority(clock);this.#scheduler=new TaskScheduler({authority:this.#authority,clock});}
@@ -15,6 +16,7 @@ export class UnifiedRuntime {
  revokeAutomation(id){this.#guard();return this.#authority.revoke(id);}
  schedule(job){this.#guard();this.#scheduler.add(job);}
  tick(){return this.#run(()=>this.#scheduler.tick());}
+ previewMesh(request,options){return this.#run(()=>createMeshPreview(request,options));}
  createProject(project){this.#guard();this.#projects.create(project);}
  addTask(id,task){this.#guard();this.#projects.addTask(id,task);}
  transitionTask(id,task,status){this.#guard();this.#projects.transition(id,task,status);}

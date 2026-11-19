@@ -112,3 +112,6 @@ Parent c4a5557961ee78d874bc9e047e729ec5ccf1ee06. Source staging only; installer 
 
 ## RG-T19-INFERENCE-SMOKE
 Parent 5adac80ce2510c6d8efed1f843fbd2a06f3efa74. Local challenge diagnostic; actual inference pending.
+
+## RG-T19-CREATIVE-INTEGRATION
+Parent 634c8bd26a8354900aa13aa7463f69838a46c097. Bounded procedural creative adapter; integrated runtime verification pending.

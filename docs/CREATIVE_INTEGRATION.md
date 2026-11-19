@@ -1,0 +1,2 @@
+# T-19.05 bounded creative adapter
+Creates procedural box or cylinder geometry and OBJ text in memory, explicit consent true, dimension cap 1000 and cylinder segment cap 128; does not write files or invoke tools. UnifiedRuntime.previewMesh uses the existing serialized busy/stopped lifecycle; no model tool registration. Four adapter tests passed on Node 22.16 Linux using actual mesh module. UnifiedRuntime wiring, full CI, all-engine lifecycle, shared core/audit and desktop UI are not tested. Caller consent is not trusted authorization. No Cloudflare deployment changes.
