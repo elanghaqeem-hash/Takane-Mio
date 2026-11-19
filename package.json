@@ -21,7 +21,8 @@
     "windows:preflight": "node scripts/windows-preflight.mjs",
     "stage:desktop": "node scripts/stage-desktop.mjs",
     "model:smoke": "node scripts/model-smoke.mjs",
-    "security:dependencies": "node scripts/dependency-gate.mjs"
+    "security:dependencies": "node scripts/dependency-gate.mjs",
+    "model:activate": "node scripts/model-activate.mjs"
   },
   "devDependencies": {
     "electron": "45.3.4"

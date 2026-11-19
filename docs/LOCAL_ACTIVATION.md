@@ -1,0 +1,2 @@
+# T-19.10.04 Local activation
+Run npm run model:activate -- ollama MODEL --confirm-local-inference (or llamacpp). Use an installed, independently reviewed local runtime and explicit model ID. Performs inventory probe then random challenge; even match returns REVIEW_REQUIRED, not identity, reasoning or offline proof. No model download, auto-install, desktop activation or cloud fallback. Five synthetic transport tests passed Node 22.16 Linux; actual Ollama port refused and llama.cpp endpoint returned 404; no binaries on PATH. CLI and full suite not yet tested.

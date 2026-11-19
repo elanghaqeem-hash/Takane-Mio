@@ -1,0 +1,10 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {assessLocalActivation} from '../packages/intelligence/activation.mjs';
+const config={provider:'ollama',model:'fixture',consent:true};
+const inventory=()=>Response.json({models:[{name:'fixture'}]});
+test('consent required before transport',async()=>{let n=0;await assert.rejects(assessLocalActivation({...config,consent:false,fetchImpl:()=>n++}));assert.equal(n,0);});
+test('missing model blocks inference',async()=>{let n=0;const r=await assessLocalActivation({...config,fetchImpl:async()=>{n++;return Response.json({models:[]});}});assert.equal(r.decision,'BLOCKED');assert.equal(r.challenge,'NOT_RUN');assert.equal(n,1);});
+test('listed model and matching challenge require review',async()=>{const r=await assessLocalActivation({...config,fetchImpl:async(url,opts)=>{if(opts.method==='GET')return inventory();const token=JSON.parse(opts.body).messages[0].content.split(' ').at(-1);return new Response(JSON.stringify({message:{content:token},done:true})+'\n');}});assert.equal(r.decision,'REVIEW_REQUIRED');assert.equal(r.offlineVerified,false);assert.equal(r.serverAuthenticated,false);});
+test('listed model with incorrect response blocked',async()=>{const r=await assessLocalActivation({...config,fetchImpl:async(url,opts)=>opts.method==='GET'?inventory():new Response('{"message":{"content":"wrong"},"done":true}\n')});assert.equal(r.challenge,'CHALLENGE_MISMATCH');assert.equal(r.decision,'BLOCKED');});
+test('pre-aborted activation makes no transport call',async()=>{const c=new AbortController();c.abort();let n=0;const r=await assessLocalActivation({...config,signal:c.signal,fetchImpl:()=>n++});assert.equal(r.decision,'BLOCKED');assert.equal(n,0);});

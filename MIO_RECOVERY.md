@@ -162,3 +162,6 @@ Assessed 92052b0369654a63842b2bcbc1a2ee189c16c6c4. 28 exact Git blobs, 12 test f
 
 ## RG-T19-WINDOWS-PORTABLE
 Manual review-only portable build workflow; seven static checks passed, Windows runtime and actual artifact pending.
+
+## RG-T19-LOCAL-ACTIVATION
+Consent-based activation assessment, five synthetic tests, live model unavailable.
