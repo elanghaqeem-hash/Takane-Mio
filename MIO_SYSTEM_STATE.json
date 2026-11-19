@@ -3,7 +3,7 @@
   "directiveVersion": "3.0",
   "repository": "elanghaqeem-hash/Takane-Mio",
   "branch": "regenesis/t0-foundation",
-  "lastVerifiedCommit": "b1264e2e4089d919466ab4329d818dd6ef76d12b",
+  "lastVerifiedCommit": "09dff682a140798740b6e5e8f1cdf66f06cbef68",
   "currentPhase": "T-19.08.06 (central STOP coordinator; integration acceptance pending)",
   "completedTasks": [
     "T-0.01 repository metadata and initial commit audit",
@@ -69,8 +69,8 @@
   },
   "lastSuccessfulBuild": null,
   "lastSuccessfulTest": {
-    "scope": "T-19.08.05 three agent CORE STOP tests with simulated handlers, actual CORE/gate/policy; five Git blobs matched; full suite and Windows not executed",
-    "passed": 3,
+    "scope": "T-19.08.06 five isolated EmergencyStop coordinator tests, two Git blobs identical; integrated UnifiedRuntime and Windows/full suite not executed",
+    "passed": 5,
     "failed": 0,
     "node": "22.16.0",
     "platform": "Linux",
