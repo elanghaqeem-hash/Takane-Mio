@@ -1,10 +1,10 @@
 {
-  "productVersion": "0.0.37-dev",
+  "productVersion": "0.0.38-dev",
   "directiveVersion": "3.0",
   "repository": "elanghaqeem-hash/Takane-Mio",
   "branch": "regenesis/t0-foundation",
   "lastVerifiedCommit": "973d8f3a80c55ca4fd4274eb6c0d21f6336710ab",
-  "currentPhase": "T-19.05 (bounded creative runtime adapter; full integration pending)",
+  "currentPhase": "T-19.06 (authenticated text checkpoint restoration; full reconstruction pending)",
   "completedTasks": [
     "T-0.01 repository metadata and initial commit audit",
     "T-0.02 initial repository inventory"
@@ -50,7 +50,8 @@
     "T-19.02 actual Windows preflight, dependency lock, executable launch and installer packaging",
     "T-19.03 actual dependency resolution, verified Windows Electron binary, portable package, installer/signing and clean-machine test",
     "T-19.04 real model inference, endpoint identity, verified offline operation and target Windows validation",
-    "T-19.05 actual unified creative facade regression, desktop UI, shared core/audit authority for all engines and integrated STOP"
+    "T-19.05 actual unified creative facade regression, desktop UI, shared core/audit authority for all engines and integrated STOP",
+    "T-19.06 actual full release recovery, external backup, original directive, key custody, SQLite database and model recovery, Windows ACL verification"
   ],
   "activeEngines": [],
   "modelInventory": [],
@@ -110,12 +111,13 @@
     "Live worker code differs from repository UAT; existing BYOK source archived separately, no deployment changed. Public HTTP DNS unavailable locally.",
     "Desktop staging is source-only, for trusted checkout; extension filtering is not secret scanning or filesystem isolation. No executable or installer generated.",
     "Inference challenge match shows response protocol and random-token echo only; no proof of actual model identity, reasoning or offline isolation. Actual Ollama test failed in local container; no ollama or llama-server executable on PATH.",
-    "Creative mesh adapter generates procedural OBJ in memory with caller consent only; no rendering, AI tool registration, trusted approval, file write or global CORE state integration. UnifiedRuntime new facade not yet exercised."
+    "Creative mesh adapter generates procedural OBJ in memory with caller consent only; no rendering, AI tool registration, trusted approval, file write or global CORE state integration. UnifiedRuntime new facade not yet exercised.",
+    "Restoration writes only authenticated allowlisted text into a new directory under a trusted parent. Partial output may remain without receipt; no atomic whole-directory commit, fsync, Windows ACL security, semantic validation, actual commit lookup or SQLite restore. No backup of real user data created."
   ],
   "deploymentStatus": "Two isolated Cloudflare staging Workers deployed (BYOK and simulation UAT; management API verified); public HTTP/browser unverified; desktop not deployed",
   "backupReference": null,
-  "recoveryCheckpoint": "RG-T19-CREATIVE-INTEGRATION",
-  "recommendedNextAction": "T-19.05 continue integrated lifecycle and regression testing; T-19.06 disaster recovery package after target gates",
+  "recoveryCheckpoint": "RG-T19-RESTORE",
+  "recommendedNextAction": "T-19.07 installation and user manual; complete full directive archive, SQLite backup/restore and external recovery drill before V1",
   "product": "MIO",
   "auditCommit": "d10cdf06a438e8d7456a233c1d96082ea57a12a3",
   "disabledEngines": [],

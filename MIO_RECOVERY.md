@@ -115,3 +115,6 @@ Parent 5adac80ce2510c6d8efed1f843fbd2a06f3efa74. Local challenge diagnostic; act
 
 ## RG-T19-CREATIVE-INTEGRATION
 Parent 634c8bd26a8354900aa13aa7463f69838a46c097. Bounded procedural creative adapter; integrated runtime verification pending.
+
+## RG-T19-RESTORE
+Parent 30c8cfd76ce3f6439db899cd74ce2561ef08d610. Authenticated text restore to new directory; full reconstruction pending.
