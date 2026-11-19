@@ -43,3 +43,6 @@ Parent 1f7e9c7531f81f1e12b3cf8b6e00104d9c4ad3f5. Keyframe and mesh transformatio
 
 ## RG-T13-VISUAL
 Parent a73db7cd60fa81d5d6e2992b57aa7303ca536043. Visual primitives and raw pixel filters; no external backup or desktop rendering validation.
+
+## RG-T14-AUDIO
+Parent dfc989acff76fae9c9499bfee9560ae71c1aab5d. Audio primitives and WAV serialization only; no external backup.
