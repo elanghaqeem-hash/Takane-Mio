@@ -100,3 +100,6 @@ Parent 06f97446f918f97cf18152419d60da8e5501cb3d. Opt-in read-only knowledge gala
 
 ## RG-T18-WEB-UAT
 Parent 58fb452f8c706747e4adc98d463895c073f83a9b. Isolated UAT source; deployment status tracked separately.
+
+## RG-T19-RELEASE-GATE
+Parent f563106eb37208067607c10ad73934b0055f355f. V1 blocked pending independent gate evidence.
