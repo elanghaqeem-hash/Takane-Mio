@@ -1,0 +1,11 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {GrantAuthority} from '../packages/security/authority.mjs';
+import {authorize} from '../packages/security/policy.mjs';
+const op={scope:'internal:text',purpose:'analyze',level:0},grant={...op,ttlMs:10};
+test('clock rollback latches denial and removes existing grants',()=>{let now=100;const a=new GrantAuthority(()=>now);a.issue(grant);now=105;assert.equal(a.allows(op),true);now=104;assert.equal(a.allows(op),false);now=106;assert.equal(a.allows(op),false);assert.throws(()=>a.issue(grant));});
+test('invalid clock and clock exception fail closed',()=>{for(const bad of [NaN,Infinity,-1,1.5,'100']){const a=new GrantAuthority(()=>bad);assert.throws(()=>a.issue(grant));assert.equal(a.allows(op),false);}const a=new GrantAuthority(()=>{throw Error('clock');});assert.equal(a.allows(op),false);});
+test('grant capacity bounded and expired entries reclaimed',()=>{let now=100;const a=new GrantAuthority(()=>now);for(let i=0;i<256;i++)a.issue(grant);assert.throws(()=>a.issue(grant));now=110;assert.equal(a.allows(op),false);a.issue(grant);assert.equal(a.allows(op),true);});
+test('overflow and oversized scope rejected',()=>{const a=new GrantAuthority(()=>Number.MAX_SAFE_INTEGER);assert.throws(()=>a.issue(grant));assert.throws(()=>new GrantAuthority().issue({...grant,scope:'x'.repeat(257)}));});
+test('pure policy rejects invalid clocks and grants',()=>{const g={...op,expiresAt:110};assert.equal(authorize({operation:op,grants:[g],now:100}),true);for(const now of [-1,NaN,Infinity,'100',100.1])assert.equal(authorize({operation:op,grants:[g],now}),false);assert.equal(authorize({operation:op,grants:null,now:100}),false);});
+test('exact scope, explicit critical grant, revocation and latched stop remain enforced',()=>{const a=new GrantAuthority(()=>100);assert.throws(()=>a.issue({...grant,level:4}));const id=a.issue(grant);assert.equal(a.allows({...op,purpose:'write'}),false);assert.equal(a.allows({...op,level:1}),false);assert.equal(a.revoke(id),true);assert.equal(a.allows(op),false);a.issue(grant);a.stop();assert.equal(a.allows(op),false);});

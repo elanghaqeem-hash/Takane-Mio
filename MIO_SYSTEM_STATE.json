@@ -1,10 +1,10 @@
 {
-  "productVersion": "0.0.28-dev",
+  "productVersion": "0.0.29-dev",
   "directiveVersion": "3.0",
   "repository": "elanghaqeem-hash/Takane-Mio",
   "branch": "regenesis/t0-foundation",
   "lastVerifiedCommit": "44a6df5e745a4f5217d97e40f9a74dcdeca7cfa6",
-  "currentPhase": "T-18.15 (session memory micro-optimization; target performance gates pending)",
+  "currentPhase": "T-18.16 (grant authority hardening; integrated security incomplete)",
   "completedTasks": [
     "T-0.01 repository metadata and initial commit audit",
     "T-0.02 initial repository inventory"
@@ -41,7 +41,8 @@
     "T-18.13 actual Electron renderer/IPC smoke test, Windows packaging, persistent memory/galaxy, agent approval and project/automation panels",
     "T-18.14 full suite on Node 24 Ubuntu/Windows, actual Electron and model, offline end-to-end and performance validation",
     "T-18.14 full repository regression on Node 24 Linux and Windows, actual Electron and local model end-to-end",
-    "T-18.15 target CPU/RAM/GPU, model inference, database and renderer performance benchmarks"
+    "T-18.15 target CPU/RAM/GPU, model inference, database and renderer performance benchmarks",
+    "T-18.16 trusted approval, prompt injection containment, OS sandbox, file/network authority, encrypted persistent memory, durable audit, integrated regression"
   ],
   "activeEngines": [],
   "modelInventory": [],
@@ -93,12 +94,13 @@
     "Desktop chat wiring is opt-in via process environment; tested bridge in Node with simulated inference. Actual Electron runtime, Windows, UI rendering and persistent memory not verified.",
     "T-18.14: local environment cannot resolve github.com for checkout; connector workflow result empty (PR-filtered). Full repository regression remains unverified.",
     "13 existing regression cases and four new gate tests rerun locally; full checkout and Node 24 unavailable locally",
-    "Session memory character accounting optimized; benchmark is synthetic local Node 22 Linux only, not system latency or RAM/GPU measurement"
+    "Session memory character accounting optimized; benchmark is synthetic local Node 22 Linux only, not system latency or RAM/GPU measurement",
+    "Clock rollback or clock failure permanently disables this GrantAuthority instance; does not stop unrelated engine instances or already executing work. Grants remain process-local."
   ],
   "deploymentStatus": "NOT DEPLOYED",
   "backupReference": null,
-  "recoveryCheckpoint": "RG-T18-PERFORMANCE",
-  "recommendedNextAction": "T-18.16 security hardening; full Node 24 CI, Electron/Windows and live model performance remain pending",
+  "recoveryCheckpoint": "RG-T18-SECURITY",
+  "recommendedNextAction": "Validate local model activation and full regression; complete trusted consent and security integration",
   "product": "MIO",
   "auditCommit": "d10cdf06a438e8d7456a233c1d96082ea57a12a3",
   "disabledEngines": [],

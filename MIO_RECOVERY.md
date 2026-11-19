@@ -88,3 +88,6 @@ Parent 3fabc780eb4209afe073bb834cf92afef22ceefb. Partial local regression; full 
 
 ## RG-T18-PERFORMANCE
 Parent 2d74507320da3bd94fe663a17445464722c280d2. Incremental session accounting; target performance and release validation pending.
+
+## RG-T18-SECURITY
+Parent 6154bd8a98af8cfe53e4c5b1e42898ca990c577b. Bounded grant authority and fail-closed time checks; integrated security validation pending.
