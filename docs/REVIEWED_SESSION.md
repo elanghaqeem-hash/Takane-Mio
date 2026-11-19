@@ -1,0 +1,2 @@
+# T-18 partial integration
+ReviewedSession connects Advanced planning to actual AgentEngine, registry, core and security policy. Process-local single-use review ID, explicit caller confirmation, 60-second expiry and scoped L0 text grant. STOP is latched; cancellation is cooperative. Four local integration tests pass with simulated router. Expiry timing, active execution cancellation, trusted UI, live inference, Windows and full regression remain unverified. This is not a production authorization boundary by itself.

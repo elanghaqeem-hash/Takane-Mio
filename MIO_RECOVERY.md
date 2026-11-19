@@ -55,3 +55,6 @@ Parent c6053a8e5517a9328eff5c424e4889371c0bd993. Orchestrator foundation with in
 
 ## RG-T17-PLANNING
 Parent 244c8f2cf1099208b56ae4a4b2bcdaa872f32580. Bounded planning and in-memory feedback; no external backup or live model verification.
+
+## RG-T18-REVIEW
+Parent ff6294aef92c6cd369539c38178ae6e1bc3dcb5b. Reviewed session source; local tests with simulated model only. External backup and release gates outstanding.
