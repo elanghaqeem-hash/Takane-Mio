@@ -1,0 +1,2 @@
+# T-13 visual foundation
+Bounded canvas, ordered layers, visibility/opacity, rect/circle/text SVG serialization with escaped text and restricted colors, raw RGBA grayscale/brightness filters preserving alpha. No arbitrary SVG import, raster decoding, image generation, full typography, color profiles, renderer or desktop editor. No filesystem writes. Local six tests passed on Node 22.16.0 Linux; Git blob match to be verified separately. Windows and CI pending.

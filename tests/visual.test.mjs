@@ -1,0 +1,12 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {toSVG,filterRGBA} from '../packages/creative/visual.mjs';
+const rect={type:'rect',x:0,y:0,width:20,height:10,fill:'#123456'};
+const layer=(shapes,visible=true)=>({visible,opacity:1,shapes});
+const canvas=layers=>({width:100,height:100,layers});
+test('SVG shapes and layer ordering',()=>{const s=toSVG(canvas([layer([rect]),layer([{type:'circle',x:10,y:10,radius:4,fill:'#ffffff'}])]));assert.ok(s.indexOf('<rect')<s.indexOf('<circle'));assert.match(s,/viewBox="0 0 100 100"/);});
+test('hidden layers omitted',()=>{assert.doesNotMatch(toSVG(canvas([layer([rect],false)])),/<rect/);});
+test('text escaped and malicious fill rejected',()=>{const s=toSVG(canvas([layer([{type:'text',x:1,y:2,fontSize:12,fill:'#ffffff',text:'<script>&'}])]));assert.ok(s.includes('&lt;script&gt;&amp;'));assert.throws(()=>toSVG(canvas([layer([{...rect,fill:'url(x)'}])])));});
+test('invalid canvas and shape rejected',()=>{assert.throws(()=>toSVG({...canvas([]),width:0}));assert.throws(()=>toSVG(canvas([layer([{...rect,width:-1}])])));});
+test('grayscale preserves alpha and input',()=>{const a=Uint8Array.of(255,0,0,123);assert.deepEqual([...filterRGBA(a)],[54,54,54,123]);assert.deepEqual([...a],[255,0,0,123]);});
+test('brightness clamps and validates',()=>{assert.deepEqual([...filterRGBA(Uint8Array.of(200,10,0,80),{mode:'brightness',brightness:2})],[255,20,0,80]);assert.throws(()=>filterRGBA(Uint8Array.of(1)));});

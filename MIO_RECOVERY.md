@@ -40,3 +40,6 @@ Parent f187faf4fd0a118880bbaabd9041a844c754adc0. Procedural geometry and OBJ ser
 
 ## RG-T12-ANIMATION
 Parent 1f7e9c7531f81f1e12b3cf8b6e00104d9c4ad3f5. Keyframe and mesh transformation foundation, JSON serialization only; no external backup or renderer validation.
+
+## RG-T13-VISUAL
+Parent a73db7cd60fa81d5d6e2992b57aa7303ca536043. Visual primitives and raw pixel filters; no external backup or desktop rendering validation.
