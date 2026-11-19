@@ -1,0 +1,10 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {noteFrequency,triad,sequence,toMIDI,renderMusic} from '../packages/creative/music.mjs';
+const n=(note,start=0,duration=480)=>({note,start,duration,velocity:80});
+const song={bpm:120,notes:[n(60),n(64),n(67,480)]};
+test('pitch and triads',()=>{assert.equal(noteFrequency(69),440);assert.deepEqual(triad(60),[60,64,67]);assert.deepEqual(triad(60,'minor'),[60,63,67]);});
+test('sequence sorts and rejects overlapping pitch',()=>{assert.equal(sequence({notes:[n(60,480),n(60)]}).notes[0].start,0);assert.throws(()=>sequence({notes:[n(60),n(60,1)]}));});
+test('MIDI format zero header and track length',()=>{const b=toMIDI(song);assert.equal(b.toString('ascii',0,4),'MThd');assert.equal(b.readUInt16BE(8),0);assert.equal(b.readUInt16BE(10),1);assert.equal(b.readUInt16BE(12),480);assert.equal(b.readUInt32BE(18),b.length-22);assert.deepEqual([...b.subarray(-4)],[0,255,47,0]);});
+test('WAV duration and signal',()=>{const b=renderMusic(song,{sampleRate:16000});assert.equal(b.readUInt32LE(40),32000);assert.ok(b.subarray(44).some(x=>x!==0));assert.equal(b.readInt16LE(44),0);});
+test('invalid inputs and render limits',()=>{assert.throws(()=>noteFrequency(128));assert.throws(()=>triad(121));assert.throws(()=>sequence({bpm:0,notes:[n(60)]}));assert.throws(()=>renderMusic({notes:[n(127)]},{sampleRate:8000}));});

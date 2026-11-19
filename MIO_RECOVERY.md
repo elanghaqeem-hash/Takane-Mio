@@ -46,3 +46,6 @@ Parent a73db7cd60fa81d5d6e2992b57aa7303ca536043. Visual primitives and raw pixel
 
 ## RG-T14-AUDIO
 Parent dfc989acff76fae9c9499bfee9560ae71c1aab5d. Audio primitives and WAV serialization only; no external backup.
+
+## RG-T15-MUSIC
+Parent 5e7f343f8235ac81bc730d79da08970388d7e08f. Note sequences and MIDI/WAV serialization; no external backup or DAW validation.

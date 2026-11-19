@@ -1,0 +1,2 @@
+# T-15 music foundation
+MIDI pitch conversion (A4=440 Hz), major/minor triads, bounded 256-note single-channel sequence, 480 ticks per beat, tempo 30–240 BPM, format-0 MIDI serialization and offline sine-based mono WAV rendering with fades. Up to 15 beats, 30 seconds and bounded rendering work; same-pitch overlaps rejected. High pitches above Nyquist rejected by audio engine. No automatic composition, DAW, instrument library, playback, MIDI import, file writes or external services. Five local tests passed on Node 22.16.0 Linux; repository blob verification separate.
