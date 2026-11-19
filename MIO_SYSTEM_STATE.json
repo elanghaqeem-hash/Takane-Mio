@@ -3,7 +3,7 @@
   "directiveVersion": "3.0",
   "repository": "elanghaqeem-hash/Takane-Mio",
   "branch": "regenesis/t0-foundation",
-  "lastVerifiedCommit": "d35e7e2d0aa9f6d9be9987877805e3c50194f356",
+  "lastVerifiedCommit": "31e7777899e3686c8841f115a6c85c593cac17e7",
   "currentPhase": "T-5 (implementation; earlier gates outstanding)",
   "completedTasks": [
     "T-0.01 repository metadata and initial commit audit",
@@ -29,8 +29,8 @@
   },
   "lastSuccessfulBuild": null,
   "lastSuccessfulTest": {
-    "scope": "T-4 SQLite and session memory; three Git blobs matched",
-    "passed": 4,
+    "scope": "T-5 agent tests; all six source/test Git blobs matched",
+    "passed": 7,
     "failed": 0,
     "node": "22.16.0",
     "platform": "Linux",
@@ -45,7 +45,8 @@
     "Electron lockfile and runtime not verified",
     "Galaxy renderer Electron file module loading and live provider not verified",
     "No live inference; local endpoint authentication and desktop streaming pending",
-    "Memory plaintext; no desktop provider or semantic embeddings; backup/restore pending"
+    "Memory plaintext; no desktop provider or semantic embeddings; backup/restore pending",
+    "Agent supports structured plans only; no model planning, durable journal, trusted approval UI or external tools"
   ],
   "deploymentStatus": "NOT DEPLOYED",
   "backupReference": null,
