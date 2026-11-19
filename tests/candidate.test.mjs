@@ -1,0 +1,12 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {assessCandidate} from '../packages/reliability/candidate.mjs';
+import {gates} from '../packages/reliability/release.mjs';
+import {domains} from '../packages/reliability/security-acceptance.mjs';
+const commit='a'.repeat(40);
+const complete=()=>({commit,dependencyStatus:'REVIEW_REQUIRED',releaseEvidence:gates.map(gate=>({gate,commit,status:'PASS',reference:'synthetic'})),securityEvidence:domains.map(domain=>({domain,commit,status:'PASS',scope:'integrated-target',reference:'synthetic'}))});
+test('empty evidence blocks all 18 requirements',()=>{const r=assessCandidate({commit});assert.equal(r.decision,'BLOCKED');assert.equal(r.blockers.length,18);});
+test('complete metadata never auto approves',()=>assert.equal(assessCandidate(complete()).decision,'REVIEW_REQUIRED'));
+test('release security assertion cannot bypass domain security',()=>{const a=complete();a.securityEvidence=[];assert.equal(assessCandidate(a).blockers.length,8);});
+test('dependency failure blocks even complete evidence',()=>assert.deepEqual(assessCandidate({...complete(),dependencyStatus:'BLOCKED'}).blockers,['security:dependency-preflight']));
+test('stale commit or failing release gate cannot pass',()=>{const a=complete();a.releaseEvidence[0].status='FAIL';assert.equal(assessCandidate(a).decision,'BLOCKED');a.securityEvidence[0].commit='b'.repeat(40);assert.throws(()=>assessCandidate(a));});

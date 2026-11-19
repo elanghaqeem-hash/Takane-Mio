@@ -145,3 +145,6 @@ Parent 235a088419e9a70a071d99e82058b34b1d2384c2. Conservative dependency metadat
 
 ## RG-T19-SECURITY-ACCEPTANCE
 Parent f5d4c085317f0f859c3b085e9a19433b93167e80. Security acceptance metadata assessment; release remains blocked.
+
+## RG-T19-CANDIDATE
+Parent f1fcc09826def92fa92523d13306c7896705f614. Combined release/security preflight; promotion blocked.

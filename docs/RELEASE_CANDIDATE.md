@@ -1,0 +1,2 @@
+# T-19.09 release candidate preflight
+Combines nine release gates, eight security domains and dependency metadata status. Missing or failed requirements block review; complete metadata requires independent review. References are unverified caller assertions; this is not an automated release enforcement boundary. Five synthetic tests executed on Node 22.16 Linux. Full suite, Windows, installer, real local inference and offline validation remain pending. No tag, installer or deployment created.
