@@ -130,3 +130,6 @@ Parent 690ec7c448766067970cc6ddeb761fb20f05e990. Monotonic approval boundary; in
 
 ## RG-T19-PROPOSAL-BOUNDARY
 Parent 0bc72fe243cb0673978351d8251cc9081cb905a4. Strict proposal parsing and tool allowlist; independent security acceptance pending.
+
+## RG-T19-ENCRYPTED-MEMORY
+Parent 4fb3dae4b2dd14d204ac23deb48a3b528cfeddf3. Experimental separate encrypted store; key verification and integration pending.
