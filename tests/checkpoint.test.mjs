@@ -1,0 +1,12 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {randomBytes} from 'node:crypto';
+import {createCheckpoint,inspectCheckpoint,recoverCheckpoint} from '../packages/recovery/checkpoint.mjs';
+const key=randomBytes(32),commit='a'.repeat(40),entries=[{name:'state.json',text:'{"ok":true}'},{name:'memory.json',text:'日本語'}];
+const make=(extra={})=>createCheckpoint({commit,entries,key,consent:true,...extra});
+test('authenticated backup and restore round trip',()=>{const b=make();assert.equal(inspectCheckpoint(b,key).entries[1].bytes,9);assert.deepEqual(recoverCheckpoint(b,{key,expectedCommit:commit,consent:true}),entries);});
+test('wrong key and tampering denied',()=>{const b=make();assert.throws(()=>inspectCheckpoint(b,randomBytes(32)));b[b.length-1]^=1;assert.throws(()=>inspectCheckpoint(b,key));});
+test('explicit consent and expected commit required',()=>{assert.throws(()=>make({consent:false}));const b=make();assert.throws(()=>recoverCheckpoint(b,{key,expectedCommit:commit}));assert.throws(()=>recoverCheckpoint(b,{key,expectedCommit:'b'.repeat(40),consent:true}));});
+test('reject traversal duplicate and oversized entries',()=>{for(const bad of [[{name:'../state.json',text:'x'}],[entries[0],entries[0]],[{name:'state.json',text:'x'.repeat(1048577)}]])assert.throws(()=>make({entries:bad}));});
+test('fresh nonce and no plaintext in metadata',()=>{const a=make(),b=make();assert.notDeepEqual(a,b);assert.equal(JSON.stringify(inspectCheckpoint(a,key)).includes('日本語'),false);});
+test('reject malformed envelope and invalid key',()=>{assert.throws(()=>inspectCheckpoint(Buffer.alloc(28),key));assert.throws(()=>make({key:Buffer.alloc(31)}));});
