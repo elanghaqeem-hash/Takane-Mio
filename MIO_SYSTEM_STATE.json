@@ -3,7 +3,7 @@
   "directiveVersion": "3.0",
   "repository": "elanghaqeem-hash/Takane-Mio",
   "branch": "regenesis/t0-foundation",
-  "lastVerifiedCommit": "5503a3b3fcdc35b0c45e45cec531ebff846738c8",
+  "lastVerifiedCommit": "968f1dc4fc213f48bf0c48a4425ca8ec3c104cb1",
   "currentPhase": "T-19.08.02 (single-use monotonic approval boundary; trusted UI pending)",
   "completedTasks": [
     "T-0.01 repository metadata and initial commit audit",
@@ -65,8 +65,8 @@
   },
   "lastSuccessfulBuild": null,
   "lastSuccessfulTest": {
-    "scope": "T-19.08.01 five runtime budget tests and five inference smoke regression tests; four Git blobs match local files; simulated streams only; Windows/full suite not exercised",
-    "passed": 10,
+    "scope": "T-19.08.02 five ApprovalVault tests; two Git blobs match local files; integrated runtime and full suite not executed",
+    "passed": 5,
     "failed": 0,
     "node": "22.16.0",
     "platform": "Linux",
