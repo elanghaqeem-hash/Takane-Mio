@@ -1,0 +1,11 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {CoreState} from '../packages/core/state.mjs';
+import {VoiceEngine,voiceActivity} from '../packages/voice/engine.mjs';
+import {communicationProfile} from '../packages/voice/personality.mjs';
+const pcm=new Float32Array([.2,-.2]);
+test('PCM energy and invalid values',()=>{assert.equal(voiceActivity(pcm).active,true);assert.equal(voiceActivity(new Float32Array(8)).active,false);assert.throws(()=>voiceActivity(new Float32Array([NaN])));});
+test('consent denies adapter invocation',async()=>{let calls=0;const v=new VoiceEngine({core:new CoreState(),stt:()=>++calls,tts:()=>++calls});await assert.rejects(v.transcribe(pcm),/consent/);await assert.rejects(v.speak('hello'),/consent/);assert.equal(calls,0);v.dispose();});
+test('adapter handoff and core states',async()=>{const core=new CoreState(),states=[];core.subscribe(s=>states.push(s.state));const v=new VoiceEngine({core,stt:async(_,o)=>{assert.equal(o.language,'id');return 'halo';},tts:async()=>({played:true})});assert.equal(await v.transcribe(pcm,{consent:true}),'halo');assert.deepEqual(await v.speak('halo',{consent:true}),{played:true});assert.deepEqual(states,['LISTENING','IDLE','SPEAKING','IDLE']);v.dispose();});
+test('STOP aborts and suppresses late transcript',async()=>{const core=new CoreState();let resolve,signal;const v=new VoiceEngine({core,stt:(_,o)=>{signal=o.signal;return new Promise(r=>resolve=r);},tts:()=>{}});const p=v.transcribe(pcm,{consent:true});core.stop();assert.equal(signal.aborted,true);resolve('late');await assert.rejects(p,{name:'AbortError'});assert.equal(core.snapshot.state,'STOPPED');v.dispose();});
+test('profile uses only explicit mood and style',()=>{assert.equal(communicationProfile().inferredEmotion,null);assert.equal(communicationProfile({reportedMood:'tired',style:'supportive'}).moodSource,'user-reported');assert.throws(()=>communicationProfile({style:'unknown'}));});

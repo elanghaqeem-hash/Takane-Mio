@@ -1,10 +1,10 @@
 {
-  "productVersion": "0.0.8-dev",
+  "productVersion": "0.0.9-dev",
   "directiveVersion": "3.0",
   "repository": "elanghaqeem-hash/Takane-Mio",
   "branch": "regenesis/t0-foundation",
-  "lastVerifiedCommit": "a78c3edf09c379d27082d90537112b177bc62735",
-  "currentPhase": "T-7 (implementation; earlier gates outstanding)",
+  "lastVerifiedCommit": "07c6c1f8f68a0483fdfee16d473afe833eb9f75f",
+  "currentPhase": "T-8 (implementation; earlier gates outstanding)",
   "completedTasks": [
     "T-0.01 repository metadata and initial commit audit",
     "T-0.02 initial repository inventory"
@@ -20,7 +20,8 @@
     "T-4 SQLite target verification, memory UI, consent audit, encryption, retrieval integration, backup restore",
     "T-5 model planning, trusted approval UI, durable task journal, desktop integration and target validation",
     "T-6 integrate authority/audit/encryption, persistent key management, prompt injection defense, OS sandbox and Windows tests",
-    "T-7 live acquisition, credibility review, substantive corroboration, real memory integration, research planning"
+    "T-7 live acquisition, credibility review, substantive corroboration, real memory integration, research planning",
+    "T-8 actual STT/TTS, microphone permission, voice identity, desktop synchronization, device and model benchmarks"
   ],
   "activeEngines": [],
   "modelInventory": [],
@@ -31,11 +32,10 @@
   },
   "lastSuccessfulBuild": null,
   "lastSuccessfulTest": {
-    "scope": "T-7 local source/evidence registry unit tests; source fixture and mock memory",
+    "scope": "T-8 PCM, mocked STT/TTS, consent, STOP and explicit profile tests; local Linux",
     "passed": 5,
     "failed": 0,
     "node": "22.16.0",
-    "platform": "Linux",
     "date": "2026-11-19"
   },
   "securityStatus": "Grant authority, HMAC audit and AES-GCM primitives locally tested; not integrated",
@@ -49,12 +49,13 @@
     "No live inference; local endpoint authentication and desktop streaming pending",
     "Memory plaintext; no desktop provider or semantic embeddings; backup/restore pending",
     "Agent supports structured plans only; no model planning, durable journal, trusted approval UI or external tools",
-    "Research source metadata is supplied, unverified; no network fetching or truth scoring"
+    "Research source metadata is supplied, unverified; no network fetching or truth scoring",
+    "Voice adapters are injected mocks only; PCM energy threshold is not speech recognition; no emotion inference or real audio playback verified"
   ],
   "deploymentStatus": "NOT DEPLOYED",
   "backupReference": null,
-  "recoveryCheckpoint": "RG-T7-RESEARCH",
-  "recommendedNextAction": "Connect trusted acquisition and evidence review; integrate prior security controls before networking",
+  "recoveryCheckpoint": "RG-T8-VOICE",
+  "recommendedNextAction": "Integrate trusted local voice adapters and shared core lifecycle; T-9 file intelligence foundation",
   "product": "MIO",
   "auditCommit": "d10cdf06a438e8d7456a233c1d96082ea57a12a3",
   "disabledEngines": [],
@@ -68,7 +69,9 @@
     "S14",
     "S15",
     "S16",
-    "S10"
+    "S10",
+    "S08",
+    "S09"
   ],
   "updatedAt": "2026-11-19",
   "plannedDatabaseVersion": 1,

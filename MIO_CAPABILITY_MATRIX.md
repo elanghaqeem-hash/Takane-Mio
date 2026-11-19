@@ -10,8 +10,8 @@ Initial baseline: README and gitignore only. No engine is verified. Foundation b
 | S05 Knowledge | IN DEVELOPMENT |
 | S06 Agent | IN DEVELOPMENT |
 | S07 Perception | NOT STARTED |
-| S08 Voice | NOT STARTED |
-| S09 Emotional Intelligence | NOT STARTED |
+| S08 Voice | IN DEVELOPMENT |
+| S09 Emotional Intelligence | IN DEVELOPMENT |
 | S10 Research | IN DEVELOPMENT |
 | S11 File Intelligence | NOT STARTED |
 | S12 Creative | NOT STARTED |

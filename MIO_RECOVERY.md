@@ -25,3 +25,6 @@ Parent 8d3e88a004bbf3e9df391b024ce3606b95ac9238. Security primitives only; never
 
 ## RG-T7-RESEARCH
 Parent a78c3edf09c379d27082d90537112b177bc62735. Source and claim registry only; no live source verification or external backup.
+
+## RG-T8-VOICE
+Parent 07c6c1f8f68a0483fdfee16d473afe833eb9f75f. Voice orchestration and communication profile; no model or audio backup, no physical recovery drill.
