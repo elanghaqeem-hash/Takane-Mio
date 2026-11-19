@@ -1,0 +1,9 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {createRuntimeBridge,createDesktopDispatch} from '../apps/desktop/runtime-bridge.mjs';
+const setup=()=>createRuntimeBridge({provider:'ollama',model:'test',fetchImpl:async()=>new Response(JSON.stringify({message:{content:'hello'},done:true})+'\n')});
+test('unconfigured runtime denies chat and reports truthful status',async()=>{const b=createRuntimeBridge();assert.equal(b.status().modelConfigured,false);await assert.rejects(b.chat('hi'));assert.equal(b.stop().state,'STOPPED');});
+test('configured bridge routes chat to local adapter without claiming model verification',async()=>{const b=setup();assert.equal(await b.chat('hi'),'hello');assert.equal(b.status().modelVerified,false);assert.equal(b.status().state,'SUCCESS');});
+test('dispatch is allowlisted and enforces argument count',async()=>{const b=setup();const call=createDesktopDispatch({bridge:b,hardware:()=>({profile:'LIGHT'})});assert.throws(()=>call('mio:exec',[]));assert.throws(()=>call('mio:status',[1]));assert.throws(()=>call('mio:chat',[]));await assert.rejects(call('mio:chat',[{}]));assert.deepEqual(call('mio:knowledge',[]),[]);assert.equal(await call('mio:chat',['hi']),'hello');});
+test('STOP latches and blocks further chat',async()=>{const b=setup();const call=createDesktopDispatch({bridge:b,hardware:()=>({})});call('mio:stop',[]);assert.equal(call('mio:status',[]).stopped,true);await assert.rejects(call('mio:chat',['hi']));});
+test('STOP aborts a pending model request',async()=>{let start;const started=new Promise(r=>start=r);const b=createRuntimeBridge({provider:'ollama',model:'test',fetchImpl:async(_url,{signal})=>{start();return new Promise((_,reject)=>signal.addEventListener('abort',()=>reject(signal.reason),{once:true}));}});const pending=b.chat('hi');await started;b.stop();await assert.rejects(pending);assert.equal(b.status().state,'STOPPED');});

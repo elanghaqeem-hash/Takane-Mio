@@ -1,7 +1,11 @@
 import { app, BrowserWindow, ipcMain, session } from 'electron';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { createController, assertTrustedSender } from './controller.mjs';
+import { createRuntimeBridge, createDesktopDispatch } from './runtime-bridge.mjs';
 const controller=createController();
+let bridge;
+try { bridge=createRuntimeBridge({provider:process.env.MIO_LOCAL_PROVIDER,model:process.env.MIO_LOCAL_MODEL}); } catch { bridge=createRuntimeBridge(); }
+const dispatch=createDesktopDispatch({bridge,hardware:controller.hardware});
 const page=fileURLToPath(new URL('./index.html',import.meta.url));
 const expectedURL=pathToFileURL(page).href;
 let win=null;
@@ -20,12 +24,12 @@ else {
   app.whenReady().then(()=>{
     session.defaultSession.setPermissionRequestHandler((_wc,_permission,callback)=>callback(false));
     session.defaultSession.setPermissionCheckHandler(()=>false);
-    for(const [channel,handler] of Object.entries({'mio:status':controller.status,'mio:hardware':controller.hardware,'mio:knowledge':()=>[],'mio:stop':controller.stop})){
-      ipcMain.handle(channel,(event,...args)=>{assertTrustedSender(event,win?.webContents,expectedURL);if(args.length)throw new Error('Unexpected arguments');return handler();});
+    for(const channel of ['mio:status','mio:hardware','mio:knowledge','mio:stop','mio:chat']){
+      ipcMain.handle(channel,(event,...args)=>{assertTrustedSender(event,win?.webContents,expectedURL);return dispatch(channel,args);});
     }
     createWindow();
     app.on('activate',()=>{if(!win)createWindow();});
   }).catch(()=>app.quit());
-  app.on('before-quit',()=>controller.stop());
+  app.on('before-quit',()=>{bridge.stop();controller.stop();});
   app.on('window-all-closed',()=>app.quit());
 }
