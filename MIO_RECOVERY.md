@@ -58,3 +58,6 @@ Parent 244c8f2cf1099208b56ae4a4b2bcdaa872f32580. Bounded planning and in-memory 
 
 ## RG-T18-REVIEW
 Parent ff6294aef92c6cd369539c38178ae6e1bc3dcb5b. Reviewed session source; local tests with simulated model only. External backup and release gates outstanding.
+
+## RG-T18-LOCAL-ASSISTANT
+Parent 6c66d88a9c390077260c3505c4f362feaacbf11f. Local runtime integration with simulated model transport. No external backup or live model verification.
