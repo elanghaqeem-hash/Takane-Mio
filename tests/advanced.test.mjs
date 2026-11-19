@@ -1,0 +1,10 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {parseProposal,propose,FeedbackLedger} from '../packages/agent/advanced.mjs';
+const registry={get:id=>({id,level:id==='text.words'||id==='text.length'?0:3,validate:a=>typeof a.text==='string'})};
+const raw=JSON.stringify({steps:[{tool:'text.words',args:{text:'hello world'}}]});
+test('strict proposal',()=>assert.deepEqual(parseProposal(raw,registry),JSON.parse(raw).steps));
+test('reject unsafe and extra properties',()=>{assert.throws(()=>parseProposal(raw.replace('text.words','shell.run'),registry));assert.throws(()=>parseProposal(raw.replace('"text":','"extra":1,"text":'),registry));assert.throws(()=>parseProposal('```'+raw,registry));});
+test('streaming model proposal does not execute',async()=>{const router={async *stream(id,m){assert.equal(id,'local');assert.equal(m[1].content,'count');yield raw.slice(0,10);yield raw.slice(10);}};assert.deepEqual(await propose({request:'count',router,model:'local',registry}),JSON.parse(raw).steps);});
+test('abort and output bound',async()=>{const c=new AbortController();c.abort();await assert.rejects(propose({request:'count',signal:c.signal}));await assert.rejects(propose({request:'count',registry,router:{async *stream(){yield 'x'.repeat(32001);}}}));});
+test('feedback consent, duplicate, aggregation and deletion',()=>{const f=new FeedbackLedger();assert.throws(()=>f.record({taskId:'a',rating:5}));f.record({taskId:'a',rating:5,consent:true});f.record({taskId:'b',rating:3,consent:true});assert.throws(()=>f.record({taskId:'a',rating:1,consent:true}));assert.deepEqual(f.summary(),{count:2,average:4});assert.equal(f.forget('a'),true);assert.deepEqual(f.summary(),{count:1,average:3});});

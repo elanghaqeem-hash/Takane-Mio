@@ -1,0 +1,2 @@
+# T-17 planning foundation
+JSON-only bounded model proposal, restricted to text.words and text.length at L0, no execution. Router and registry injected; tests use mocks. Cooperative abort requires adapter cooperation. Feedback in RAM with caller-provided consent, one rating per task and deletion; no training, persistent storage, trusted consent UI, autonomous execution or self-modification. Five local tests on Node 22.16.0 Linux; Git blob verification separate.

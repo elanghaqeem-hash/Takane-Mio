@@ -52,3 +52,6 @@ Parent 5e7f343f8235ac81bc730d79da08970388d7e08f. Note sequences and MIDI/WAV ser
 
 ## RG-T16-ORCHESTRATION
 Parent c6053a8e5517a9328eff5c424e4889371c0bd993. Orchestrator foundation with in-memory audit and scoped grants; external backup and production integration pending.
+
+## RG-T17-PLANNING
+Parent 244c8f2cf1099208b56ae4a4b2bcdaa872f32580. Bounded planning and in-memory feedback; no external backup or live model verification.
