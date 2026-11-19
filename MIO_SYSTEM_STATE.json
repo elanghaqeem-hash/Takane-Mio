@@ -3,7 +3,7 @@
   "directiveVersion": "3.0",
   "repository": "elanghaqeem-hash/Takane-Mio",
   "branch": "regenesis/t0-foundation",
-  "lastVerifiedCommit": "cb3f438ae6227df030ef0be339e26dbba59893d3",
+  "lastVerifiedCommit": "b7a20701303938e200fc6639f951268035fc376f",
   "currentPhase": "T-2 (implementation; earlier gates outstanding)",
   "completedTasks": [
     "T-0.01 repository metadata and initial commit audit",
@@ -26,9 +26,11 @@
   },
   "lastSuccessfulBuild": null,
   "lastSuccessfulTest": {
-    "scope": "desktop controller and foundation (Linux Node 22.16.0; not Electron runtime)",
-    "passed": 6,
+    "scope": "Galaxy layout unit tests only; Git blob matched",
+    "passed": 5,
     "failed": 0,
+    "node": "22.16.0",
+    "platform": "Linux",
     "date": "2026-11-19"
   },
   "securityStatus": "Desktop IPC source and cooperative STOP; runtime validation pending",
@@ -37,7 +39,8 @@
     "No local model installed or tested",
     "Full directive not yet archived verbatim",
     "Merge commit rejected by connector; main history not reconciled despite manifest archived",
-    "Electron lockfile and runtime not verified"
+    "Electron lockfile and runtime not verified",
+    "Galaxy renderer Electron file module loading and live provider not verified"
   ],
   "deploymentStatus": "NOT DEPLOYED",
   "backupReference": null,
