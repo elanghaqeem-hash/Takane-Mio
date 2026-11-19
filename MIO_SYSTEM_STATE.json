@@ -1,10 +1,10 @@
 {
-  "productVersion": "0.0.9-dev",
+  "productVersion": "0.0.10-dev",
   "directiveVersion": "3.0",
   "repository": "elanghaqeem-hash/Takane-Mio",
   "branch": "regenesis/t0-foundation",
   "lastVerifiedCommit": "07c6c1f8f68a0483fdfee16d473afe833eb9f75f",
-  "currentPhase": "T-8 (implementation; earlier gates outstanding)",
+  "currentPhase": "T-9 (implementation; earlier gates outstanding)",
   "completedTasks": [
     "T-0.01 repository metadata and initial commit audit",
     "T-0.02 initial repository inventory"
@@ -21,7 +21,8 @@
     "T-5 model planning, trusted approval UI, durable task journal, desktop integration and target validation",
     "T-6 integrate authority/audit/encryption, persistent key management, prompt injection defense, OS sandbox and Windows tests",
     "T-7 live acquisition, credibility review, substantive corroboration, real memory integration, research planning",
-    "T-8 actual STT/TTS, microphone permission, voice identity, desktop synchronization, device and model benchmarks"
+    "T-8 actual STT/TTS, microphone permission, voice identity, desktop synchronization, device and model benchmarks",
+    "T-9 desktop file picker, trusted path scope, PDF/OOXML parsers, sorting execution, memory integration, Windows validation"
   ],
   "activeEngines": [],
   "modelInventory": [],
@@ -50,12 +51,13 @@
     "Memory plaintext; no desktop provider or semantic embeddings; backup/restore pending",
     "Agent supports structured plans only; no model planning, durable journal, trusted approval UI or external tools",
     "Research source metadata is supplied, unverified; no network fetching or truth scoring",
-    "Voice adapters are injected mocks only; PCM energy threshold is not speech recognition; no emotion inference or real audio playback verified"
+    "Voice adapters are injected mocks only; PCM energy threshold is not speech recognition; no emotion inference or real audio playback verified",
+    "File engine accepts caller-provided bytes only; no filesystem authority, Office/PDF parsing or execution"
   ],
   "deploymentStatus": "NOT DEPLOYED",
   "backupReference": null,
-  "recoveryCheckpoint": "RG-T8-VOICE",
-  "recommendedNextAction": "Integrate trusted local voice adapters and shared core lifecycle; T-9 file intelligence foundation",
+  "recoveryCheckpoint": "RG-T9-FILES",
+  "recommendedNextAction": "Validate file primitives, add container parsers and trusted filesystem boundary; T-10 multimodal foundation",
   "product": "MIO",
   "auditCommit": "d10cdf06a438e8d7456a233c1d96082ea57a12a3",
   "disabledEngines": [],
@@ -71,7 +73,8 @@
     "S16",
     "S10",
     "S08",
-    "S09"
+    "S09",
+    "S11"
   ],
   "updatedAt": "2026-11-19",
   "plannedDatabaseVersion": 1,

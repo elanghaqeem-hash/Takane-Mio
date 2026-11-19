@@ -28,3 +28,6 @@ Parent a78c3edf09c379d27082d90537112b177bc62735. Source and claim registry only;
 
 ## RG-T8-VOICE
 Parent 07c6c1f8f68a0483fdfee16d473afe833eb9f75f. Voice orchestration and communication profile; no model or audio backup, no physical recovery drill.
+
+## RG-T9-FILES
+Parent 4298b6fd1b38bc05f14b5f11e3c8abf40e9fb435. Byte-level inspection and review-only suggestions; no file modifications or external backup.
