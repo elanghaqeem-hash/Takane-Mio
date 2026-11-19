@@ -67,3 +67,6 @@ Parent 3aa01b7265b910fb9fff17b78e1f348286668e4f. Process-local manually polled s
 
 ## RG-T18-PROJECT
 Parent 40c2aa2f1e48dcb5292fe6e8b5f47e7a353a4204. In-memory project workspace; no persistent project data or external backup.
+
+## RG-T18-DEVELOPER
+Parent 12028566929e44c6934ed4b7cde7077000469843. Read-only heuristic developer inspection; no external backup or live repository integration.
