@@ -1,10 +1,10 @@
 {
-  "productVersion": "0.0.7-dev",
+  "productVersion": "0.0.8-dev",
   "directiveVersion": "3.0",
   "repository": "elanghaqeem-hash/Takane-Mio",
   "branch": "regenesis/t0-foundation",
-  "lastVerifiedCommit": "8d3e88a004bbf3e9df391b024ce3606b95ac9238",
-  "currentPhase": "T-6 (implementation; earlier gates outstanding)",
+  "lastVerifiedCommit": "a78c3edf09c379d27082d90537112b177bc62735",
+  "currentPhase": "T-7 (implementation; earlier gates outstanding)",
   "completedTasks": [
     "T-0.01 repository metadata and initial commit audit",
     "T-0.02 initial repository inventory"
@@ -19,7 +19,8 @@
     "T-3 live model, desktop chat, streaming UI, OpenRouter opt-in, benchmark",
     "T-4 SQLite target verification, memory UI, consent audit, encryption, retrieval integration, backup restore",
     "T-5 model planning, trusted approval UI, durable task journal, desktop integration and target validation",
-    "T-6 integrate authority/audit/encryption, persistent key management, prompt injection defense, OS sandbox and Windows tests"
+    "T-6 integrate authority/audit/encryption, persistent key management, prompt injection defense, OS sandbox and Windows tests",
+    "T-7 live acquisition, credibility review, substantive corroboration, real memory integration, research planning"
   ],
   "activeEngines": [],
   "modelInventory": [],
@@ -30,9 +31,11 @@
   },
   "lastSuccessfulBuild": null,
   "lastSuccessfulTest": {
-    "scope": "T-5 agent regression plus six T-6 primitive tests; Linux Node 22.16.0",
-    "passed": 13,
+    "scope": "T-7 local source/evidence registry unit tests; source fixture and mock memory",
+    "passed": 5,
     "failed": 0,
+    "node": "22.16.0",
+    "platform": "Linux",
     "date": "2026-11-19"
   },
   "securityStatus": "Grant authority, HMAC audit and AES-GCM primitives locally tested; not integrated",
@@ -45,12 +48,13 @@
     "Galaxy renderer Electron file module loading and live provider not verified",
     "No live inference; local endpoint authentication and desktop streaming pending",
     "Memory plaintext; no desktop provider or semantic embeddings; backup/restore pending",
-    "Agent supports structured plans only; no model planning, durable journal, trusted approval UI or external tools"
+    "Agent supports structured plans only; no model planning, durable journal, trusted approval UI or external tools",
+    "Research source metadata is supplied, unverified; no network fetching or truth scoring"
   ],
   "deploymentStatus": "NOT DEPLOYED",
   "backupReference": null,
-  "recoveryCheckpoint": "RG-T6-TRUST",
-  "recommendedNextAction": "Integrate trusted security services before external tools",
+  "recoveryCheckpoint": "RG-T7-RESEARCH",
+  "recommendedNextAction": "Connect trusted acquisition and evidence review; integrate prior security controls before networking",
   "product": "MIO",
   "auditCommit": "d10cdf06a438e8d7456a233c1d96082ea57a12a3",
   "disabledEngines": [],
@@ -63,7 +67,8 @@
     "S06",
     "S14",
     "S15",
-    "S16"
+    "S16",
+    "S10"
   ],
   "updatedAt": "2026-11-19",
   "plannedDatabaseVersion": 1,

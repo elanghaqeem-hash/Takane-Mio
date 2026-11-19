@@ -12,7 +12,7 @@ Initial baseline: README and gitignore only. No engine is verified. Foundation b
 | S07 Perception | NOT STARTED |
 | S08 Voice | NOT STARTED |
 | S09 Emotional Intelligence | NOT STARTED |
-| S10 Research | NOT STARTED |
+| S10 Research | IN DEVELOPMENT |
 | S11 File Intelligence | NOT STARTED |
 | S12 Creative | NOT STARTED |
 | S13 Automation | NOT STARTED |

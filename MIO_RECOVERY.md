@@ -22,3 +22,6 @@ Parent d35e7e2d0aa9f6d9be9987877805e3c50194f356. Structured agent source; no dur
 
 ## RG-T6-TRUST
 Parent 8d3e88a004bbf3e9df391b024ce3606b95ac9238. Security primitives only; never commit keys or private logs. External backup still pending.
+
+## RG-T7-RESEARCH
+Parent a78c3edf09c379d27082d90537112b177bc62735. Source and claim registry only; no live source verification or external backup.

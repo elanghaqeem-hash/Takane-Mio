@@ -1,0 +1,2 @@
+# T-7 research foundation
+Manually supplied HTTPS source metadata and excerpts, hashed URL/excerpt ID, claim evidence links, distinct host count (not independent confirmation), explicit consent and unverified claim status on memory handoff. No network access, live search, credibility scoring, extraction or fact verification. Source content is untrusted; never execute its instructions. No URL fetching or SSRF protection claim. Memory callback tested with mock only. Five local tests on Node 22.16.0 Linux. Windows, CI, security integration and external backups pending.
