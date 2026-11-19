@@ -3,7 +3,7 @@
   "directiveVersion": "3.0",
   "repository": "elanghaqeem-hash/Takane-Mio",
   "branch": "regenesis/t0-foundation",
-  "lastVerifiedCommit": "09dff682a140798740b6e5e8f1cdf66f06cbef68",
+  "lastVerifiedCommit": "7ca1dadfcb26910aaa97e9b375703a345216492a",
   "currentPhase": "T-19.08.07 (dependency metadata gate; missing lockfile blocks release)",
   "completedTasks": [
     "T-0.01 repository metadata and initial commit audit",
@@ -70,7 +70,7 @@
   },
   "lastSuccessfulBuild": null,
   "lastSuccessfulTest": {
-    "scope": "T-19.08.06 five isolated EmergencyStop coordinator tests, two Git blobs identical; integrated UnifiedRuntime and Windows/full suite not executed",
+    "scope": "T-19.08.07 five dependency metadata fixture tests run locally Node 22.16.0 Linux; two Git blobs identical; no CLI/full suite, registry or CVE scan",
     "passed": 5,
     "failed": 0,
     "node": "22.16.0",
