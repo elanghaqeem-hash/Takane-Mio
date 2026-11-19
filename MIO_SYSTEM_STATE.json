@@ -1,10 +1,10 @@
 {
-  "productVersion": "0.0.12-dev",
+  "productVersion": "0.0.13-dev",
   "directiveVersion": "3.0",
   "repository": "elanghaqeem-hash/Takane-Mio",
   "branch": "regenesis/t0-foundation",
   "lastVerifiedCommit": "e5ca9623dd57a88ee1c9de1470fef0f12208826d",
-  "currentPhase": "T-11 (implementation; earlier gates outstanding)",
+  "currentPhase": "T-12 (implementation; earlier gates outstanding)",
   "completedTasks": [
     "T-0.01 repository metadata and initial commit audit",
     "T-0.02 initial repository inventory"
@@ -24,7 +24,8 @@
     "T-8 actual STT/TTS, microphone permission, voice identity, desktop synchronization, device and model benchmarks",
     "T-9 desktop file picker, trusted path scope, PDF/OOXML parsers, sorting execution, memory integration, Windows validation",
     "T-10 real multimodal models, media decoding, OCR, screen capture authority, shared lifecycle and Windows validation",
-    "T-11 materials, textures, lights, camera, rendering, Blender integration, text/image-to-3D, Windows validation"
+    "T-11 materials, textures, lights, camera, rendering, Blender integration, text/image-to-3D, Windows validation",
+    "T-12 skeletal rigging, IK, camera animation, 2D motion UI, rendered export and Windows validation"
   ],
   "activeEngines": [],
   "modelInventory": [],
@@ -57,12 +58,13 @@
     "Voice adapters are injected mocks only; PCM energy threshold is not speech recognition; no emotion inference or real audio playback verified",
     "File engine accepts caller-provided bytes only; no filesystem authority, Office/PDF parsing or execution",
     "Perception adapter orchestration only; consent is caller-provided; no actual inference or capture",
-    "Procedural mesh only; no rendering, generative AI or Blender import verification"
+    "Procedural mesh only; no rendering, generative AI or Blender import verification",
+    "Animation uses single mesh transform timeline; no rigging, rendering or desktop playback"
   ],
   "deploymentStatus": "NOT DEPLOYED",
   "backupReference": null,
-  "recoveryCheckpoint": "RG-T11-MESH",
-  "recommendedNextAction": "T-12 animation foundation; integrate scene rendering and Blender later",
+  "recoveryCheckpoint": "RG-T12-ANIMATION",
+  "recommendedNextAction": "T-13 visual design foundation; renderer and rigging remain pending",
   "product": "MIO",
   "auditCommit": "d10cdf06a438e8d7456a233c1d96082ea57a12a3",
   "disabledEngines": [],

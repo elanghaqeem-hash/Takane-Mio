@@ -1,0 +1,12 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {createTimeline,sample,animateMesh,exportTimeline} from '../packages/creative/animation.mjs';
+import {box} from '../packages/creative/mesh.mjs';
+const keys=(ease='linear')=>[{time:0,translate:[0,0,0],scale:[1,1,1],rotateY:0,ease},{time:2,translate:[4,0,0],scale:[3,1,1],rotateY:Math.PI}];
+const timeline=(ease='linear',loop=false)=>createTimeline(keys(ease),{duration:2,loop});
+test('linear interpolation',()=>{const s=sample(timeline(),1);assert.deepEqual(s.translate,[2,0,0]);assert.deepEqual(s.scale,[2,1,1]);assert.equal(s.rotateY,Math.PI/2);});
+test('smooth and step easing',()=>{assert.equal(sample(timeline('smooth'),.5).translate[0],.625);assert.equal(sample(timeline('step'),1.9).translate[0],0);assert.equal(sample(timeline('step'),2).translate[0],4);});
+test('clamp and loop including negative time',()=>{assert.equal(sample(timeline(),-1).translate[0],0);assert.equal(sample(timeline(),3).translate[0],4);assert.equal(sample(timeline('linear',true),-1).translate[0],2);assert.equal(sample(timeline('linear',true),2).translate[0],0);});
+test('mesh integration preserves source',()=>{const m=box(),n=animateMesh(m,timeline(),1);assert.ok(Math.abs(n.vertices[0][0]-1.5)<1e-9);assert.deepEqual(m.vertices[0],[-.5,-.5,-.5]);assert.deepEqual(n.faces,m.faces);});
+test('JSON roundtrip and defensive copy',()=>{const k=keys(),t=createTimeline(k,{duration:2});k[0].translate[0]=99;assert.equal(sample(t,0).translate[0],0);assert.deepEqual(JSON.parse(exportTimeline(t)),t);});
+test('invalid values and duplicate timestamps rejected',()=>{assert.throws(()=>createTimeline(keys(),{duration:0}));const k=keys();k[1].time=0;assert.throws(()=>createTimeline(k,{duration:2}));assert.throws(()=>sample(timeline(),Infinity));const bad=keys();bad[0].scale[0]=0;assert.throws(()=>createTimeline(bad,{duration:2}));});

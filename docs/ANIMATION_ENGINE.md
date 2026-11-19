@@ -1,0 +1,2 @@
+# T-12 animation foundation
+Strictly ordered keyframes, bounded duration, translation, positive scale, Y-axis rotation (radians), linear/smoothstep/step easing, clamp and optional loop, T-11 mesh transformation and JSON timeline export. No filesystem writes, skeletal rigging, IK, camera, video export, renderer or desktop playback. Loop may jump if endpoint transforms differ. Six animation tests and six mesh regression tests ran locally on Node 22.16.0 Linux. Windows and CI pending.

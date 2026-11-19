@@ -37,3 +37,6 @@ Parent 75664f721f7e11c29f0008c8fdd18350f9cb3e14. Perception orchestration only; 
 
 ## RG-T11-MESH
 Parent f187faf4fd0a118880bbaabd9041a844c754adc0. Procedural geometry and OBJ serialization; no external backup or Blender validation.
+
+## RG-T12-ANIMATION
+Parent 1f7e9c7531f81f1e12b3cf8b6e00104d9c4ad3f5. Keyframe and mesh transformation foundation, JSON serialization only; no external backup or renderer validation.
