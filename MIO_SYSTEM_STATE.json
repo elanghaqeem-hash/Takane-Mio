@@ -3,7 +3,7 @@
   "directiveVersion": "3.0",
   "repository": "elanghaqeem-hash/Takane-Mio",
   "branch": "regenesis/t0-foundation",
-  "lastVerifiedCommit": "973d8f3a80c55ca4fd4274eb6c0d21f6336710ab",
+  "lastVerifiedCommit": "a4a011ab874178318c70fc353199eaabb67b5b92",
   "currentPhase": "T-19.06 (authenticated text checkpoint restoration; full reconstruction pending)",
   "completedTasks": [
     "T-0.01 repository metadata and initial commit audit",
@@ -62,8 +62,8 @@
   },
   "lastSuccessfulBuild": null,
   "lastSuccessfulTest": {
-    "scope": "T-19.05 four creative adapter tests; three Git blobs identical to tested local files; UnifiedRuntime facade and full suite not executed",
-    "passed": 4,
+    "scope": "T-19.06 five encrypted text restore tests with actual temporary files; three Git blobs identical; Windows/full regression and external recovery drill not exercised",
+    "passed": 5,
     "failed": 0,
     "node": "22.16.0",
     "platform": "Linux",
