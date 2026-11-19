@@ -138,7 +138,7 @@
   "deploymentStatus": "Two isolated Cloudflare staging Workers deployed (BYOK and simulation UAT; management API verified); public HTTP/browser unverified; desktop not deployed",
   "backupReference": null,
   "recoveryCheckpoint": "RG-T19-LOCK-RESOLUTION",
-  "recommendedNextAction": "Review dependency-resolution workflow run and genuine lock artifact; validate metadata and audit before commit",
+  "recommendedNextAction": "Retrieve and review actual candidate-dependency-lock artifact from successful runner, inspect audit and decide on newer Electron patch before adopting lock; do not release",
   "product": "MIO",
   "auditCommit": "d10cdf06a438e8d7456a233c1d96082ea57a12a3",
   "disabledEngines": [],
@@ -195,5 +195,20 @@
     "localModelRuntime": "ollama and llama-server not on PATH",
     "platform": "Linux",
     "releaseCreated": false
+  },
+  "dependencyResolutionReview": {
+    "workflowCommit": "7d092db4269d2723bd366b3b32c81f9c5dd4efa2",
+    "workflowBlob": "afc80c535a9cb79f859f521e69728cb9d1891537",
+    "staticChecksPassed": 7,
+    "staticChecksFailed": 0,
+    "scope": "PyYAML parsing and seven configuration assertions; not execution",
+    "registryRetry": "EAI_AGAIN",
+    "localNode": "22.16.0",
+    "npm": "10.9.2",
+    "electronVersionPubliclyListed": "45.3.4",
+    "newerVendorRelease": "45.4.1",
+    "vendorReference": "https://releases.electronjs.org/release/v45.3.4",
+    "workflowEvidence": "No records from PR-filtered workflow and combined-status queries; run not verified",
+    "lockAdopted": false
   }
 }

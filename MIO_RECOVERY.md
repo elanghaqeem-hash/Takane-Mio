@@ -154,3 +154,5 @@ Assessed 91fb0b8a887554d7b2a64726448df055ab48768e. Candidate evaluator returned 
 
 ## RG-T19-LOCK-RESOLUTION
 Parent 5b5756f8384f5eedf17f8eab35919934b0b6e8ab. Local registry DNS failure; read-only candidate lock resolution workflow prepared, no lock adopted.
+
+Static review: seven YAML configuration assertions passed; matching workflow blob. Actual runner/lock/audit unverified. No release promotion.
