@@ -3,17 +3,18 @@
   "directiveVersion": "3.0",
   "repository": "elanghaqeem-hash/Takane-Mio",
   "branch": "regenesis/t0-foundation",
-  "lastVerifiedCommit": "1c3901de6fa32e7a9099190e7e0e136d6f10f46d",
+  "lastVerifiedCommit": "dcecde460a76cb40334ee5ab0eb878ce851e0a8c",
   "currentPhase": "T-0",
   "completedTasks": [
     "T-0.01 repository metadata and initial commit audit",
     "T-0.02 initial repository inventory"
   ],
   "pendingTasks": [
-    "T-0.03 target dependency assessment",
+    "T-0.03 Windows host and model/dependency verification",
     "T-0.04 integrated security baseline",
-    "T-0.05 external recovery package",
-    "T-0.06 architecture validation"
+    "T-0.05 full directive and external recovery package",
+    "T-0.06 target architecture validation",
+    "T-1 desktop foundation"
   ],
   "activeEngines": [],
   "modelInventory": [],
@@ -22,8 +23,15 @@
     "node": "24 (target)"
   },
   "lastSuccessfulBuild": null,
-  "lastSuccessfulTest": null,
-  "securityStatus": "Partial primitives; execution mediation not integrated",
+  "lastSuccessfulTest": {
+    "scope": "new hardware and execution-gate tests only",
+    "passed": 7,
+    "failed": 0,
+    "node": "22.16.0",
+    "platform": "linux-x64",
+    "date": "2026-11-19"
+  },
+  "securityStatus": "Partial policy and cooperative execution gate; not integrated",
   "knownIssues": [
     "No Windows target access",
     "No local model installed or tested",
@@ -31,6 +39,6 @@
   ],
   "deploymentStatus": "NOT DEPLOYED",
   "backupReference": null,
-  "recoveryCheckpoint": "RG-T0-BASE",
-  "recommendedNextAction": "Verify CI and archive directive; complete T-0 gates"
+  "recoveryCheckpoint": "RG-T0-DIAG",
+  "recommendedNextAction": "Reconcile main; verify CI and Windows host; complete T-0 gates"
 }
