@@ -70,3 +70,6 @@ Parent 40c2aa2f1e48dcb5292fe6e8b5f47e7a353a4204. In-memory project workspace; no
 
 ## RG-T18-DEVELOPER
 Parent 12028566929e44c6934ed4b7cde7077000469843. Read-only heuristic developer inspection; no external backup or live repository integration.
+
+## RG-T18-RECOVERY
+Parent 01c70579900c2b5d8a3fe9e710732bc17d90b6ee. Authenticated in-memory recovery bundle foundation; external backup reference remains null.

@@ -1,0 +1,11 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {createBundle,inspectBundle} from '../packages/recovery/bundle.mjs';
+const key=Buffer.alloc(32,7),commit='a'.repeat(40),opts={key,commit,consent:true},verify={key,expectedCommit:commit};
+const file=(path='docs/state.json',bytes=Buffer.from('hello'))=>({path,bytes});
+test('binary roundtrip and independent buffers',()=>{const original=file('data/a.bin',Buffer.from([0,255,1]));const b=createBundle([original],opts);original.bytes[0]=9;const r=inspectBundle(b,verify);assert.deepEqual([...r.files[0].bytes],[0,255,1]);});
+test('tamper and wrong key rejected',()=>{const b=createBundle([file()],opts);const e=JSON.parse(b);e.body=e.body.replace('hello','bad').replace('aGVsbG8=','YmFk');assert.throws(()=>inspectBundle(JSON.stringify(e),verify));assert.throws(()=>inspectBundle(b,{...verify,key:Buffer.alloc(32,8)}));});
+test('commit binding',()=>{const b=createBundle([file()],opts);assert.throws(()=>inspectBundle(b,{...verify,expectedCommit:'b'.repeat(40)}));});
+test('paths and case collisions',()=>{for(const p of ['../x','/x','a/../b','C:\\x','a/CON.txt','a.'])assert.throws(()=>createBundle([file(p)],opts));assert.throws(()=>createBundle([file('a'),file('A')],opts));});
+test('consent and limits',()=>{assert.throws(()=>createBundle([file()],{...opts,consent:false}));assert.throws(()=>createBundle([file('a',Buffer.alloc(1048577))],opts));assert.throws(()=>createBundle(Array.from({length:5},(_,i)=>file('a'+i,Buffer.alloc(1048576))),opts));});
+test('truncation and malformed payload',()=>{const b=createBundle([file()],opts);assert.throws(()=>inspectBundle(b.slice(0,-4),verify));assert.throws(()=>inspectBundle('{}',verify));});

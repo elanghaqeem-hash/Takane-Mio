@@ -1,0 +1,2 @@
+# Recovery bundle foundation
+Caller-supplied selected bytes, 100 files, 1 MiB per file, 4 MiB total. SHA-256 file digests, HMAC-SHA256 envelope with caller-owned key and expected commit string. No actual Git lookup or encryption. Verification reconstructs bytes in memory only; lexical path checks do not authorize disk writes. No external backup, key custody, SQLite snapshot, full directive archive or restore drill. Six local tests on Node 22.16.0 Linux; separate Git verification. Never use the test key in production.

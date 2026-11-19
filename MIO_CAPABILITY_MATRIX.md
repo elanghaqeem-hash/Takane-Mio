@@ -22,4 +22,4 @@ Initial baseline: README and gitignore only. No engine is verified. Foundation b
 | S17 Learning | IN DEVELOPMENT |
 | S18 Project Management | IN DEVELOPMENT |
 | S19 Developer | IN DEVELOPMENT |
-| S20 Recovery | DESIGN |
+| S20 Recovery | IN DEVELOPMENT |

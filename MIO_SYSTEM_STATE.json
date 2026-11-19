@@ -1,10 +1,10 @@
 {
-  "productVersion": "0.0.23-dev",
+  "productVersion": "0.0.24-dev",
   "directiveVersion": "3.0",
   "repository": "elanghaqeem-hash/Takane-Mio",
   "branch": "regenesis/t0-foundation",
   "lastVerifiedCommit": "d2f21a45015eb3428f5e3b6faa5b27f2c503edf1",
-  "currentPhase": "T-18.06 (developer inspection foundation; release gates outstanding)",
+  "currentPhase": "T-18.11 (recovery bundle foundation; release gates outstanding)",
   "completedTasks": [
     "T-0.01 repository metadata and initial commit audit",
     "T-0.02 initial repository inventory"
@@ -35,7 +35,8 @@
     "T-18.03 actual Ollama/llama.cpp model inference, trusted desktop UI, endpoint authentication and target Windows testing",
     "T-18.04 persistent scheduler, desktop/OS lifecycle, durable history, trusted user grants and Windows validation",
     "T-18.05 persistence, project authorization, task hierarchy, knowledge linkage, automation integration and Windows validation",
-    "T-18.06 AST analysis, model-assisted coding, verified dependency resolution, repository integration, isolated execution and Windows validation"
+    "T-18.06 AST analysis, model-assisted coding, verified dependency resolution, repository integration, isolated execution and Windows validation",
+    "T-18.11 encrypted durable backup, key custody, full directive archive, actual SQLite restore and external recovery drill"
   ],
   "activeEngines": [],
   "modelInventory": [],
@@ -80,12 +81,13 @@
     "Automation scheduler is process-local, manually polled, restricted to L0 text operations; no background timer, external event source or restart persistence",
     "Project workspace is in RAM only; caller consent is not a trusted authorization boundary; no automatic risk inference, subtask hierarchy or scheduling integration.",
     "Developer inspection uses line-based heuristics only; false positives/negatives expected; no AST, vulnerability database, code execution or repository access.",
-    "Developer review proposals check hash consistency only, not authenticity; no file or repository writes."
+    "Developer review proposals check hash consistency only, not authenticity; no file or repository writes.",
+    "Recovery bundle authenticates selected caller-supplied bytes only; no encryption, disk restore, actual commit lookup, key management or external backup"
   ],
   "deploymentStatus": "NOT DEPLOYED",
   "backupReference": null,
-  "recoveryCheckpoint": "RG-T18-DEVELOPER",
-  "recommendedNextAction": "T-18.11 Recovery Engine foundation, then desktop integration and regression",
+  "recoveryCheckpoint": "RG-T18-RECOVERY",
+  "recommendedNextAction": "Integrate desktop runtime, full regression, security and Windows release gates",
   "product": "MIO",
   "auditCommit": "d10cdf06a438e8d7456a233c1d96082ea57a12a3",
   "disabledEngines": [],
@@ -108,7 +110,8 @@
     "S17",
     "S13",
     "S18",
-    "S19"
+    "S19",
+    "S20"
   ],
   "updatedAt": "2026-11-19",
   "plannedDatabaseVersion": 1,
