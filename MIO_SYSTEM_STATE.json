@@ -2,8 +2,8 @@
   "productVersion": "0.0.19-dev",
   "directiveVersion": "3.0",
   "repository": "elanghaqeem-hash/Takane-Mio",
-  "branch": "regenesis/t0-foundation",
-  "lastVerifiedCommit": "c9023d2e05fc2dccb1b40ac35fb3efa36e1c475c",
+  "branch": "regenesis/t18-unified-runtime",
+  "lastVerifiedCommit": "c9a276550a2f92fa95917b1f81d5afa9145a1b8c",
   "currentPhase": "T-18 (partial integration; release gates outstanding)",
   "completedTasks": [
     "T-0.01 repository metadata and initial commit audit",
@@ -42,14 +42,14 @@
   },
   "lastSuccessfulBuild": null,
   "lastSuccessfulTest": {
-    "scope": "T-17 five planning and feedback tests with mock registry/router; both Git blobs match locally tested files",
-    "passed": 5,
+    "scope": "T-18 six assistant runtime integration tests; actual local HTTP transport with simulated endpoint; all eleven Git blobs match tested files",
+    "passed": 6,
     "failed": 0,
     "node": "22.16.0",
     "platform": "Linux",
     "date": "2026-11-19"
   },
-  "securityStatus": "Grant Authority, HMAC Audit and Execution Gate integrated with standalone orchestrator; actual desktop and AgentEngine integration pending",
+  "securityStatus": "Unified runtime uses scoped L0 AgentEngine grants and one-use approval; trusted desktop UI pending",
   "knownIssues": [
     "No Windows target access",
     "No local model installed or tested",
