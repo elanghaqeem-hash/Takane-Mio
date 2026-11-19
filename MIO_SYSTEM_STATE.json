@@ -3,7 +3,7 @@
   "directiveVersion": "3.0",
   "repository": "elanghaqeem-hash/Takane-Mio",
   "branch": "regenesis/t0-foundation",
-  "lastVerifiedCommit": "5288c052bc8bd43a81d5cd1cdeef59db8f6c597e",
+  "lastVerifiedCommit": "4adfceb860b91c78b77a36eba83462017f649361",
   "currentPhase": "T-18.13 (desktop chat IPC wiring; Electron smoke test pending)",
   "completedTasks": [
     "T-0.01 repository metadata and initial commit audit",
@@ -49,8 +49,8 @@
   },
   "lastSuccessfulBuild": null,
   "lastSuccessfulTest": {
-    "scope": "Five unified runtime and 22 selected regression tests; 20 Git blobs match local files; not full suite",
-    "passed": 27,
+    "scope": "Five desktop runtime bridge tests and 27 selected local regressions; new two Git blobs match local tested sources; actual Electron/Windows not exercised",
+    "passed": 32,
     "failed": 0,
     "node": "22.16.0",
     "platform": "Linux",
