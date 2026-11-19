@@ -1,0 +1,2 @@
+# T-18.05 project workspace
+In-memory workspace, 50 projects, 500 tasks and 100 risks per project, up to 16 dependencies on existing tasks. TODO/DOING/DONE workflow, DONE terminal. Progress is unweighted task completion. Milestones are flagged tasks. Risk score likelihood × impact (1–5 each), manually supplied. Open workload is a task count, not resource capacity. Separate project maps are not a user authorization boundary. No persistence, deletion, editing, subtasks, automatic risk inference, desktop or automation integration. Six local tests passed on Node 22.16.0 Linux.

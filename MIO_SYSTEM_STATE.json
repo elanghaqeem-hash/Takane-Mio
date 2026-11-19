@@ -1,10 +1,10 @@
 {
-  "productVersion": "0.0.21-dev",
+  "productVersion": "0.0.22-dev",
   "directiveVersion": "3.0",
   "repository": "elanghaqeem-hash/Takane-Mio",
   "branch": "regenesis/t0-foundation",
   "lastVerifiedCommit": "fa74b22197c1be51702f11cbcab6a49cf74d3762",
-  "currentPhase": "T-18.04 (automation foundation; release gates outstanding)",
+  "currentPhase": "T-18.05 (project workspace foundation; release gates outstanding)",
   "completedTasks": [
     "T-0.01 repository metadata and initial commit audit",
     "T-0.02 initial repository inventory"
@@ -33,7 +33,8 @@
     "T-17 real local model planning, actual agent execution integration, persistent feedback, trusted consent, Windows validation",
     "T-18 actual local model and desktop review UI, full regression, automation/project/developer/recovery engines, Windows packaging and release gate",
     "T-18.03 actual Ollama/llama.cpp model inference, trusted desktop UI, endpoint authentication and target Windows testing",
-    "T-18.04 persistent scheduler, desktop/OS lifecycle, durable history, trusted user grants and Windows validation"
+    "T-18.04 persistent scheduler, desktop/OS lifecycle, durable history, trusted user grants and Windows validation",
+    "T-18.05 persistence, project authorization, task hierarchy, knowledge linkage, automation integration and Windows validation"
   ],
   "activeEngines": [],
   "modelInventory": [],
@@ -75,12 +76,13 @@
     "Planning tested with mock router/registry; feedback in RAM only, no model training or self-modification",
     "Reviewed session uses mock model router, process-local approval and cooperative cancellation; expiry and trusted UI not verified",
     "AssistantRuntime uses actual local transport and tools but tested against simulated model only; no desktop binding or persistence",
-    "Automation scheduler is process-local, manually polled, restricted to L0 text operations; no background timer, external event source or restart persistence"
+    "Automation scheduler is process-local, manually polled, restricted to L0 text operations; no background timer, external event source or restart persistence",
+    "Project workspace is in RAM only; caller consent is not a trusted authorization boundary; no automatic risk inference, subtask hierarchy or scheduling integration."
   ],
   "deploymentStatus": "NOT DEPLOYED",
   "backupReference": null,
-  "recoveryCheckpoint": "RG-T18-AUTOMATION",
-  "recommendedNextAction": "T-18.05 Project Management Engine, then developer/recovery and desktop integration",
+  "recoveryCheckpoint": "RG-T18-PROJECT",
+  "recommendedNextAction": "T-18.06 Developer Intelligence foundation, then recovery and desktop integration",
   "product": "MIO",
   "auditCommit": "d10cdf06a438e8d7456a233c1d96082ea57a12a3",
   "disabledEngines": [],
@@ -101,7 +103,8 @@
     "S07",
     "S12",
     "S17",
-    "S13"
+    "S13",
+    "S18"
   ],
   "updatedAt": "2026-11-19",
   "plannedDatabaseVersion": 1,

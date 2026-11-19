@@ -1,0 +1,10 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {ProjectWorkspace} from '../packages/project/workspace.mjs';
+function setup(){const w=new ProjectWorkspace();w.create({id:'p',title:'MIO',consent:true});const add=(id,extra={})=>w.addTask('p',{id,title:id,dueAt:1000,...extra});return {w,add};}
+test('consent and project isolation',()=>{const {w,add}=setup();assert.throws(()=>w.create({id:'q',title:'Other'}));w.create({id:'q',title:'Other',consent:true});add('a');assert.equal(w.report('q').total,0);assert.throws(()=>w.addTask('q',{id:'b',title:'B',dueAt:1000,dependsOn:['a']}));});
+test('dependency and status workflow',()=>{const {w,add}=setup();add('a');add('b',{dependsOn:['a']});assert.throws(()=>w.transition('p','b','DOING'));assert.throws(()=>w.transition('p','a','DONE'));w.transition('p','a','DOING');w.transition('p','a','DONE');w.transition('p','b','DOING');assert.equal(w.report('p').progress,.5);});
+test('milestone and overdue reporting',()=>{const {w,add}=setup();add('a',{milestone:true});add('b',{dueAt:2000});const r=w.report('p',1500);assert.deepEqual(r.overdue,['a']);assert.equal(r.milestones[0].id,'a');});
+test('risk scoring and priority',()=>{const {w}=setup();w.addRisk('p',{id:'r',title:'Delay',likelihood:4,impact:5,mitigation:'Review'});w.addRisk('p',{id:'s',title:'Minor',likelihood:1,impact:2,mitigation:'Track'});assert.equal(w.report('p').risks[0].score,20);assert.throws(()=>w.addRisk('p',{id:'x',title:'X',likelihood:6,impact:5,mitigation:'Track'}));});
+test('open workload and blocked tasks',()=>{const {w,add}=setup();add('a',{owner:'team'});add('b',{owner:'team',dependsOn:['a']});const r=w.report('p');assert.deepEqual(r.openByOwner,[{owner:'team',count:2}]);assert.deepEqual(r.blocked,['b']);});
+test('defensive report and invalid inputs',()=>{const {w,add}=setup();add('a');const r=w.report('p');r.tasks[0].title='changed';assert.equal(w.report('p').tasks[0].title,'a');assert.throws(()=>add('a'));assert.throws(()=>add('b',{dependsOn:['b']}));assert.throws(()=>w.report('p',NaN));});

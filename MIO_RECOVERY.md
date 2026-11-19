@@ -64,3 +64,6 @@ Parent 6c66d88a9c390077260c3505c4f362feaacbf11f. Local runtime integration with 
 
 ## RG-T18-AUTOMATION
 Parent 3aa01b7265b910fb9fff17b78e1f348286668e4f. Process-local manually polled scheduler; no durable backup or production integration.
+
+## RG-T18-PROJECT
+Parent 40c2aa2f1e48dcb5292fe6e8b5f47e7a353a4204. In-memory project workspace; no persistent project data or external backup.

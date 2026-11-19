@@ -1,0 +1,12 @@
+const id=x=>typeof x==='string'&&/^[a-z][a-z0-9.-]{0,63}$/.test(x);
+const text=(x,max)=>typeof x==='string'&&x.trim().length>0&&x.length<=max;
+const date=x=>Number.isSafeInteger(x)&&x>=0;
+export class ProjectWorkspace{
+ #projects=new Map();
+ create({id:pid,title,consent=false}={}){if(consent!==true||!id(pid)||!text(title,200)||this.#projects.has(pid)||this.#projects.size>=50)throw new Error('Invalid project');this.#projects.set(pid,{id:pid,title,tasks:new Map(),risks:new Map()});}
+ #get(pid){const p=this.#projects.get(pid);if(!p)throw new Error('Unknown project');return p;}
+ addTask(pid,{id:tid,title,dueAt,dependsOn=[],owner=null,milestone=false}={}){const p=this.#get(pid);if(!id(tid)||!text(title,200)||!date(dueAt)||p.tasks.has(tid)||p.tasks.size>=500||!Array.isArray(dependsOn)||dependsOn.length>16||new Set(dependsOn).size!==dependsOn.length||dependsOn.some(d=>!p.tasks.has(d))||!(owner===null||text(owner,100))||typeof milestone!=='boolean')throw new Error('Invalid task');p.tasks.set(tid,{id:tid,title,dueAt,dependsOn:[...dependsOn],owner,milestone,status:'TODO'});}
+ transition(pid,tid,status){const p=this.#get(pid),t=p.tasks.get(tid);if(!t||!({TODO:['DOING'],DOING:['DONE','TODO'],DONE:[]}[t.status]).includes(status))throw new Error('Invalid transition');if(status!=='TODO'&&t.dependsOn.some(d=>p.tasks.get(d).status!=='DONE'))throw new Error('Dependency incomplete');t.status=status;}
+ addRisk(pid,{id:rid,title,likelihood,impact,mitigation}={}){const p=this.#get(pid);if(!id(rid)||!text(title,200)||!text(mitigation,1000)||p.risks.has(rid)||p.risks.size>=100||![likelihood,impact].every(x=>Number.isInteger(x)&&x>=1&&x<=5))throw new Error('Invalid risk');p.risks.set(rid,{id:rid,title,likelihood,impact,mitigation,score:likelihood*impact});}
+ report(pid,now=Date.now()){if(!date(now))throw new Error('Invalid clock');const p=this.#get(pid),tasks=[...p.tasks.values()],done=tasks.filter(t=>t.status==='DONE').length,owners=new Map();for(const t of tasks)if(t.owner!==null&&t.status!=='DONE')owners.set(t.owner,(owners.get(t.owner)??0)+1);return structuredClone({id:p.id,title:p.title,total:tasks.length,done,progress:tasks.length?done/tasks.length:0,overdue:tasks.filter(t=>t.status!=='DONE'&&t.dueAt<now).map(t=>t.id),blocked:tasks.filter(t=>t.status!=='DONE'&&t.dependsOn.some(d=>p.tasks.get(d).status!=='DONE')).map(t=>t.id),milestones:tasks.filter(t=>t.milestone),openByOwner:[...owners].map(([owner,count])=>({owner,count})),risks:[...p.risks.values()].sort((a,b)=>b.score-a.score),tasks});}
+}

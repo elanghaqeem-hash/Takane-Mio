@@ -20,6 +20,6 @@ Initial baseline: README and gitignore only. No engine is verified. Foundation b
 | S15 Security | IN DEVELOPMENT |
 | S16 Reliability | IN DEVELOPMENT |
 | S17 Learning | IN DEVELOPMENT |
-| S18 Project Management | NOT STARTED |
+| S18 Project Management | IN DEVELOPMENT |
 | S19 Developer | NOT STARTED |
 | S20 Recovery | DESIGN |
