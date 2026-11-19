@@ -1,0 +1,10 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {probeLocalModel} from '../packages/intelligence/probe.mjs';
+const opts={provider:'ollama',model:'test:latest'};
+const json=x=>new Response(JSON.stringify(x));
+test('Ollama exact match uses fixed loopback and no redirects',async()=>{const r=await probeLocalModel({...opts,fetchImpl:async(url,req)=>{assert.equal(url,'http://127.0.0.1:11434/api/tags');assert.equal(req.redirect,'error');return json({models:[{name:'test:latest'}]});}});assert.equal(r.listed,true);assert.equal(r.inferenceVerified,false);});
+test('llama.cpp exact model alias',async()=>{const r=await probeLocalModel({provider:'llamacpp',model:'alias',fetchImpl:async(url)=>{assert.equal(url,'http://127.0.0.1:8080/v1/models');return json({data:[{id:'alias'}]});}});assert.equal(r.status,'LISTED');});
+test('missing model and malformed inventory',async()=>{assert.equal((await probeLocalModel({...opts,fetchImpl:async()=>json({models:[{name:'test'}]})})).status,'NOT_LISTED');assert.equal((await probeLocalModel({...opts,fetchImpl:async()=>json({models:null})})).status,'UNAVAILABLE');});
+test('HTTP failure or response above cap denied',async()=>{for(const fetchImpl of [async()=>new Response('',{status:404}),async()=>new Response('x'.repeat(1048577))])assert.equal((await probeLocalModel({...opts,fetchImpl})).status,'UNAVAILABLE');});
+test('abort and invalid configuration',async()=>{const c=new AbortController();c.abort();assert.equal((await probeLocalModel({...opts,signal:c.signal,fetchImpl:async()=>assert.fail('unexpected fetch')})).status,'ABORTED');await assert.rejects(probeLocalModel({...opts,provider:'cloud'}));});

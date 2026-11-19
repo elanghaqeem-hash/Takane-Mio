@@ -91,3 +91,6 @@ Parent 2d74507320da3bd94fe663a17445464722c280d2. Incremental session accounting;
 
 ## RG-T18-SECURITY
 Parent 6154bd8a98af8cfe53e4c5b1e42898ca990c577b. Bounded grant authority and fail-closed time checks; integrated security validation pending.
+
+## RG-T18-MODEL-PROBE
+Parent 9549dc5fbf3b23b819e9599c62ea00b6359bf3d0. Local model inventory preflight; live model activation pending.
