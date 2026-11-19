@@ -3,7 +3,7 @@
   "directiveVersion": "3.0",
   "repository": "elanghaqeem-hash/Takane-Mio",
   "branch": "regenesis/t0-foundation",
-  "lastVerifiedCommit": "2111884a89dde8b2b472a97773613f8a18528da0",
+  "lastVerifiedCommit": "16ba7ecf1337c3f665cba303167a2272b01cfdcd",
   "currentPhase": "T-4 (implementation; earlier gates outstanding)",
   "completedTasks": [
     "T-0.01 repository metadata and initial commit audit",
@@ -21,15 +21,15 @@
   ],
   "activeEngines": [],
   "modelInventory": [],
-  "databaseVersion": null,
+  "databaseVersion": 1,
   "dependencyVersions": {
     "node": "24 (target)",
     "electron": "45.3.4 (pinned, not installed)"
   },
   "lastSuccessfulBuild": null,
   "lastSuccessfulTest": {
-    "scope": "T-3 adapter/router mocks; all three source/test Git blobs matched",
-    "passed": 6,
+    "scope": "T-4 SQLite and session memory; three Git blobs matched",
+    "passed": 4,
     "failed": 0,
     "node": "22.16.0",
     "platform": "Linux",
@@ -43,7 +43,8 @@
     "Merge commit rejected by connector; main history not reconciled despite manifest archived",
     "Electron lockfile and runtime not verified",
     "Galaxy renderer Electron file module loading and live provider not verified",
-    "No live inference; local endpoint authentication and desktop streaming pending"
+    "No live inference; local endpoint authentication and desktop streaming pending",
+    "Memory plaintext; no desktop provider or semantic embeddings; backup/restore pending"
   ],
   "deploymentStatus": "NOT DEPLOYED",
   "backupReference": null,
@@ -63,5 +64,6 @@
     "S16"
   ],
   "updatedAt": "2026-11-19",
-  "plannedDatabaseVersion": 1
+  "plannedDatabaseVersion": 1,
+  "databaseVerification": "Temporary SQLite database reopened and deletion verified; no production database"
 }
