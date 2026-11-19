@@ -3,7 +3,7 @@
   "directiveVersion": "3.0",
   "repository": "elanghaqeem-hash/Takane-Mio",
   "branch": "regenesis/t0-foundation",
-  "lastVerifiedCommit": "fa74b22197c1be51702f11cbcab6a49cf74d3762",
+  "lastVerifiedCommit": "193a0d6d59f3129a3e89796958e4fb983f61ed76",
   "currentPhase": "T-18.05 (project workspace foundation; release gates outstanding)",
   "completedTasks": [
     "T-0.01 repository metadata and initial commit audit",
@@ -45,7 +45,7 @@
   },
   "lastSuccessfulBuild": null,
   "lastSuccessfulTest": {
-    "scope": "T-18.04 six scheduler tests with actual L0 tools, grant authority and execution gate; six Git blobs match locally tested files",
+    "scope": "T-18.05 six project workspace tests; two Git blobs match locally tested files",
     "passed": 6,
     "failed": 0,
     "node": "22.16.0",
