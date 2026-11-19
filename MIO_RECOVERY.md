@@ -121,3 +121,6 @@ Parent 30c8cfd76ce3f6439db899cd74ce2561ef08d610. Authenticated text restore to n
 
 ## RG-T19-OPERATOR-GUIDES
 Parent 17519ae7693498b3bce4540bffe9db10dead718b. Draft Indonesian install/operator guides; independent acceptance pending.
+
+## RG-T19-STREAM-BUDGET
+Parent cbc07fe9375b28cdcbe0db7b6e09a5ef464ba36b. Local response resource budgets; final security acceptance pending.

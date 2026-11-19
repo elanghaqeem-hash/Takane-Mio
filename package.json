@@ -1,6 +1,6 @@
 {
   "name": "takane-mio",
-  "version": "0.0.39",
+  "version": "0.0.40",
   "private": true,
   "type": "module",
   "main": "apps/desktop/main.mjs",
