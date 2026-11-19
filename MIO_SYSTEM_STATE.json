@@ -1,10 +1,10 @@
 {
-  "productVersion": "0.0.26-dev",
+  "productVersion": "0.0.27-dev",
   "directiveVersion": "3.0",
   "repository": "elanghaqeem-hash/Takane-Mio",
   "branch": "regenesis/t0-foundation",
   "lastVerifiedCommit": "8fb6288153e61bac946c1e52c95d6652222e6266",
-  "currentPhase": "T-18.14 (targeted recovery regression; full suite pending)",
+  "currentPhase": "T-18.14 (partial regression and full-suite CI gate; release validation pending)",
   "completedTasks": [
     "T-0.01 repository metadata and initial commit audit",
     "T-0.02 initial repository inventory"
@@ -39,7 +39,8 @@
     "T-18.11 encrypted durable backup, key custody, full directive archive, actual SQLite restore and external recovery drill",
     "T-18.12 remaining engine integration, project persistence, shared desktop control, live model and target validation",
     "T-18.13 actual Electron renderer/IPC smoke test, Windows packaging, persistent memory/galaxy, agent approval and project/automation panels",
-    "T-18.14 full suite on Node 24 Ubuntu/Windows, actual Electron and model, offline end-to-end and performance validation"
+    "T-18.14 full suite on Node 24 Ubuntu/Windows, actual Electron and model, offline end-to-end and performance validation",
+    "T-18.14 full repository regression on Node 24 Linux and Windows, actual Electron and local model end-to-end"
   ],
   "activeEngines": [],
   "modelInventory": [],
@@ -89,12 +90,13 @@
     "Additional encrypted checkpoint module supports authenticated in-memory text only; caller-supplied key/consent, no disk restore or independent commit lookup.",
     "UnifiedRuntime serializes assistant and scheduler operations and guards project methods; no background execution, actual model, shared CoreState across all engines or desktop IPC yet.",
     "Desktop chat wiring is opt-in via process environment; tested bridge in Node with simulated inference. Actual Electron runtime, Windows, UI rendering and persistent memory not verified.",
-    "T-18.14: local environment cannot resolve github.com for checkout; connector workflow result empty (PR-filtered). Full repository regression remains unverified."
+    "T-18.14: local environment cannot resolve github.com for checkout; connector workflow result empty (PR-filtered). Full repository regression remains unverified.",
+    "13 existing regression cases and four new gate tests rerun locally; full checkout and Node 24 unavailable locally"
   ],
   "deploymentStatus": "NOT DEPLOYED",
   "backupReference": null,
-  "recoveryCheckpoint": "RG-T18-QA",
-  "recommendedNextAction": "T-18.14 continue full regression via GitHub Actions or authenticated checkout; complete desktop smoke test",
+  "recoveryCheckpoint": "RG-T18-TEST-GATE",
+  "recommendedNextAction": "Verify full Node 24 Linux/Windows CI; resolve failures and perform actual Electron/local model smoke tests",
   "product": "MIO",
   "auditCommit": "d10cdf06a438e8d7456a233c1d96082ea57a12a3",
   "disabledEngines": [],
@@ -122,5 +124,13 @@
   ],
   "updatedAt": "2026-11-19",
   "plannedDatabaseVersion": 1,
-  "databaseVerification": "Temporary SQLite database reopened and deletion verified; no production database"
+  "databaseVerification": "Temporary SQLite database reopened and deletion verified; no production database",
+  "previousTargetedTest": {
+    "scope": "T-18.14 targeted recovery QA: 3 new and 6 existing tests passed after correction; 3 Git blobs match locally tested files. Not full regression.",
+    "passed": 9,
+    "failed": 0,
+    "node": "22.16.0",
+    "platform": "Linux",
+    "date": "2026-11-19"
+  }
 }

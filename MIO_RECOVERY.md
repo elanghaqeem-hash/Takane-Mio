@@ -82,3 +82,6 @@ Parent 8183931438224b5c131a43f1371bf7893e542bb6. Partial Electron chat wiring; a
 
 ## RG-T18-QA
 Parent b08d9fd221dbed0f628737fb9da64fa92e22ced2. Targeted recovery path regression; full suite and external backup still pending.
+
+## RG-T18-TEST-GATE
+Parent 3fabc780eb4209afe073bb834cf92afef22ceefb. Partial local regression; full suite and release validation remain pending.
