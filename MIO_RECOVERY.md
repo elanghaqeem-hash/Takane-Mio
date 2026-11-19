@@ -124,3 +124,6 @@ Parent 17519ae7693498b3bce4540bffe9db10dead718b. Draft Indonesian install/operat
 
 ## RG-T19-STREAM-BUDGET
 Parent cbc07fe9375b28cdcbe0db7b6e09a5ef464ba36b. Local response resource budgets; final security acceptance pending.
+
+## RG-T19-APPROVAL
+Parent 690ec7c448766067970cc6ddeb761fb20f05e990. Monotonic approval boundary; integrated security acceptance pending.
