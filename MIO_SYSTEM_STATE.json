@@ -3,7 +3,7 @@
   "directiveVersion": "3.0",
   "repository": "elanghaqeem-hash/Takane-Mio",
   "branch": "regenesis/t0-foundation",
-  "lastVerifiedCommit": "5541ad306864f48cf71fc72199c74f1649f5c4e1",
+  "lastVerifiedCommit": "5288c052bc8bd43a81d5cd1cdeef59db8f6c597e",
   "currentPhase": "T-18.12 (partial unified runtime integration)",
   "completedTasks": [
     "T-0.01 repository metadata and initial commit audit",
@@ -48,8 +48,8 @@
   },
   "lastSuccessfulBuild": null,
   "lastSuccessfulTest": {
-    "scope": "T-18.11 six additional encrypted checkpoint tests; two Git blobs match locally tested files",
-    "passed": 6,
+    "scope": "Five unified runtime and 22 selected regression tests; 20 Git blobs match local files; not full suite",
+    "passed": 27,
     "failed": 0,
     "node": "22.16.0",
     "platform": "Linux",
