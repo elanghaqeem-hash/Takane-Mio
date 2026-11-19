@@ -3,7 +3,7 @@
   "directiveVersion": "3.0",
   "repository": "elanghaqeem-hash/Takane-Mio",
   "branch": "regenesis/t0-foundation",
-  "lastVerifiedCommit": "e5ca9623dd57a88ee1c9de1470fef0f12208826d",
+  "lastVerifiedCommit": "dc196822350bd8ab0be28923faa0aef873391ebf",
   "currentPhase": "T-12 (implementation; earlier gates outstanding)",
   "completedTasks": [
     "T-0.01 repository metadata and initial commit audit",
@@ -36,8 +36,8 @@
   },
   "lastSuccessfulBuild": null,
   "lastSuccessfulTest": {
-    "scope": "T-11 six mesh tests; both Git blobs match local tested files",
-    "passed": 6,
+    "scope": "T-12 six animation tests plus six mesh regression tests; all four Git blobs match local tested files",
+    "passed": 12,
     "failed": 0,
     "node": "22.16.0",
     "platform": "Linux",
