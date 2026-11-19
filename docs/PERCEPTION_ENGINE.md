@@ -1,0 +1,2 @@
+# T-10 Perception foundation
+Bounded caller-supplied byte input (16 MiB), explicit caller consent, trusted injected adapters, copied input, cooperative STOP and unverified observation aggregation. This is not media decoding, computer vision, OCR, semantic fusion, spatial reasoning, audio/video inference or screen capture. No network or device access. Consent is not a trusted UI authorization. Core cross-engine ownership and cancellation of noncooperative adapters remain unresolved. Six local unit tests with mocks; Windows and CI pending.

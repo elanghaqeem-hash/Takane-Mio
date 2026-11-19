@@ -31,3 +31,6 @@ Parent 07c6c1f8f68a0483fdfee16d473afe833eb9f75f. Voice orchestration and communi
 
 ## RG-T9-FILES
 Parent 4298b6fd1b38bc05f14b5f11e3c8abf40e9fb435. Byte-level inspection and review-only suggestions; no file modifications or external backup.
+
+## RG-T10-PERCEPTION
+Parent 75664f721f7e11c29f0008c8fdd18350f9cb3e14. Perception orchestration only; no model/media backup or full restore drill.

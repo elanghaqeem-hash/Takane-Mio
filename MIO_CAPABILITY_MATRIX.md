@@ -9,7 +9,7 @@ Initial baseline: README and gitignore only. No engine is verified. Foundation b
 | S04 Memory | IN DEVELOPMENT |
 | S05 Knowledge | IN DEVELOPMENT |
 | S06 Agent | IN DEVELOPMENT |
-| S07 Perception | NOT STARTED |
+| S07 Perception | IN DEVELOPMENT |
 | S08 Voice | IN DEVELOPMENT |
 | S09 Emotional Intelligence | IN DEVELOPMENT |
 | S10 Research | IN DEVELOPMENT |

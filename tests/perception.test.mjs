@@ -1,0 +1,11 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {CoreState} from '../packages/core/state.mjs';
+import {PerceptionEngine,mediaDescriptor,fuseObservations} from '../packages/perception/engine.mjs';
+const bytes=Uint8Array.of(1,2,3);
+test('bounded media validation',()=>{assert.equal(mediaDescriptor('image',bytes).size,3);assert.throws(()=>mediaDescriptor('unknown',bytes));assert.throws(()=>mediaDescriptor('audio',new Uint8Array(0)));assert.throws(()=>mediaDescriptor('image',new Uint8Array(16*1024*1024+1)));});
+test('consent and missing adapter deny',async()=>{let calls=0;const p=new PerceptionEngine({core:new CoreState(),adapters:{image:()=>++calls}});await assert.rejects(p.analyze('image',bytes),/Consent/);await assert.rejects(p.analyze('screen',bytes,{consent:true}),/unavailable/);assert.equal(calls,0);p.dispose();});
+test('adapter receives copy and core returns idle',async()=>{const core=new CoreState();const p=new PerceptionEngine({core,adapters:{image:b=>{b[0]=99;return 'fixture';}}});const result=await p.analyze('image',bytes,{consent:true});assert.equal(bytes[0],1);assert.equal(result.trust,'UNVERIFIED');assert.equal(core.snapshot.state,'IDLE');p.dispose();});
+test('STOP suppresses late observations',async()=>{const core=new CoreState();let resolve,signal;const p=new PerceptionEngine({core,adapters:{image:(_,o)=>{signal=o.signal;return new Promise(r=>resolve=r);}}});const work=p.analyze('image',bytes,{consent:true});core.stop();assert.equal(signal.aborted,true);resolve('late');await assert.rejects(work,{name:'AbortError'});p.dispose();});
+test('fusion preserves unverified provenance',()=>{const r=fuseObservations([{kind:'image',observation:'fixture'},{kind:'audio',observation:'sound'}]);assert.equal(r.trust,'UNVERIFIED');assert.equal(r.observations.length,2);assert.throws(()=>fuseObservations([{kind:'bad',observation:'x'}]));});
+test('disposed engine and invalid output reject',async()=>{const p=new PerceptionEngine({core:new CoreState(),adapters:{image:()=>null}});await assert.rejects(p.analyze('image',bytes,{consent:true}),/Invalid observation/);p.dispose();await assert.rejects(p.analyze('image',bytes,{consent:true}),/unavailable/);});
