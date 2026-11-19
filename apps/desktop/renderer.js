@@ -1,4 +1,9 @@
-const state=document.getElementById('state'),hardware=document.getElementById('hardware'),stop=document.getElementById('stop'),error=document.getElementById('error');
-async function refresh(){try{const s=await window.mio.status();state.textContent=s.state;stop.disabled=s.stopped;hardware.textContent=JSON.stringify(await window.mio.hardware(),null,2);}catch{error.textContent='Desktop connection unavailable';}}
-stop.addEventListener('click',async()=>{stop.disabled=true;try{const s=await window.mio.stop();state.textContent=s.state;}catch{error.textContent='STOP request failed';stop.disabled=false;}});
-refresh();
+import {layoutGalaxy,coreColor} from './galaxy.mjs';
+const state=document.getElementById('state'),hardware=document.getElementById('hardware'),stop=document.getElementById('stop'),error=document.getElementById('error'),canvas=document.getElementById('galaxy'),count=document.getElementById('knowledge');
+let snapshot={state:'IDLE'},profile='LIGHT',records=[],latched=false,stopping=false;
+function draw(){const ctx=canvas.getContext('2d');if(!ctx)return;const w=canvas.width,h=canvas.height;ctx.clearRect(0,0,w,h);const scene=layoutGalaxy(records,profile);count.textContent=scene.visible+' / '+scene.total+' indexed knowledge stars';for(const s of scene.stars){ctx.fillStyle='#bdeaff';ctx.beginPath();ctx.arc(w/2+s.x*w*.46,h/2+s.y*h*.65,1.5,0,Math.PI*2);ctx.fill();}const radius=Math.min(w,h)*.13,c=coreColor(snapshot.state);const glow=ctx.createRadialGradient(w/2,h/2,0,w/2,h/2,radius*3);glow.addColorStop(0,c);glow.addColorStop(.3,c+'66');glow.addColorStop(1,c+'00');ctx.fillStyle=glow;ctx.fillRect(0,0,w,h);const sphere=ctx.createRadialGradient(w/2-radius*.3,h/2-radius*.3,1,w/2,h/2,radius);sphere.addColorStop(0,'#efffff');sphere.addColorStop(.55,c);sphere.addColorStop(1,'#174369');ctx.fillStyle=sphere;ctx.beginPath();ctx.arc(w/2,h/2,radius,0,Math.PI*2);ctx.fill();}
+function apply(s){if(latched&&!s.stopped)return;if(s.stopped)latched=true;snapshot=s;state.textContent=s.state;stop.disabled=latched||stopping;draw();}
+async function refresh(){try{apply(await window.mio.status());error.textContent='';}catch{error.textContent='Desktop connection unavailable';}}
+stop.addEventListener('click',async()=>{stopping=true;stop.disabled=true;try{apply(await window.mio.stop());}catch{error.textContent='STOP request failed';}finally{stopping=false;stop.disabled=latched;}});
+async function init(){try{const h=await window.mio.hardware();profile=h.profile;hardware.textContent=JSON.stringify(h,null,2);records=await window.mio.knowledge();draw();}catch{error.textContent='Diagnostics unavailable';}await refresh();setInterval(refresh,1000);}
+draw();init();

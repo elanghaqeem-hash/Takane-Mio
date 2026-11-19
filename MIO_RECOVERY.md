@@ -7,3 +7,6 @@ Source checkpoint precedes this change: dcecde460a76cb40334ee5ab0eb878ce851e0a8c
 
 ## RG-T1-SHELL
 Parent source: 504faa67abdd9a9f0887deba8e3e1e6f254697. Historical main manifest preserved under docs/audit; no external backup or restore rehearsal. Run npm run check and npm test before attempting desktop startup.
+
+## RG-T2-GALAXY
+Parent source cb3f438ae6227df030ef0be339e26dbba59893d3. Galaxy layout deterministic; no real knowledge provider yet. External backup still pending.

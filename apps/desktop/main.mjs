@@ -20,7 +20,7 @@ else {
   app.whenReady().then(()=>{
     session.defaultSession.setPermissionRequestHandler((_wc,_permission,callback)=>callback(false));
     session.defaultSession.setPermissionCheckHandler(()=>false);
-    for(const [channel,handler] of Object.entries({'mio:status':controller.status,'mio:hardware':controller.hardware,'mio:stop':controller.stop})){
+    for(const [channel,handler] of Object.entries({'mio:status':controller.status,'mio:hardware':controller.hardware,'mio:knowledge':()=>[],'mio:stop':controller.stop})){
       ipcMain.handle(channel,(event,...args)=>{assertTrustedSender(event,win?.webContents,expectedURL);if(args.length)throw new Error('Unexpected arguments');return handler();});
     }
     createWindow();

@@ -1,0 +1,2 @@
+# T-2 Galaxy Core
+Canvas 2D bootstrap, deterministic clusters and budget caps; only indexed and authorized records become stars. Main IPC deliberately returns an empty list until T-4 provides a trusted index. Renderer flags are defense in depth, not authorization. No model weights represented. State polls every second; STOP latch prevents late stale state from overriding. Electron file module loading and runtime performance must be verified; no Windows GUI test yet.

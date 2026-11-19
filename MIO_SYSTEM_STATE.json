@@ -1,10 +1,10 @@
 {
-  "productVersion": "0.0.2-dev",
+  "productVersion": "0.0.3-dev",
   "directiveVersion": "3.0",
   "repository": "elanghaqeem-hash/Takane-Mio",
   "branch": "regenesis/t0-foundation",
-  "lastVerifiedCommit": "5d76853bae09a82cb42ce5cd227d6a933e8bcc1f",
-  "currentPhase": "T-1 (implementation; T-0 gates outstanding)",
+  "lastVerifiedCommit": "cb3f438ae6227df030ef0be339e26dbba59893d3",
+  "currentPhase": "T-2 (implementation; earlier gates outstanding)",
   "completedTasks": [
     "T-0.01 repository metadata and initial commit audit",
     "T-0.02 initial repository inventory"
@@ -14,7 +14,8 @@
     "T-0.04 integrated security baseline",
     "T-0.05 full directive and external recovery package",
     "T-0.06 target architecture validation",
-    "T-1 dependency lock, desktop smoke test, React/TS/Vite, installer"
+    "T-1 dependency lock, desktop smoke test, React/TS/Vite, installer",
+    "T-2 live authorized knowledge provider, renderer runtime and performance validation"
   ],
   "activeEngines": [],
   "modelInventory": [],
@@ -40,8 +41,8 @@
   ],
   "deploymentStatus": "NOT DEPLOYED",
   "backupReference": null,
-  "recoveryCheckpoint": "RG-T1-SHELL",
-  "recommendedNextAction": "Run full verification; lock dependencies and test Electron on Windows",
+  "recoveryCheckpoint": "RG-T2-GALAXY",
+  "recommendedNextAction": "Verify desktop runtime and connect native AI adapter; integrate indexed knowledge at T-4",
   "product": "MIO",
   "auditCommit": "d10cdf06a438e8d7456a233c1d96082ea57a12a3",
   "disabledEngines": [],
