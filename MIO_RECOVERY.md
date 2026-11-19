@@ -142,3 +142,6 @@ Parent 94a63902ea24af90825dc2b4a61c7b8f58f07ffa. Failure-isolated STOP coordinat
 
 ## RG-T19-DEPENDENCY-GATE
 Parent 235a088419e9a70a071d99e82058b34b1d2384c2. Conservative dependency metadata review; missing lock and release evidence remain blocking.
+
+## RG-T19-SECURITY-ACCEPTANCE
+Parent f5d4c085317f0f859c3b085e9a19433b93167e80. Security acceptance metadata assessment; release remains blocked.
