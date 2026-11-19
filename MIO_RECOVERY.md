@@ -94,3 +94,6 @@ Parent 6154bd8a98af8cfe53e4c5b1e42898ca990c577b. Bounded grant authority and fai
 
 ## RG-T18-MODEL-PROBE
 Parent 9549dc5fbf3b23b819e9599c62ea00b6359bf3d0. Local model inventory preflight; live model activation pending.
+
+## RG-T18-GALAXY
+Parent 06f97446f918f97cf18152419d60da8e5501cb3d. Opt-in read-only knowledge galaxy metadata wiring; desktop validation pending.

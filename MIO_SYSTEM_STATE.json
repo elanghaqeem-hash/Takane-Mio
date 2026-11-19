@@ -1,10 +1,10 @@
 {
-  "productVersion": "0.0.30-dev",
+  "productVersion": "0.0.31-dev",
   "directiveVersion": "3.0",
   "repository": "elanghaqeem-hash/Takane-Mio",
   "branch": "regenesis/t0-foundation",
   "lastVerifiedCommit": "97e1f04e34e010527fc08a3321e6f22a399342af",
-  "currentPhase": "T-18.17 (local model inventory probe; real inference pending)",
+  "currentPhase": "T-18.18 (opt-in read-only knowledge galaxy wiring; desktop smoke pending)",
   "completedTasks": [
     "T-0.01 repository metadata and initial commit audit",
     "T-0.02 initial repository inventory"
@@ -43,7 +43,8 @@
     "T-18.14 full repository regression on Node 24 Linux and Windows, actual Electron and local model end-to-end",
     "T-18.15 target CPU/RAM/GPU, model inference, database and renderer performance benchmarks",
     "T-18.16 trusted approval, prompt injection containment, OS sandbox, file/network authority, encrypted persistent memory, durable audit, integrated regression",
-    "T-18.17 actual model download/install, live inference, endpoint identity, token latency, offline test and optional OpenRouter adapter"
+    "T-18.17 actual model download/install, live inference, endpoint identity, token latency, offline test and optional OpenRouter adapter",
+    "T-18.18 Electron knowledge rendering smoke test, trusted consent UI, persistent memory encryption and actual model retrieval integration"
   ],
   "activeEngines": [],
   "modelInventory": [],
@@ -97,12 +98,13 @@
     "13 existing regression cases and four new gate tests rerun locally; full checkout and Node 24 unavailable locally",
     "Session memory character accounting optimized; benchmark is synthetic local Node 22 Linux only, not system latency or RAM/GPU measurement",
     "Clock rollback or clock failure permanently disables this GrantAuthority instance; does not stop unrelated engine instances or already executing work. Grants remain process-local.",
-    "Model probe checks exact inventory entry only, does not authenticate server or verify inference; no model installed in test container. Ollama connection refused; port 8080 /v1/models HTTP 404."
+    "Model probe checks exact inventory entry only, does not authenticate server or verify inference; no model installed in test container. Ollama connection refused; port 8080 /v1/models HTTP 404.",
+    "Galaxy reader opt-in by environment, read-only existing ~/.mio/memory.sqlite, metadata only. No model retrieval binding, encrypted storage, trusted consent UI or Electron execution validation."
   ],
   "deploymentStatus": "NOT DEPLOYED",
   "backupReference": null,
-  "recoveryCheckpoint": "RG-T18-MODEL-PROBE",
-  "recommendedNextAction": "T-18.18 persistent knowledge and CORE/galaxy connection; actual model host activation and target regression still required",
+  "recoveryCheckpoint": "RG-T18-GALAXY",
+  "recommendedNextAction": "T-18.19 isolated Cloudflare web testing environment; actual Electron, live local model, full CI and security integration still required",
   "product": "MIO",
   "auditCommit": "d10cdf06a438e8d7456a233c1d96082ea57a12a3",
   "disabledEngines": [],

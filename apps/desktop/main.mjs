@@ -5,7 +5,9 @@ import { createRuntimeBridge, createDesktopDispatch } from './runtime-bridge.mjs
 const controller=createController();
 let bridge;
 try { bridge=createRuntimeBridge({provider:process.env.MIO_LOCAL_PROVIDER,model:process.env.MIO_LOCAL_MODEL}); } catch { bridge=createRuntimeBridge(); }
-const dispatch=createDesktopDispatch({bridge,hardware:controller.hardware});
+let reader=null;
+const unavailable=()=>({available:false,total:0,records:[]});
+const dispatch=createDesktopDispatch({bridge,hardware:controller.hardware,knowledge:()=>{if(bridge.status().stopped||!reader)return unavailable();try{return reader.snapshot();}catch{return unavailable();}}});
 const page=fileURLToPath(new URL('./index.html',import.meta.url));
 const expectedURL=pathToFileURL(page).href;
 let win=null;
@@ -21,7 +23,8 @@ function createWindow(){
 if(!app.requestSingleInstanceLock()){app.quit();}
 else {
   app.on('second-instance',()=>{if(win){if(win.isMinimized())win.restore();win.focus();}});
-  app.whenReady().then(()=>{
+  app.whenReady().then(async()=>{
+    if(process.env.MIO_KNOWLEDGE_GALAXY==='1'){try{const {createKnowledgeReader}=await import('./knowledge.mjs');const {homedir}=await import('node:os');const {join}=await import('node:path');reader=createKnowledgeReader(join(homedir(),'.mio','memory.sqlite'));}catch{reader=null;}}
     session.defaultSession.setPermissionRequestHandler((_wc,_permission,callback)=>callback(false));
     session.defaultSession.setPermissionCheckHandler(()=>false);
     for(const channel of ['mio:status','mio:hardware','mio:knowledge','mio:stop','mio:chat']){
@@ -30,6 +33,6 @@ else {
     createWindow();
     app.on('activate',()=>{if(!win)createWindow();});
   }).catch(()=>app.quit());
-  app.on('before-quit',()=>{bridge.stop();controller.stop();});
+  app.on('before-quit',()=>{bridge.stop();controller.stop();reader?.close();});
   app.on('window-all-closed',()=>app.quit());
 }
