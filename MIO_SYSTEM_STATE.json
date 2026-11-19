@@ -3,7 +3,7 @@
   "directiveVersion": "3.0",
   "repository": "elanghaqeem-hash/Takane-Mio",
   "branch": "regenesis/t0-foundation",
-  "lastVerifiedCommit": "d2f21a45015eb3428f5e3b6faa5b27f2c503edf1",
+  "lastVerifiedCommit": "4dcc23d591d7405d944c672d28e8f94a2d5b190b",
   "currentPhase": "T-18.11 (recovery bundle foundation; release gates outstanding)",
   "completedTasks": [
     "T-0.01 repository metadata and initial commit audit",
@@ -47,7 +47,7 @@
   },
   "lastSuccessfulBuild": null,
   "lastSuccessfulTest": {
-    "scope": "T-18.06 six additional developer review tests on Linux; source and test Git blobs match locally tested files; existing inspection tests retained separately",
+    "scope": "T-18.11 six in-memory recovery bundle tests; two Git blobs match locally tested files",
     "passed": 6,
     "failed": 0,
     "node": "22.16.0",
