@@ -1,10 +1,10 @@
 {
-  "productVersion": "0.0.31-dev",
+  "productVersion": "0.0.32-dev",
   "directiveVersion": "3.0",
   "repository": "elanghaqeem-hash/Takane-Mio",
   "branch": "regenesis/t0-foundation",
   "lastVerifiedCommit": "28ef09abe8468462d3ad096896bc3b80f8a8b38f",
-  "currentPhase": "T-18.18 (opt-in read-only knowledge galaxy wiring; desktop smoke pending)",
+  "currentPhase": "T-18.19 (isolated web UAT; deployment verification pending)",
   "completedTasks": [
     "T-0.01 repository metadata and initial commit audit",
     "T-0.02 initial repository inventory"
@@ -44,7 +44,8 @@
     "T-18.15 target CPU/RAM/GPU, model inference, database and renderer performance benchmarks",
     "T-18.16 trusted approval, prompt injection containment, OS sandbox, file/network authority, encrypted persistent memory, durable audit, integrated regression",
     "T-18.17 actual model download/install, live inference, endpoint identity, token latency, offline test and optional OpenRouter adapter",
-    "T-18.18 Electron knowledge rendering smoke test, trusted consent UI, persistent memory encryption and actual model retrieval integration"
+    "T-18.18 Electron knowledge rendering smoke test, trusted consent UI, persistent memory encryption and actual model retrieval integration",
+    "T-18.19 browser rendering and deployed endpoint smoke test, authenticated gateway and actual inference explicitly excluded from public demo"
   ],
   "activeEngines": [],
   "modelInventory": [],
@@ -99,12 +100,13 @@
     "Session memory character accounting optimized; benchmark is synthetic local Node 22 Linux only, not system latency or RAM/GPU measurement",
     "Clock rollback or clock failure permanently disables this GrantAuthority instance; does not stop unrelated engine instances or already executing work. Grants remain process-local.",
     "Model probe checks exact inventory entry only, does not authenticate server or verify inference; no model installed in test container. Ollama connection refused; port 8080 /v1/models HTTP 404.",
-    "Galaxy reader opt-in by environment, read-only existing ~/.mio/memory.sqlite, metadata only. No model retrieval binding, encrypted storage, trusted consent UI or Electron execution validation."
+    "Galaxy reader opt-in by environment, read-only existing ~/.mio/memory.sqlite, metadata only. No model retrieval binding, encrypted storage, trusted consent UI or Electron execution validation.",
+    "UAT uses browser-only simulation; no model, credentials, data, persistence or desktop connection. STOP affects only current demo session."
   ],
   "deploymentStatus": "NOT DEPLOYED",
   "backupReference": null,
-  "recoveryCheckpoint": "RG-T18-GALAXY",
-  "recommendedNextAction": "T-18.19 isolated Cloudflare web testing environment; actual Electron, live local model, full CI and security integration still required",
+  "recoveryCheckpoint": "RG-T18-WEB-UAT",
+  "recommendedNextAction": "Validate UAT deployment before T-19; desktop and local inference acceptance gates remain pending",
   "product": "MIO",
   "auditCommit": "d10cdf06a438e8d7456a233c1d96082ea57a12a3",
   "disabledEngines": [],

@@ -97,3 +97,6 @@ Parent 9549dc5fbf3b23b819e9599c62ea00b6359bf3d0. Local model inventory preflight
 
 ## RG-T18-GALAXY
 Parent 06f97446f918f97cf18152419d60da8e5501cb3d. Opt-in read-only knowledge galaxy metadata wiring; desktop validation pending.
+
+## RG-T18-WEB-UAT
+Parent 58fb452f8c706747e4adc98d463895c073f83a9b. Isolated UAT source; deployment status tracked separately.

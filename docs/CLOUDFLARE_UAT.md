@@ -1,0 +1,2 @@
+# Isolated Cloudflare UAT
+Single module apps/web/worker.mjs, upload as ES module via Cloudflare Workers API, new script takane-mio-uat only. Public demo contains no real model, data, secrets or network connection; GET-only, no chat endpoint, STOP affects current browser session only. Existing takane-mio Worker and legacy Pages unchanged. Four local Node 22.16 Linux handler tests passed; browser canvas and actual deployment unverified at source commit. No dependency install or build required for this single module.
