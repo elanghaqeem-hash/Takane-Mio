@@ -1,0 +1,36 @@
+name: Candidate dependency resolution
+on:
+  push:
+    branches: ['regenesis/t0-foundation']
+    paths: ['.github/workflows/dependency-resolution.yml', 'package.json']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  resolve:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          registry-url: 'https://registry.npmjs.org'
+      - name: Resolve lock without lifecycle scripts
+        run: |
+          npm view electron@45.3.4 version --fetch-retries=1
+          npm install --package-lock-only --ignore-scripts --no-audit --no-fund --registry=https://registry.npmjs.org
+          npm run security:dependencies
+      - name: Save candidate lock and manifest for review
+        uses: actions/upload-artifact@v4
+        with:
+          name: candidate-dependency-lock
+          path: |
+            package.json
+            package-lock.json
+          if-no-files-found: error
+          retention-days: 7
+      - name: Audit resolved dependencies
+        run: npm audit --package-lock-only --audit-level=high --registry=https://registry.npmjs.org

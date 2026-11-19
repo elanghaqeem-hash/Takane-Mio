@@ -151,3 +151,6 @@ Parent f1fcc09826def92fa92523d13306c7896705f614. Combined release/security prefl
 
 ## RG-T19-V1-HOLD
 Assessed 91fb0b8a887554d7b2a64726448df055ab48768e. Candidate evaluator returned BLOCKED with 18 requirements outstanding. npm registry DNS failure; no V1 published.
+
+## RG-T19-LOCK-RESOLUTION
+Parent 5b5756f8384f5eedf17f8eab35919934b0b6e8ab. Local registry DNS failure; read-only candidate lock resolution workflow prepared, no lock adopted.
