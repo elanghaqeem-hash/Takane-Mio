@@ -3,7 +3,7 @@
   "directiveVersion": "3.0",
   "repository": "elanghaqeem-hash/Takane-Mio",
   "branch": "regenesis/t0-foundation",
-  "lastVerifiedCommit": "97e1f04e34e010527fc08a3321e6f22a399342af",
+  "lastVerifiedCommit": "28ef09abe8468462d3ad096896bc3b80f8a8b38f",
   "currentPhase": "T-18.18 (opt-in read-only knowledge galaxy wiring; desktop smoke pending)",
   "completedTasks": [
     "T-0.01 repository metadata and initial commit audit",
@@ -55,8 +55,8 @@
   },
   "lastSuccessfulBuild": null,
   "lastSuccessfulTest": {
-    "scope": "T-18.17 five model inventory probe tests using injected HTTP responses; two Git blobs match local source and tests; CLI and full suite not exercised",
-    "passed": 5,
+    "scope": "T-18.18 four read-only knowledge reader tests using real temporary SQLite fixtures; two Git blobs verified; Electron and full suite not exercised",
+    "passed": 4,
     "failed": 0,
     "node": "22.16.0",
     "platform": "Linux",
