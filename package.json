@@ -1,6 +1,6 @@
 {
   "name": "takane-mio",
-  "version": "0.0.33",
+  "version": "0.0.34",
   "private": true,
   "type": "module",
   "main": "apps/desktop/main.mjs",
@@ -17,7 +17,8 @@
     "agent:local": "node scripts/agent-local.mjs",
     "verify:suite": "node scripts/verify-suite.mjs",
     "benchmark:memory": "node scripts/benchmark-memory.mjs",
-    "model:probe": "node scripts/model-probe.mjs"
+    "model:probe": "node scripts/model-probe.mjs",
+    "windows:preflight": "node scripts/windows-preflight.mjs"
   },
   "devDependencies": {
     "electron": "45.3.4"

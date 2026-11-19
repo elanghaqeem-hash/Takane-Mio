@@ -103,3 +103,6 @@ Parent 58fb452f8c706747e4adc98d463895c073f83a9b. Isolated UAT source; deployment
 
 ## RG-T19-RELEASE-GATE
 Parent f563106eb37208067607c10ad73934b0055f355f. V1 blocked pending independent gate evidence.
+
+## RG-T19-WINDOWS-PREFLIGHT
+Parent d81794e8c3ccf033520a8bad5ad0dd0860314e95. Windows development preflight added; installer pending.
