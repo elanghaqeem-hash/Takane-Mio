@@ -1,0 +1,6 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {createController,assertTrustedSender} from '../apps/desktop/controller.mjs';
+test('controller exposes real state and latches STOP',()=>{const c=createController({hardware:()=>({profile:'LIGHT'})});assert.equal(c.status().state,'IDLE');assert.deepEqual(c.hardware(),{profile:'LIGHT'});assert.equal(c.stop().state,'STOPPED');assert.equal(c.status().stopped,true);assert.equal(c.status().modelVerified,false);});
+test('trusted IPC only accepts exact main frame and URL',()=>{const url='file:///app/index.html',frame={url},wc={mainFrame:frame,isDestroyed:()=>false};assert.doesNotThrow(()=>assertTrustedSender({sender:wc,senderFrame:frame},wc,url));for(const event of [{sender:{},senderFrame:frame},{sender:wc,senderFrame:{url}},{sender:wc,senderFrame:null}])assert.throws(()=>assertTrustedSender(event,wc,url));frame.url='https://example.com';assert.throws(()=>assertTrustedSender({sender:wc,senderFrame:frame},wc,url));});
+test('stop calls security gate and publishes core event',()=>{let stopped=false;const c=createController({gate:{stop(){stopped=true;}}});const events=[];c.subscribe(s=>events.push(s.state));c.stop();assert.equal(stopped,true);assert.deepEqual(events,['STOPPED']);});

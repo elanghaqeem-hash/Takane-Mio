@@ -1,0 +1,40 @@
+{
+  "product": "MIO",
+  "productVersion": null,
+  "directiveVersion": "3.0",
+  "repository": "elanghaqeem-hash/Takane-Mio",
+  "branch": "main",
+  "lastVerifiedCommit": "1c3901de6fa32e7a9099190e7e0e136d6f10f46d",
+  "auditCommit": "d10cdf06a438e8d7456a233c1d96082ea57a12a3",
+  "currentPhase": "T-0",
+  "completedTasks": [
+    "T-0.01 repository audit"
+  ],
+  "pendingTasks": [
+    "T-0.02",
+    "T-0.03",
+    "T-0.04",
+    "T-0.05",
+    "T-0.06"
+  ],
+  "activeEngines": [],
+  "disabledEngines": [],
+  "modelInventory": [],
+  "databaseVersion": null,
+  "dependencyVersions": {},
+  "lastSuccessfulBuild": null,
+  "lastSuccessfulTest": null,
+  "securityStatus": "not tested",
+  "knownIssues": [
+    "No executable runtime or dependency manifest at baseline",
+    "Windows host and hardware unverified"
+  ],
+  "deploymentStatus": "not deployed",
+  "backupReference": null,
+  "recoveryCheckpoint": {
+    "type": "source baseline reference only",
+    "commit": "1c3901de6fa32e7a9099190e7e0e136d6f10f46d"
+  },
+  "recommendedNextAction": "T-0.02 inventory existing systems; preserve legacy repository",
+  "updatedAt": "2026-11-19"
+}

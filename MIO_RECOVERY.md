@@ -4,3 +4,6 @@ Work on regenesis/t0-foundation; do not rewrite main. Restore via a new branch f
 
 ## RG-T0-DIAG
 Source checkpoint precedes this change: dcecde460a76cb40334ee5ab0eb878ce851e0a8c. Restore to a fresh branch; verify Git objects and run node --test tests/*.test.mjs. Main has independent audit history at bc363004705814c8da76f95f3436a1486bc5090c; preserve both. External encrypted backup and full directive archival remain pending.
+
+## RG-T1-SHELL
+Parent source: 504faa67abdd9a9f0887deba8e3e1e6f254697. Historical main manifest preserved under docs/audit; no external backup or restore rehearsal. Run npm run check and npm test before attempting desktop startup.

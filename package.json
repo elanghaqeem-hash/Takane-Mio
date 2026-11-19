@@ -1,13 +1,19 @@
 {
   "name": "takane-mio",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "private": true,
   "type": "module",
+  "main": "apps/desktop/main.mjs",
   "engines": {
     "node": ">=24"
   },
   "scripts": {
     "test": "node --test",
-    "check": "node --check packages/security/policy.mjs && node --check packages/core/state.mjs"
+    "check": "node scripts/check.mjs",
+    "start": "electron .",
+    "diagnostics": "node scripts/diagnostics.mjs"
+  },
+  "devDependencies": {
+    "electron": "45.3.4"
   }
 }
