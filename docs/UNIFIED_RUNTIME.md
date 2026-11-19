@@ -1,0 +1,2 @@
+# Partial unified runtime integration
+Facade owns AssistantRuntime, GrantAuthority, TaskScheduler and ProjectWorkspace. Serializes async operations, guards project methods and latches STOP across owned components. Automation is manually polled and restricted to L0 text tools. Caller consent is not trusted UI authorization. No shared CoreState for all engines, persistent workspace, background timer, desktop IPC or live model inference. Five new tests plus 22 local regressions passed; not the full repository suite. Node 22.16.0 Linux.

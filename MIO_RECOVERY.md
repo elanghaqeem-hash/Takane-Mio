@@ -73,3 +73,6 @@ Parent 12028566929e44c6934ed4b7cde7077000469843. Read-only heuristic developer i
 
 ## RG-T18-RECOVERY
 Parent 01c70579900c2b5d8a3fe9e710732bc17d90b6ee. Authenticated in-memory recovery bundle foundation; external backup reference remains null.
+
+## RG-T18-UNIFIED
+Parent 1a912bccd99824ecfec061e776da315ae8e8a9b1. Partial runtime facade; external recovery package and production validation outstanding.

@@ -1,0 +1,11 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {UnifiedRuntime} from '../packages/runtime/unified.mjs';
+const reply=text=>new Response(JSON.stringify({message:{content:text},done:true})+'\n');
+const setup=(fetchImpl=async()=>reply('hello'))=>new UnifiedRuntime({modelConfig:{provider:'ollama',model:'simulated',fetchImpl},clock:()=>1000});
+const job={id:'a',tool:'text.words',args:{text:'hello world'},dueAt:1000,consent:true};
+test('chat and scheduled tool use same lifecycle',async()=>{const m=setup();assert.equal(await m.chat('hi'),'hello');m.authorizeAutomation({consent:true,ttlMs:1000});m.schedule(job);assert.equal((await m.tick())[0].status,'SUCCESS');m.stop();assert.equal(m.status().assistant.state,'STOPPED');await assert.rejects(m.chat('again'));});
+test('automation stays deny default and revocation enforced',async()=>{const m=setup();assert.throws(()=>m.authorizeAutomation({ttlMs:1000}));const g=m.authorizeAutomation({consent:true,ttlMs:1000});m.revokeAutomation(g);m.schedule(job);assert.equal((await m.tick())[0].status,'DENIED');});
+test('project workspace works and is locked after stop',()=>{const m=setup();m.createProject({id:'p',title:'Demo',consent:true});m.addTask('p',{id:'a',title:'Task',dueAt:1000});m.transitionTask('p','a','DOING');m.transitionTask('p','a','DONE');assert.equal(m.projectReport('p').progress,1);m.stop();assert.throws(()=>m.projectReport('p'));assert.throws(()=>m.schedule(job));});
+test('shared busy protection and stop during chat',async()=>{let started;const ready=new Promise(r=>started=r);const m=setup(async(url,{signal})=>{started();return new Promise((resolve,reject)=>signal.addEventListener('abort',()=>reject(signal.reason),{once:true}));});const pending=m.chat('hi');await ready;await assert.rejects(m.tick());assert.throws(()=>m.schedule(job));m.stop();await assert.rejects(pending);assert.equal(m.status().stopped,true);assert.equal(m.status().busy,false);});
+test('review approval preserved through facade',async()=>{const m=setup(async()=>reply(JSON.stringify({steps:[{tool:'text.words',args:{text:'hello world'}}]})));const p=await m.plan('count');await assert.rejects(m.execute(p.id));assert.equal((await m.execute(p.id,{approved:true})).results[0].output.words,2);});

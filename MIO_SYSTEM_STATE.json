@@ -1,10 +1,10 @@
 {
-  "productVersion": "0.0.24-dev",
+  "productVersion": "0.0.25-dev",
   "directiveVersion": "3.0",
   "repository": "elanghaqeem-hash/Takane-Mio",
   "branch": "regenesis/t0-foundation",
   "lastVerifiedCommit": "5541ad306864f48cf71fc72199c74f1649f5c4e1",
-  "currentPhase": "T-18.11 (recovery bundle foundation; release gates outstanding)",
+  "currentPhase": "T-18.12 (partial unified runtime integration)",
   "completedTasks": [
     "T-0.01 repository metadata and initial commit audit",
     "T-0.02 initial repository inventory"
@@ -36,7 +36,8 @@
     "T-18.04 persistent scheduler, desktop/OS lifecycle, durable history, trusted user grants and Windows validation",
     "T-18.05 persistence, project authorization, task hierarchy, knowledge linkage, automation integration and Windows validation",
     "T-18.06 AST analysis, model-assisted coding, verified dependency resolution, repository integration, isolated execution and Windows validation",
-    "T-18.11 encrypted durable backup, key custody, full directive archive, actual SQLite restore and external recovery drill"
+    "T-18.11 encrypted durable backup, key custody, full directive archive, actual SQLite restore and external recovery drill",
+    "T-18.12 remaining engine integration, project persistence, shared desktop control, live model and target validation"
   ],
   "activeEngines": [],
   "modelInventory": [],
@@ -83,12 +84,13 @@
     "Developer inspection uses line-based heuristics only; false positives/negatives expected; no AST, vulnerability database, code execution or repository access.",
     "Developer review proposals check hash consistency only, not authenticity; no file or repository writes.",
     "Recovery bundle authenticates selected caller-supplied bytes only; no encryption, disk restore, actual commit lookup, key management or external backup",
-    "Additional encrypted checkpoint module supports authenticated in-memory text only; caller-supplied key/consent, no disk restore or independent commit lookup."
+    "Additional encrypted checkpoint module supports authenticated in-memory text only; caller-supplied key/consent, no disk restore or independent commit lookup.",
+    "UnifiedRuntime serializes assistant and scheduler operations and guards project methods; no background execution, actual model, shared CoreState across all engines or desktop IPC yet."
   ],
   "deploymentStatus": "NOT DEPLOYED",
   "backupReference": null,
-  "recoveryCheckpoint": "RG-T18-RECOVERY",
-  "recommendedNextAction": "Integrate desktop runtime, full regression, security and Windows release gates",
+  "recoveryCheckpoint": "RG-T18-UNIFIED",
+  "recommendedNextAction": "Wire trusted desktop IPC and actual persistent memory/galaxy, then full regression and Windows testing",
   "product": "MIO",
   "auditCommit": "d10cdf06a438e8d7456a233c1d96082ea57a12a3",
   "disabledEngines": [],
