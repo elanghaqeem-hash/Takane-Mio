@@ -85,3 +85,6 @@ Parent b08d9fd221dbed0f628737fb9da64fa92e22ced2. Targeted recovery path regressi
 
 ## RG-T18-TEST-GATE
 Parent 3fabc780eb4209afe073bb834cf92afef22ceefb. Partial local regression; full suite and release validation remain pending.
+
+## RG-T18-PERFORMANCE
+Parent 2d74507320da3bd94fe663a17445464722c280d2. Incremental session accounting; target performance and release validation pending.
