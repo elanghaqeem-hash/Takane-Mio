@@ -3,7 +3,7 @@
   "directiveVersion": "3.0",
   "repository": "elanghaqeem-hash/Takane-Mio",
   "branch": "regenesis/t0-foundation",
-  "lastVerifiedCommit": "bfe0df62389f809e68d914645abe10f31793db2e",
+  "lastVerifiedCommit": "97e1f04e34e010527fc08a3321e6f22a399342af",
   "currentPhase": "T-18.17 (local model inventory probe; real inference pending)",
   "completedTasks": [
     "T-0.01 repository metadata and initial commit audit",
@@ -54,8 +54,8 @@
   },
   "lastSuccessfulBuild": null,
   "lastSuccessfulTest": {
-    "scope": "T-18.16 six authority hardening tests; three Git blobs match local tested files; no full integration or revised suite gate run",
-    "passed": 6,
+    "scope": "T-18.17 five model inventory probe tests using injected HTTP responses; two Git blobs match local source and tests; CLI and full suite not exercised",
+    "passed": 5,
     "failed": 0,
     "node": "22.16.0",
     "platform": "Linux",
