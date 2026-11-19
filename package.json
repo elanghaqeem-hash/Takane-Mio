@@ -1,6 +1,6 @@
 {
   "name": "takane-mio",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "private": true,
   "type": "module",
   "main": "apps/desktop/main.mjs",
@@ -12,7 +12,8 @@
     "check": "node scripts/check.mjs",
     "start": "electron .",
     "diagnostics": "node scripts/diagnostics.mjs",
-    "chat:local": "node scripts/chat-local.mjs"
+    "chat:local": "node scripts/chat-local.mjs",
+    "memory:local": "node scripts/memory-local.mjs"
   },
   "devDependencies": {
     "electron": "45.3.4"

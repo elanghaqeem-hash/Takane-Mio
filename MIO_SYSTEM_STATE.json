@@ -1,10 +1,10 @@
 {
-  "productVersion": "0.0.4-dev",
+  "productVersion": "0.0.5-dev",
   "directiveVersion": "3.0",
   "repository": "elanghaqeem-hash/Takane-Mio",
   "branch": "regenesis/t0-foundation",
-  "lastVerifiedCommit": "13a3fa20410806f4602fa19fc6b19701a3f337ce",
-  "currentPhase": "T-3 (implementation; earlier gates outstanding)",
+  "lastVerifiedCommit": "2111884a89dde8b2b472a97773613f8a18528da0",
+  "currentPhase": "T-4 (implementation; earlier gates outstanding)",
   "completedTasks": [
     "T-0.01 repository metadata and initial commit audit",
     "T-0.02 initial repository inventory"
@@ -16,7 +16,8 @@
     "T-0.06 target architecture validation",
     "T-1 dependency lock, desktop smoke test, React/TS/Vite, installer",
     "T-2 live authorized knowledge provider, renderer runtime and performance validation",
-    "T-3 live model, desktop chat, streaming UI, OpenRouter opt-in, benchmark"
+    "T-3 live model, desktop chat, streaming UI, OpenRouter opt-in, benchmark",
+    "T-4 SQLite target verification, memory UI, consent audit, encryption, retrieval integration, backup restore"
   ],
   "activeEngines": [],
   "modelInventory": [],
@@ -46,8 +47,8 @@
   ],
   "deploymentStatus": "NOT DEPLOYED",
   "backupReference": null,
-  "recoveryCheckpoint": "RG-T3-LOCAL",
-  "recommendedNextAction": "Run local adapter tests and real model smoke test; connect desktop chat",
+  "recoveryCheckpoint": "RG-T4-MEMORY",
+  "recommendedNextAction": "Verify SQLite and desktop integration; connect governed memory retrieval to local inference",
   "product": "MIO",
   "auditCommit": "d10cdf06a438e8d7456a233c1d96082ea57a12a3",
   "disabledEngines": [],
@@ -55,9 +56,12 @@
     "S01",
     "S02",
     "S03",
+    "S04",
+    "S05",
     "S14",
     "S15",
     "S16"
   ],
-  "updatedAt": "2026-11-19"
+  "updatedAt": "2026-11-19",
+  "plannedDatabaseVersion": 1
 }

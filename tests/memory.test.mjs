@@ -1,0 +1,11 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {mkdtempSync,rmSync} from 'node:fs';
+import {tmpdir} from 'node:os';
+import {join} from 'node:path';
+import {MemoryStore} from '../packages/memory/store.mjs';
+import {SessionMemory} from '../packages/memory/session.mjs';
+test('memory requires explicit consent and valid type',()=>{const db=new MemoryStore();try{assert.throws(()=>db.remember({kind:'semantic',cluster:'a',content:'private'}),/consent/);assert.throws(()=>db.remember({kind:'unknown',cluster:'a',content:'x',consent:true}));assert.equal(db.galaxy().length,0);}finally{db.close();}});
+test('search literal content and galaxy metadata only',()=>{const db=new MemoryStore();try{const id=db.remember({kind:'semantic',cluster:'science',content:'MIO learns 100%',consent:true});assert.equal(db.search('100%')[0].id,id);assert.equal(db.search("' OR 1=1 --").length,0);assert.deepEqual(db.galaxy(),[{id,cluster:'science',indexed:true,authorized:true}]);}finally{db.close();}});
+test('persistent memory reopens and deletion removes knowledge star',()=>{const dir=mkdtempSync(join(tmpdir(),'mio-'));const path=join(dir,'memory.sqlite');let db;try{db=new MemoryStore(path);const id=db.remember({kind:'episodic',cluster:'work',content:'meeting',consent:true});db.close();db=null;db=new MemoryStore(path);assert.equal(db.search('meeting')[0].id,id);assert.equal(db.forget(id),true);assert.equal(db.forget(id),false);assert.deepEqual(db.galaxy(),[]);}finally{db?.close();rmSync(dir,{recursive:true,force:true});}});
+test('session memory bounded, defensive copy and clear',()=>{const m=new SessionMemory({limit:2,maxChars:6});m.append('user','abc');m.append('assistant','de');m.append('user','fg');assert.deepEqual(m.snapshot(),[{role:'assistant',content:'de'},{role:'user',content:'fg'}]);m.snapshot()[0].content='changed';assert.equal(m.snapshot()[0].content,'de');m.clear();assert.deepEqual(m.snapshot(),[]);});

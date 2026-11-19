@@ -6,8 +6,8 @@ Initial baseline: README and gitignore only. No engine is verified. Foundation b
 | S01 Central Core | IN DEVELOPMENT |
 | S02 Intelligence | IN DEVELOPMENT |
 | S03 Native Model Router | IN DEVELOPMENT |
-| S04 Memory | NOT STARTED |
-| S05 Knowledge | NOT STARTED |
+| S04 Memory | IN DEVELOPMENT |
+| S05 Knowledge | IN DEVELOPMENT |
 | S06 Agent | NOT STARTED |
 | S07 Perception | NOT STARTED |
 | S08 Voice | NOT STARTED |

@@ -13,3 +13,6 @@ Parent source cb3f438ae6227df030ef0be339e26dbba59893d3. Galaxy layout determinis
 
 ## RG-T3-LOCAL
 Parent b79b245693934fb3e62544da3df643bcbdaeb0ef. Local runtime source; model inventory empty; no external backup.
+
+## RG-T4-MEMORY
+Parent source 2111884a89dde8b2b472a97773613f8a18528da0. SQLite schema 1 source only; actual database backup and restore not yet verified. Never commit local memory files.
