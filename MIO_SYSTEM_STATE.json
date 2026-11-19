@@ -3,7 +3,7 @@
   "directiveVersion": "3.0",
   "repository": "elanghaqeem-hash/Takane-Mio",
   "branch": "regenesis/t0-foundation",
-  "lastVerifiedCommit": "9ebf60ce1b092664a6d6dda671316675c562f7b0",
+  "lastVerifiedCommit": "44a6df5e745a4f5217d97e40f9a74dcdeca7cfa6",
   "currentPhase": "T-18.15 (session memory micro-optimization; target performance gates pending)",
   "completedTasks": [
     "T-0.01 repository metadata and initial commit audit",
@@ -52,8 +52,8 @@
   },
   "lastSuccessfulBuild": null,
   "lastSuccessfulTest": {
-    "scope": "T-18.14 13 existing targeted regression cases and four suite gate tests with injected subprocess fixtures; 11 Git blobs verified; not full suite",
-    "passed": 17,
+    "scope": "T-18.15 three session budget tests and four revised suite gate tests (injected subprocess fixtures); four Git blobs verified; full repository tests pending",
+    "passed": 7,
     "failed": 0,
     "node": "22.16.0",
     "platform": "Linux",
