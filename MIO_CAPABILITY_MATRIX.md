@@ -4,8 +4,8 @@ Initial baseline: README and gitignore only. No engine is verified. Foundation b
 | Engine | Status |
 |---|---|
 | S01 Central Core | IN DEVELOPMENT |
-| S02 Intelligence | NOT STARTED |
-| S03 Native Model Router | NOT STARTED |
+| S02 Intelligence | IN DEVELOPMENT |
+| S03 Native Model Router | IN DEVELOPMENT |
 | S04 Memory | NOT STARTED |
 | S05 Knowledge | NOT STARTED |
 | S06 Agent | NOT STARTED |

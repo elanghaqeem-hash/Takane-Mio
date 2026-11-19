@@ -1,10 +1,10 @@
 {
-  "productVersion": "0.0.3-dev",
+  "productVersion": "0.0.4-dev",
   "directiveVersion": "3.0",
   "repository": "elanghaqeem-hash/Takane-Mio",
   "branch": "regenesis/t0-foundation",
-  "lastVerifiedCommit": "b7a20701303938e200fc6639f951268035fc376f",
-  "currentPhase": "T-2 (implementation; earlier gates outstanding)",
+  "lastVerifiedCommit": "b79b245693934fb3e62544da3df643bcbdaeb0ef",
+  "currentPhase": "T-3 (implementation; earlier gates outstanding)",
   "completedTasks": [
     "T-0.01 repository metadata and initial commit audit",
     "T-0.02 initial repository inventory"
@@ -15,7 +15,8 @@
     "T-0.05 full directive and external recovery package",
     "T-0.06 target architecture validation",
     "T-1 dependency lock, desktop smoke test, React/TS/Vite, installer",
-    "T-2 live authorized knowledge provider, renderer runtime and performance validation"
+    "T-2 live authorized knowledge provider, renderer runtime and performance validation",
+    "T-3 live model, desktop chat, streaming UI, OpenRouter opt-in, benchmark"
   ],
   "activeEngines": [],
   "modelInventory": [],
@@ -44,13 +45,15 @@
   ],
   "deploymentStatus": "NOT DEPLOYED",
   "backupReference": null,
-  "recoveryCheckpoint": "RG-T2-GALAXY",
-  "recommendedNextAction": "Verify desktop runtime and connect native AI adapter; integrate indexed knowledge at T-4",
+  "recoveryCheckpoint": "RG-T3-LOCAL",
+  "recommendedNextAction": "Run local adapter tests and real model smoke test; connect desktop chat",
   "product": "MIO",
   "auditCommit": "d10cdf06a438e8d7456a233c1d96082ea57a12a3",
   "disabledEngines": [],
   "inDevelopmentEngines": [
     "S01",
+    "S02",
+    "S03",
     "S14",
     "S15",
     "S16"

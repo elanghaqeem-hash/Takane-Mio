@@ -10,3 +10,6 @@ Parent source: 504faa67abdd9a9f0887deba8e3e1e6f254697. Historical main manifest 
 
 ## RG-T2-GALAXY
 Parent source cb3f438ae6227df030ef0be339e26dbba59893d3. Galaxy layout deterministic; no real knowledge provider yet. External backup still pending.
+
+## RG-T3-LOCAL
+Parent b79b245693934fb3e62544da3df643bcbdaeb0ef. Local runtime source; model inventory empty; no external backup.
