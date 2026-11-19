@@ -133,3 +133,6 @@ Parent 0bc72fe243cb0673978351d8251cc9081cb905a4. Strict proposal parsing and too
 
 ## RG-T19-ENCRYPTED-MEMORY
 Parent 4fb3dae4b2dd14d204ac23deb48a3b528cfeddf3. Experimental separate encrypted store; key verification and integration pending.
+
+## RG-T19-AGENT-STOP
+Parent 13fd93469c12000e19e5dd0203cdcbbd18844352. Shared CORE stop propagation; integrated security acceptance pending.

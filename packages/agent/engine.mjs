@@ -22,6 +22,7 @@ export class AgentEngine{
  async execute(steps){
   if(this.#running||this.#core.snapshot.stopped)throw new Error('Agent unavailable');
   const plan=this.plan(steps);this.#running=true;const results=[];
+  const unsubscribe=this.#core.subscribe(s=>{if(s.stopped)this.#gate.stop();});
   try{
    if(this.#autonomy==='A0')return {status:'PLAN_ONLY',plan};
    for(const step of plan){
@@ -31,10 +32,11 @@ export class AgentEngine{
     if(this.#core.snapshot.stopped)throw new Error('Agent stopped');
     this.#core.transition('EXECUTING');
     const output=await this.#gate.execute(operation,signal=>tool.run(step.args,signal));
+    if(this.#core.snapshot.stopped)throw new Error('Agent stopped');
     results.push({index:step.index,tool:step.tool,output});
    }
    this.#core.transition('SUCCESS');return {status:'SUCCESS',results};
   }catch(e){if(!this.#core.snapshot.stopped)this.#core.transition('ERROR');return {status:this.#core.snapshot.stopped?'STOPPED':'FAILED',results,error:e instanceof Error?e.message:'Unknown error'};}
-  finally{this.#running=false;}
+  finally{unsubscribe();this.#running=false;}
  }
 }

@@ -1,0 +1,10 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {AgentEngine} from '../packages/agent/engine.mjs';
+import {CoreState} from '../packages/core/state.mjs';
+const grant={level:0,scope:'x',purpose:'test',expiresAt:Date.now()+600000};
+const steps=[{tool:'test.run',args:{}},{tool:'test.run',args:{}}];
+const registry=run=>({get:id=>({id,level:0,scope:'x',purpose:'test',validate:()=>true,run})});
+test('external CORE stop aborts active tool and rejects late output',async()=>{const core=new CoreState();let finish,signal,calls=0;const a=new AgentEngine({core,grants:[grant],registry:registry((_,s)=>{calls++;signal=s;return new Promise(r=>finish=r);})});const pending=a.execute(steps);core.stop();assert.equal(signal.aborted,true);finish('late');const result=await pending;assert.equal(result.status,'STOPPED');assert.deepEqual(result.results,[]);assert.equal(calls,1);});
+test('CORE stop on EXECUTING transition prevents handler invocation',async()=>{const core=new CoreState();let calls=0;core.subscribe(s=>{if(s.state==='EXECUTING')core.stop();});const a=new AgentEngine({core,grants:[grant],registry:registry(()=>++calls)});assert.equal((await a.execute(steps)).status,'STOPPED');assert.equal(calls,0);});
+test('successful repeated executions preserve normal behavior',async()=>{const core=new CoreState();const a=new AgentEngine({core,grants:[grant],registry:registry(()=>42)});for(let i=0;i<12;i++){const r=await a.execute(steps);assert.equal(r.status,'SUCCESS');assert.equal(r.results.length,2);}core.stop();await assert.rejects(a.execute(steps));});

@@ -1,10 +1,10 @@
 {
-  "productVersion": "0.0.43-dev",
+  "productVersion": "0.0.44-dev",
   "directiveVersion": "3.0",
   "repository": "elanghaqeem-hash/Takane-Mio",
   "branch": "regenesis/t0-foundation",
   "lastVerifiedCommit": "39b58c707f61ca28a144639c0a7b0ecea1ef7828",
-  "currentPhase": "T-19.08.04 (separate encrypted memory store; integration and key custody pending)",
+  "currentPhase": "T-19.08.05 (agent shared CORE stop propagation; integrated acceptance pending)",
   "completedTasks": [
     "T-0.01 repository metadata and initial commit audit",
     "T-0.02 initial repository inventory"
@@ -56,7 +56,8 @@
     "T-19.08 integrated security acceptance, trusted approval UI, authenticated model, encrypted persistent memory, OS sandbox, dependency scan and target tests",
     "T-19.08.02 trusted approval UI/identity, full AssistantRuntime and ReviewedSession regression",
     "T-19.08.03 integrated adversarial testing, trusted registry and approval UI, independent security acceptance",
-    "T-19.08.04 encrypted store key verification before write, OS key custody, authenticated consent, explicit legacy migration, desktop and backup integration, Windows and security tests"
+    "T-19.08.04 encrypted store key verification before write, OS key custody, authenticated consent, explicit legacy migration, desktop and backup integration, Windows and security tests",
+    "T-19.08.05 actual agent integration, persistent audit, trusted tool registration and OS isolation; target regression"
   ],
   "activeEngines": [],
   "modelInventory": [],
@@ -121,12 +122,13 @@
     "Stream transport caps are defense in depth, not endpoint authentication or OS isolation; incoming chunks can already be allocated by transport and cancellation is cooperative. Full security and target CI remain pending.",
     "ApprovalVault process-local caller confirmation is not independent user authentication; execution grants retain wall-clock policy. Integration not executed.",
     "Strict proposal parser rejects duplicate keys and unauthorized tool IDs; it does not prevent arbitrary prompt injection in model text, authenticate registry implementations or establish OS isolation.",
-    "Separate schema 2 encrypted record store not integrated. IDs/count/storage patterns visible; no whole-database encryption, rollback/deletion detection, authenticated key check before write, OS key management or guaranteed secure deletion. Wrong key can open and insert records; never use wrong key or untrusted filesystem. Existing schema 1 stays plaintext."
+    "Separate schema 2 encrypted record store not integrated. IDs/count/storage patterns visible; no whole-database encryption, rollback/deletion detection, authenticated key check before write, OS key management or guaranteed secure deletion. Wrong key can open and insert records; never use wrong key or untrusted filesystem. Existing schema 1 stays plaintext.",
+    "Agent subscribes to its own shared CoreState only during execute. Abort is cooperative; no forced task termination, rollback, persistent audit or cancellation of unresolved approval callbacks. Other CORE instances remain independent."
   ],
   "deploymentStatus": "Two isolated Cloudflare staging Workers deployed (BYOK and simulation UAT; management API verified); public HTTP/browser unverified; desktop not deployed",
   "backupReference": null,
-  "recoveryCheckpoint": "RG-T19-ENCRYPTED-MEMORY",
-  "recommendedNextAction": "T-19.08.05 agent execution security; integrate encrypted memory and trusted key custody before V1",
+  "recoveryCheckpoint": "RG-T19-AGENT-STOP",
+  "recommendedNextAction": "T-19.08.06 integrated Emergency STOP across runtime boundaries; close encrypted store key verification gap before V1",
   "product": "MIO",
   "auditCommit": "d10cdf06a438e8d7456a233c1d96082ea57a12a3",
   "disabledEngines": [],
