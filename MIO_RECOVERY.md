@@ -109,3 +109,6 @@ Parent d81794e8c3ccf033520a8bad5ad0dd0860314e95. Windows development preflight a
 
 ## RG-T19-DESKTOP-STAGE
 Parent c4a5557961ee78d874bc9e047e729ec5ccf1ee06. Source staging only; installer and Windows validation pending.
+
+## RG-T19-INFERENCE-SMOKE
+Parent 5adac80ce2510c6d8efed1f843fbd2a06f3efa74. Local challenge diagnostic; actual inference pending.

@@ -1,6 +1,6 @@
 {
   "name": "takane-mio",
-  "version": "0.0.35",
+  "version": "0.0.36",
   "private": true,
   "type": "module",
   "main": "apps/desktop/main.mjs",
@@ -19,7 +19,8 @@
     "benchmark:memory": "node scripts/benchmark-memory.mjs",
     "model:probe": "node scripts/model-probe.mjs",
     "windows:preflight": "node scripts/windows-preflight.mjs",
-    "stage:desktop": "node scripts/stage-desktop.mjs"
+    "stage:desktop": "node scripts/stage-desktop.mjs",
+    "model:smoke": "node scripts/model-smoke.mjs"
   },
   "devDependencies": {
     "electron": "45.3.4"
