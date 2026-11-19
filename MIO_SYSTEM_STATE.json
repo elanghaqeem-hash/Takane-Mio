@@ -3,7 +3,7 @@
   "directiveVersion": "3.0",
   "repository": "elanghaqeem-hash/Takane-Mio",
   "branch": "regenesis/t0-foundation",
-  "lastVerifiedCommit": "c9023d2e05fc2dccb1b40ac35fb3efa36e1c475c",
+  "lastVerifiedCommit": "3e9aaa48cb03f2437011e67e61e1eb0ac47ce1ab",
   "currentPhase": "T-18 (partial hardening; release gates outstanding)",
   "completedTasks": [
     "T-0.01 repository metadata and initial commit audit",
@@ -42,8 +42,8 @@
   },
   "lastSuccessfulBuild": null,
   "lastSuccessfulTest": {
-    "scope": "T-17 five planning and feedback tests with mock registry/router; both Git blobs match locally tested files",
-    "passed": 5,
+    "scope": "T-18 four reviewed session integration tests with simulated router; eight Git blobs match local tested files",
+    "passed": 4,
     "failed": 0,
     "node": "22.16.0",
     "platform": "Linux",
