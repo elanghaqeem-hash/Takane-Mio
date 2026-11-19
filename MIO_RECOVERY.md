@@ -79,3 +79,6 @@ Parent 1a912bccd99824ecfec061e776da315ae8e8a9b1. Partial runtime facade; externa
 
 ## RG-T18-DESKTOP
 Parent 8183931438224b5c131a43f1371bf7893e542bb6. Partial Electron chat wiring; actual desktop build and smoke test outstanding.
+
+## RG-T18-QA
+Parent b08d9fd221dbed0f628737fb9da64fa92e22ced2. Targeted recovery path regression; full suite and external backup still pending.
