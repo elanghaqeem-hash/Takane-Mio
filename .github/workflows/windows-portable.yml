@@ -1,0 +1,53 @@
+name: Windows portable candidate
+on:
+  workflow_dispatch:
+    inputs:
+      reviewed_commit:
+        description: Exact reviewed commit SHA (lock and Electron install script)
+        required: true
+        type: string
+permissions:
+  contents: read
+jobs:
+  package:
+    if: github.ref == 'refs/heads/regenesis/t0-foundation' && inputs.reviewed_commit == github.sha
+    runs-on: windows-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          registry-url: 'https://registry.npmjs.org'
+      - run: npm run security:dependencies
+      - run: npm run verify:suite
+      - run: npm ci --ignore-scripts --no-audit --no-fund
+      - run: node node_modules/electron/install.js
+      - run: npm run windows:preflight
+      - name: Assemble unsigned portable candidate
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $stage = Join-Path $env:RUNNER_TEMP 'mio-source'
+          $portable = Join-Path $env:RUNNER_TEMP 'mio-portable'
+          npm run stage:desktop -- $stage
+          if ($LASTEXITCODE -ne 0) { throw 'Staging failed' }
+          if (Test-Path $portable) { throw 'Output already exists' }
+          Copy-Item -LiteralPath 'node_modules/electron/dist' -Destination $portable -Recurse
+          $app = Join-Path $portable 'resources/app'
+          if (Test-Path $app) { throw 'Application path already exists' }
+          Move-Item -LiteralPath $stage -Destination $app
+          if (!(Test-Path (Join-Path $portable 'electron.exe'))) { throw 'Executable missing' }
+          $zip = Join-Path $env:RUNNER_TEMP 'takane-mio-unsigned-portable.zip'
+          Compress-Archive -Path (Join-Path $portable '*') -DestinationPath $zip
+          (Get-FileHash -Algorithm SHA256 -LiteralPath $zip).Hash | Set-Content "$zip.sha256"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: unsigned-windows-portable-review-only
+          path: |
+            ${{ runner.temp }}/takane-mio-unsigned-portable.zip
+            ${{ runner.temp }}/takane-mio-unsigned-portable.zip.sha256
+          if-no-files-found: error
+          retention-days: 7

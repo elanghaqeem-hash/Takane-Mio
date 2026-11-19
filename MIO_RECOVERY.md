@@ -159,3 +159,6 @@ Static review: seven YAML configuration assertions passed; matching workflow blo
 
 ## RG-T19-PARTIAL-REGRESSION
 Assessed 92052b0369654a63842b2bcbc1a2ee189c16c6c4. 28 exact Git blobs, 12 test files, 59 passed, 0 failed/skipped, Node 22.16 Linux. Full checkout/Node 24/Windows pending; no release.
+
+## RG-T19-WINDOWS-PORTABLE
+Manual review-only portable build workflow; seven static checks passed, Windows runtime and actual artifact pending.
