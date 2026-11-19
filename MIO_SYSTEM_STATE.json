@@ -3,8 +3,8 @@
   "directiveVersion": "3.0",
   "repository": "elanghaqeem-hash/Takane-Mio",
   "branch": "regenesis/t0-foundation",
-  "lastVerifiedCommit": "6dfdefe619ae3efb83409d935b6d8019531fe808",
-  "currentPhase": "T-19.09 (release candidate preflight BLOCKED)",
+  "lastVerifiedCommit": "91fb0b8a887554d7b2a64726448df055ab48768e",
+  "currentPhase": "T-19.10 (V1 release withheld; target remediation required)",
   "completedTasks": [
     "T-0.01 repository metadata and initial commit audit",
     "T-0.02 initial repository inventory"
@@ -72,7 +72,7 @@
   },
   "lastSuccessfulBuild": null,
   "lastSuccessfulTest": {
-    "scope": "T-19.09 five combined candidate gate tests; four Git blobs match local fixture; no full suite/Windows",
+    "scope": "T-19.10 rerun existing candidate tests in Linux fixture; not full regression",
     "passed": 5,
     "failed": 0,
     "node": "22.16.0",
@@ -135,8 +135,8 @@
   ],
   "deploymentStatus": "Two isolated Cloudflare staging Workers deployed (BYOK and simulation UAT; management API verified); public HTTP/browser unverified; desktop not deployed",
   "backupReference": null,
-  "recoveryCheckpoint": "RG-T19-CANDIDATE",
-  "recommendedNextAction": "Resolve release blockers: genuine dependency lock, full regression and Windows desktop/local inference validation before V1",
+  "recoveryCheckpoint": "RG-T19-V1-HOLD",
+  "recommendedNextAction": "T-19.10.01 resolve verified npm registry access and dependency lock, validate target Windows and real local inference",
   "product": "MIO",
   "auditCommit": "d10cdf06a438e8d7456a233c1d96082ea57a12a3",
   "disabledEngines": [],
@@ -181,5 +181,17 @@
     "optimizedMedianMs": 5.36401,
     "platform": "Linux",
     "node": "22.16.0"
+  },
+  "releaseAssessment": {
+    "assessedCommit": "91fb0b8a887554d7b2a64726448df055ab48768e",
+    "decision": "BLOCKED",
+    "requirements": 18,
+    "evidenceAccepted": 0,
+    "registry": "EAI_AGAIN",
+    "lockPresent": false,
+    "ciEvidence": "not returned by PR-filtered workflow/status queries",
+    "localModelRuntime": "ollama and llama-server not on PATH",
+    "platform": "Linux",
+    "releaseCreated": false
   }
 }

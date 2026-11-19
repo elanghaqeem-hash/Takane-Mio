@@ -148,3 +148,6 @@ Parent f5d4c085317f0f859c3b085e9a19433b93167e80. Security acceptance metadata as
 
 ## RG-T19-CANDIDATE
 Parent f1fcc09826def92fa92523d13306c7896705f614. Combined release/security preflight; promotion blocked.
+
+## RG-T19-V1-HOLD
+Assessed 91fb0b8a887554d7b2a64726448df055ab48768e. Candidate evaluator returned BLOCKED with 18 requirements outstanding. npm registry DNS failure; no V1 published.

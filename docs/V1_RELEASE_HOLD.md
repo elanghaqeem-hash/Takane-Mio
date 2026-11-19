@@ -1,0 +1,6 @@
+# T-19.10 — V1 release hold
+Assessed commit: 91fb0b8a887554d7b2a64726448df055ab48768e
+
+Actual evidence: five existing candidate unit tests rerun successfully on Linux Node 22.16.0; candidate evaluator with no integrated evidence returned BLOCKED with 18 outstanding requirements. GitHub package-lock.json lookup returned 404; npm view electron@45.3.4 version failed EAI_AGAIN; PR-filtered workflows and combined status returned no records (not proof that no CI ran). ollama and llama-server absent from PATH. No Windows host, installer, production release or new deployment.
+
+Remediation order: (1) trusted registry access, verify Electron version and supported release, generate lock with npm install --package-lock-only --ignore-scripts, review lock and npm audit; (2) Node 24 full suite Linux and Windows; (3) review install scripts and Electron artifact integrity before installation; (4) desktop smoke and installer; (5) local model and offline network-isolation test; (6) trusted approval, encrypted memory/key custody, integrated STOP, security and recovery tests; (7) operator acceptance and independent review of exact candidate commit. Never substitute synthetic evidence or publish while blocked.
