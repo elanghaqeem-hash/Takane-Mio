@@ -8,7 +8,7 @@ Initial baseline: README and gitignore only. No engine is verified. Foundation b
 | S03 Native Model Router | IN DEVELOPMENT |
 | S04 Memory | IN DEVELOPMENT |
 | S05 Knowledge | IN DEVELOPMENT |
-| S06 Agent | NOT STARTED |
+| S06 Agent | IN DEVELOPMENT |
 | S07 Perception | NOT STARTED |
 | S08 Voice | NOT STARTED |
 | S09 Emotional Intelligence | NOT STARTED |

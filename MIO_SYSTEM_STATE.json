@@ -1,10 +1,10 @@
 {
-  "productVersion": "0.0.5-dev",
+  "productVersion": "0.0.6-dev",
   "directiveVersion": "3.0",
   "repository": "elanghaqeem-hash/Takane-Mio",
   "branch": "regenesis/t0-foundation",
-  "lastVerifiedCommit": "16ba7ecf1337c3f665cba303167a2272b01cfdcd",
-  "currentPhase": "T-4 (implementation; earlier gates outstanding)",
+  "lastVerifiedCommit": "d35e7e2d0aa9f6d9be9987877805e3c50194f356",
+  "currentPhase": "T-5 (implementation; earlier gates outstanding)",
   "completedTasks": [
     "T-0.01 repository metadata and initial commit audit",
     "T-0.02 initial repository inventory"
@@ -17,7 +17,8 @@
     "T-1 dependency lock, desktop smoke test, React/TS/Vite, installer",
     "T-2 live authorized knowledge provider, renderer runtime and performance validation",
     "T-3 live model, desktop chat, streaming UI, OpenRouter opt-in, benchmark",
-    "T-4 SQLite target verification, memory UI, consent audit, encryption, retrieval integration, backup restore"
+    "T-4 SQLite target verification, memory UI, consent audit, encryption, retrieval integration, backup restore",
+    "T-5 model planning, trusted approval UI, durable task journal, desktop integration and target validation"
   ],
   "activeEngines": [],
   "modelInventory": [],
@@ -48,8 +49,8 @@
   ],
   "deploymentStatus": "NOT DEPLOYED",
   "backupReference": null,
-  "recoveryCheckpoint": "RG-T4-MEMORY",
-  "recommendedNextAction": "Verify SQLite and desktop integration; connect governed memory retrieval to local inference",
+  "recoveryCheckpoint": "RG-T5-AGENT",
+  "recommendedNextAction": "Verify agent tests, then integrate trusted grant authority and audit journal in T-6",
   "product": "MIO",
   "auditCommit": "d10cdf06a438e8d7456a233c1d96082ea57a12a3",
   "disabledEngines": [],
@@ -59,6 +60,7 @@
     "S03",
     "S04",
     "S05",
+    "S06",
     "S14",
     "S15",
     "S16"

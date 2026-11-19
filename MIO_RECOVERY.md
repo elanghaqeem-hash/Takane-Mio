@@ -16,3 +16,6 @@ Parent b79b245693934fb3e62544da3df643bcbdaeb0ef. Local runtime source; model inv
 
 ## RG-T4-MEMORY
 Parent source 2111884a89dde8b2b472a97773613f8a18528da0. SQLite schema 1 source only; actual database backup and restore not yet verified. Never commit local memory files.
+
+## RG-T5-AGENT
+Parent d35e7e2d0aa9f6d9be9987877805e3c50194f356. Structured agent source; no durable task resume or external backup.
