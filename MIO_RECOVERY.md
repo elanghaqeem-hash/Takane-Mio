@@ -106,3 +106,6 @@ Parent f563106eb37208067607c10ad73934b0055f355f. V1 blocked pending independent 
 
 ## RG-T19-WINDOWS-PREFLIGHT
 Parent d81794e8c3ccf033520a8bad5ad0dd0860314e95. Windows development preflight added; installer pending.
+
+## RG-T19-DESKTOP-STAGE
+Parent c4a5557961ee78d874bc9e047e729ec5ccf1ee06. Source staging only; installer and Windows validation pending.

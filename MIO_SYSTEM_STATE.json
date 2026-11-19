@@ -1,10 +1,10 @@
 {
-  "productVersion": "0.0.34-dev",
+  "productVersion": "0.0.35-dev",
   "directiveVersion": "3.0",
   "repository": "elanghaqeem-hash/Takane-Mio",
   "branch": "regenesis/t0-foundation",
   "lastVerifiedCommit": "d27dccb0caccb9c8fab36fb02f516eea25d4efa4",
-  "currentPhase": "T-19.02 Windows preflight; packaging pending",
+  "currentPhase": "T-19.03 (desktop source staging; installer blocked)",
   "completedTasks": [
     "T-0.01 repository metadata and initial commit audit",
     "T-0.02 initial repository inventory"
@@ -47,7 +47,8 @@
     "T-18.18 Electron knowledge rendering smoke test, trusted consent UI, persistent memory encryption and actual model retrieval integration",
     "T-18.19 browser rendering and deployed endpoint smoke test, authenticated gateway and actual inference explicitly excluded from public demo",
     "T-19: nine V1 release gates require independently verified artifacts; no production release",
-    "T-19.02 actual Windows preflight, dependency lock, executable launch and installer packaging"
+    "T-19.02 actual Windows preflight, dependency lock, executable launch and installer packaging",
+    "T-19.03 actual dependency resolution, verified Windows Electron binary, portable package, installer/signing and clean-machine test"
   ],
   "activeEngines": [],
   "modelInventory": [],
@@ -104,12 +105,13 @@
     "Model probe checks exact inventory entry only, does not authenticate server or verify inference; no model installed in test container. Ollama connection refused; port 8080 /v1/models HTTP 404.",
     "Galaxy reader opt-in by environment, read-only existing ~/.mio/memory.sqlite, metadata only. No model retrieval binding, encrypted storage, trusted consent UI or Electron execution validation.",
     "UAT uses browser-only simulation; no model, credentials, data, persistence or desktop connection. STOP affects only current demo session.",
-    "Live worker code differs from repository UAT; existing BYOK source archived separately, no deployment changed. Public HTTP DNS unavailable locally."
+    "Live worker code differs from repository UAT; existing BYOK source archived separately, no deployment changed. Public HTTP DNS unavailable locally.",
+    "Desktop staging is source-only, for trusted checkout; extension filtering is not secret scanning or filesystem isolation. No executable or installer generated."
   ],
   "deploymentStatus": "Two isolated Cloudflare staging Workers deployed (BYOK and simulation UAT; management API verified); public HTTP/browser unverified; desktop not deployed",
   "backupReference": null,
-  "recoveryCheckpoint": "RG-T19-WINDOWS-PREFLIGHT",
-  "recommendedNextAction": "T-19.03 obtain dependency lock and build/test actual Windows package",
+  "recoveryCheckpoint": "RG-T19-DESKTOP-STAGE",
+  "recommendedNextAction": "Validate Electron dependency and lockfile on Windows, produce and smoke-test portable package, then installer; local model activation pending",
   "product": "MIO",
   "auditCommit": "d10cdf06a438e8d7456a233c1d96082ea57a12a3",
   "disabledEngines": [],
