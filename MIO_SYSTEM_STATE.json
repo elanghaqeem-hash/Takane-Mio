@@ -3,7 +3,7 @@
   "directiveVersion": "3.0",
   "repository": "elanghaqeem-hash/Takane-Mio",
   "branch": "regenesis/t0-foundation",
-  "lastVerifiedCommit": "8fb6288153e61bac946c1e52c95d6652222e6266",
+  "lastVerifiedCommit": "9ebf60ce1b092664a6d6dda671316675c562f7b0",
   "currentPhase": "T-18.14 (partial regression and full-suite CI gate; release validation pending)",
   "completedTasks": [
     "T-0.01 repository metadata and initial commit audit",
@@ -51,8 +51,8 @@
   },
   "lastSuccessfulBuild": null,
   "lastSuccessfulTest": {
-    "scope": "T-18.14 targeted recovery QA: 3 new and 6 existing tests passed after correction; 3 Git blobs match locally tested files. Not full regression.",
-    "passed": 9,
+    "scope": "T-18.14 13 existing targeted regression cases and four suite gate tests with injected subprocess fixtures; 11 Git blobs verified; not full suite",
+    "passed": 17,
     "failed": 0,
     "node": "22.16.0",
     "platform": "Linux",
