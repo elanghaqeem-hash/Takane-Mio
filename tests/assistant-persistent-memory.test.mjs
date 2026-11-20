@@ -1,0 +1,20 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {AssistantRuntime} from '../packages/runtime/assistant.mjs';
+import {EncryptedMemoryStore} from '../packages/memory/encrypted.mjs';
+import {mkdtemp,rm} from 'node:fs/promises';
+import {tmpdir} from 'node:os';
+import {join} from 'node:path';
+import {randomBytes} from 'node:crypto';
+const config={provider:'ollama',model:'fixture',fetchImpl:async()=>new Response('{"message":{"content":"hello"},"done":true}\n')};
+const record={kind:'semantic',cluster:'project',content:'Takane Mio local knowledge'};
+test('explicit consent, persistence across runtime restart, deletion',async t=>{
+ const dir=await mkdtemp(join(tmpdir(),'mio-persist-'));t.after(()=>rm(dir,{recursive:true,force:true}));const path=join(dir,'memory.sqlite'),key=randomBytes(32);
+ let a=new AssistantRuntime(config,{persistentMemory:new EncryptedMemoryStore(path,{key,create:true})});t.after(()=>{a.stop();key.fill(0);});
+ assert.throws(()=>a.remember(record),/consent/);assert.throws(()=>a.recall('Takane'),/consent/);
+ const id=a.remember(record,{consent:true});a.stop();assert.throws(()=>a.recall('Takane',{consent:true}),/unavailable/);
+ a=new AssistantRuntime(config,{persistentMemory:new EncryptedMemoryStore(path,{key})});
+ assert.equal(a.recall('Takane',{consent:true})[0].id,id);assert.throws(()=>a.forget(id),/consent/);assert.equal(a.forget(id,{consent:true}),true);assert.deepEqual(a.recall('Takane',{consent:true}),[]);
+});
+test('unconfigured store fails closed',()=>{const a=new AssistantRuntime(config);assert.equal(a.status().persistentMemoryConfigured,false);assert.throws(()=>a.remember(record,{consent:true}),/not configured/);});
+test('ordinary chat not automatically saved or recalled',async()=>{let calls=0,closed=0;const store={remember:()=>calls++,search:()=>calls++,forget:()=>calls++,close:()=>closed++};const a=new AssistantRuntime(config,{persistentMemory:store});await a.chat('private message');a.clear();assert.equal(calls,0);a.stop();a.stop();assert.equal(closed,1);});
