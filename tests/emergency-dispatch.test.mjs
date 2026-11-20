@@ -1,0 +1,5 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {EmergencyStop} from '../packages/core/emergency-stop.mjs';
+test('reentrant STOP distinguishes dispatch in progress from completion',()=>{const s=new EmergencyStop();assert.equal(s.status().dispatchComplete,false);s.register('first',()=>{const r=s.stop();assert.equal(r.stopped,true);assert.equal(r.dispatching,true);assert.equal(r.dispatchComplete,false);});s.register('second',()=>{});const r=s.stop();assert.equal(r.dispatchComplete,true);assert.equal(r.dispatching,false);assert.equal(r.cleanupFailed,false);assert.equal(r.results.length,2);});
+test('failed or async cleanup is reported without skipping remaining handlers',()=>{const s=new EmergencyStop();s.register('broken',()=>{throw Error('private');});s.register('async',async()=>{});s.register('last',()=>{});const r=s.stop();assert.equal(r.dispatchComplete,true);assert.equal(r.cleanupFailed,true);assert.deepEqual(r.results.map(x=>x.status),['FAILED','FAILED','RETURNED']);assert.deepEqual(s.stop(),r);});
