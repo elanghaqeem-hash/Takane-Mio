@@ -1,0 +1,13 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {spawnSync} from 'node:child_process';
+import {mkdtempSync,writeFileSync,rmSync} from 'node:fs';
+import {tmpdir} from 'node:os';
+import {join} from 'node:path';
+import {fileURLToPath} from 'node:url';
+const script=fileURLToPath(new URL('../scripts/model-readiness.mjs',import.meta.url));
+const run=(...args)=>spawnSync(process.execPath,[script,...args],{encoding:'utf8',timeout:10000});
+const consent='--confirm-local-inference';
+test('readiness CLI refuses missing consent and unknown provider',()=>{for(const args of [[],['unknown','fixture','x','0'.repeat(64),consent]]){const r=run(...args);assert.equal(r.status,1);assert.match(r.stderr,/Usage:/);}});
+test('readiness CLI validates digest before network activity',()=>{const r=run('ollama','fixture',join(tmpdir(),'missing-runtime'),'invalid',consent);assert.equal(r.status,1);assert.match(r.stderr,/Invalid verification configuration/);});
+test('runtime digest mismatch blocks activation without live model',t=>{const dir=mkdtempSync(join(tmpdir(),'mio-readiness-'));t.after(()=>rmSync(dir,{recursive:true,force:true}));const file=join(dir,'runtime.bin');writeFileSync(file,'fixture');const r=run('ollama','fixture',file,'0'.repeat(64),consent);assert.equal(r.status,1);assert.deepEqual(JSON.parse(r.stdout),{serverAuthenticated:false,offlineVerified:false,releaseApproved:false,integrity:'DIGEST_MISMATCH',activation:'NOT_RUN',decision:'BLOCKED'});});
