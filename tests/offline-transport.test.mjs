@@ -1,0 +1,11 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {createOfflineTransport} from '../packages/intelligence/offline-transport.mjs';
+const url='http://127.0.0.1:11434/api/tags';
+test('allowed route forces safe fetch options',async()=>{let seen;const f=createOfflineTransport({provider:'ollama',fetchImpl:async(u,i)=>{seen=[u,i];return new Response('{}');}});await f(url,{method:'GET',redirect:'follow',credentials:'include'});assert.deepEqual(seen,[url,{method:'GET',redirect:'error',credentials:'omit'}]);});
+test('external, alternate spelling and cross-provider routes denied before fetch',async()=>{const f=createOfflineTransport({provider:'ollama',fetchImpl:()=>assert.fail('network called')});for(const u of ['https://example.com','http://localhost:11434/api/tags',url+'?x=1','http://127.0.0.1:8080/v1/models','http://127.0.0.1:11434@evil.test/api/tags'])await assert.rejects(f(u,{method:'GET'}),/denied/);});
+test('wrong method denied',async()=>{const f=createOfflineTransport({provider:'ollama',fetchImpl:()=>assert.fail('network called')});await assert.rejects(f(url,{method:'POST'}),/denied/);});
+test('llama cpp chat route allowed',async()=>{const f=createOfflineTransport({provider:'llamacpp',fetchImpl:async()=>new Response('ok')});assert.equal(await (await f('http://127.0.0.1:8080/v1/chat/completions',{method:'POST'})).text(),'ok');});
+test('redirected response denied',async()=>{const f=createOfflineTransport({provider:'ollama',fetchImpl:async()=>({redirected:true})});await assert.rejects(f(url,{method:'GET'}),/redirect denied/);});
+test('pre-aborted request never sent',async()=>{const f=createOfflineTransport({provider:'ollama',fetchImpl:()=>assert.fail('network called')});await assert.rejects(f(url,{method:'GET',signal:AbortSignal.abort()}),{name:'AbortError'});});
+test('unknown provider rejected',()=>assert.throws(()=>createOfflineTransport({provider:'unknown'}),TypeError));
