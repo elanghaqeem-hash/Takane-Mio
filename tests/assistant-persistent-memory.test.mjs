@@ -9,8 +9,8 @@ import {randomBytes} from 'node:crypto';
 const config={provider:'ollama',model:'fixture',fetchImpl:async()=>new Response('{"message":{"content":"hello"},"done":true}\n')};
 const record={kind:'semantic',cluster:'project',content:'Takane Mio local knowledge'};
 test('explicit consent, persistence across runtime restart, deletion',async t=>{
- const dir=await mkdtemp(join(tmpdir(),'mio-persist-'));t.after(()=>rm(dir,{recursive:true,force:true}));const path=join(dir,'memory.sqlite'),key=randomBytes(32);
- let a=new AssistantRuntime(config,{persistentMemory:new EncryptedMemoryStore(path,{key,create:true})});t.after(()=>{a.stop();key.fill(0);});
+ const dir=await mkdtemp(join(tmpdir(),'mio-persist-'));const path=join(dir,'memory.sqlite'),key=randomBytes(32);
+ let a; t.after(async()=>{try{a?.stop();}finally{key.fill(0);await rm(dir,{recursive:true,force:true});}});a=new AssistantRuntime(config,{persistentMemory:new EncryptedMemoryStore(path,{key,create:true})});
  assert.throws(()=>a.remember(record),/consent/);assert.throws(()=>a.recall('Takane'),/consent/);
  const id=a.remember(record,{consent:true});a.stop();assert.throws(()=>a.recall('Takane',{consent:true}),/unavailable/);
  a=new AssistantRuntime(config,{persistentMemory:new EncryptedMemoryStore(path,{key})});
