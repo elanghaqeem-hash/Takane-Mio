@@ -1,0 +1,8 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {UnifiedRuntime} from '../packages/runtime/unified.mjs';
+const cfg={modelConfig:{provider:'ollama',model:'fixture',fetchImpl:async()=>{throw Error('Model must not be called for explicit mesh plan');}}};
+const request={shape:'box',dimensions:[2,3,4]};
+test('mesh plan requires consent and one-time approval',async()=>{const r=new UnifiedRuntime(cfg);await assert.rejects(r.planMesh(request),/consent/);const p=await r.planMesh(request,{consent:true});assert.equal(r.status().assistant.state,'WAITING_PERMISSION');p.steps[0].args.dimensions[0]=999;await assert.rejects(r.execute(p.id),/Approval denied/);const out=await r.execute(p.id,{approved:true});assert.equal(out.results[0].output.format,'obj');assert.equal(out.results[0].output.vertices,8);assert.equal(out.results[0].output.faces,12);await assert.rejects(r.execute(p.id,{approved:true}));r.stop();});
+test('invalid shape rejected and stop revokes pending plan',async()=>{const r=new UnifiedRuntime(cfg);await assert.rejects(r.planMesh({shape:'sphere',dimensions:[1,2,3]},{consent:true}),/Invalid mesh/);const p=await r.planMesh(request,{consent:true});r.stop();await assert.rejects(r.execute(p.id,{approved:true}),/unavailable/);});
+test('unified runtime exposes explicit memory and closes store once',()=>{let calls=0;const r=new UnifiedRuntime({...cfg,persistentMemory:{remember:()=>++calls,search:()=>[],forget:()=>true,close:()=>++calls}});assert.throws(()=>r.remember({}),/consent/);assert.equal(r.remember({},{consent:true}),1);r.stop();r.stop();assert.equal(calls,2);assert.throws(()=>r.recall('x',{consent:true}),/unavailable/);});
