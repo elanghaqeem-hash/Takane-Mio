@@ -5,11 +5,11 @@ import {TaskScheduler} from '../automation/scheduler.mjs';
 import {ProjectWorkspace} from '../project/workspace.mjs';
 import {createMeshPreview} from './creative.mjs';
 export class UnifiedRuntime {
- #assistant; #authority; #scheduler; #projects=new ProjectWorkspace(); #emergency=new EmergencyStop(); #busy=false; #clock;
- constructor({modelConfig,persistentMemory,clock=Date.now}={}){this.#clock=clock;this.#assistant=new AssistantRuntime(modelConfig,{persistentMemory});this.#authority=new GrantAuthority(clock);this.#scheduler=new TaskScheduler({authority:this.#authority,clock});this.#emergency.register('authority',()=>this.#authority.stop());this.#emergency.register('scheduler',()=>this.#scheduler.stop());this.#emergency.register('assistant',()=>this.#assistant.stop());}
+ #assistant; #authority; #scheduler; #projects=new ProjectWorkspace(); #emergency=new EmergencyStop(); #busy=false; #clock; #controller=new AbortController();
+ constructor({modelConfig,persistentMemory,clock=Date.now}={}){this.#clock=clock;this.#assistant=new AssistantRuntime(modelConfig,{persistentMemory});this.#authority=new GrantAuthority(clock);this.#scheduler=new TaskScheduler({authority:this.#authority,clock});this.#emergency.register('runtime',()=>this.#controller.abort());this.#emergency.register('authority',()=>this.#authority.stop());this.#emergency.register('scheduler',()=>this.#scheduler.stop());this.#emergency.register('assistant',()=>this.#assistant.stop());}
  status(){return {stopped:this.#emergency.stopped,busy:this.#busy,assistant:this.#assistant.status(),jobs:this.#scheduler.list(),emergency:this.#emergency.status()};}
  #guard(){if(this.#emergency.stopped||this.#busy)throw new Error('Unified runtime unavailable');}
- async #run(fn){this.#guard();this.#busy=true;try{const r=await fn();if(this.#emergency.stopped)throw new Error('Runtime stopped');return r;}finally{this.#busy=false;}}
+ async #run(fn){this.#guard();this.#busy=true;const signal=this.#controller.signal;let onAbort;try{const stopped=new Promise((_,reject)=>{onAbort=()=>reject(new Error('Runtime stopped'));signal.addEventListener('abort',onAbort,{once:true});});const work=Promise.resolve().then(()=>{if(signal.aborted)throw new Error('Runtime stopped');return fn();});const r=await Promise.race([work,stopped]);if(signal.aborted)throw new Error('Runtime stopped');return r;}finally{signal.removeEventListener('abort',onAbort);this.#busy=false;}}
  chat(text){return this.#run(()=>this.#assistant.chat(text));}
  plan(request){return this.#run(()=>this.#assistant.plan(request));}
  planMesh(request,options){return this.#run(()=>this.#assistant.planMesh(request,options));}
