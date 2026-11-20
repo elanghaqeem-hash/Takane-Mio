@@ -1,0 +1,2 @@
+# T-19.10.07 Runtime artifact integrity
+Operator-selected regular file and independently trusted SHA-256 required. Five fixture tests passed on Node 22.16 Linux. This is not endpoint authentication, publisher signature verification, process binding or offline proof. Trusted file paths only; symlinks and concurrent mutation are not securely contained. No activation or production deployment. Actual Windows runtime and integration pending.

@@ -1,0 +1,12 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {mkdtemp,writeFile,rm} from 'node:fs/promises';
+import {tmpdir} from 'node:os';
+import {join} from 'node:path';
+import {createHash} from 'node:crypto';
+import {verifyRuntimeArtifact} from '../packages/intelligence/identity.mjs';
+const digest=createHash('sha256').update('fixture').digest('hex');
+for(const [name,expected,status] of [['match',digest,'ARTIFACT_MATCH'],['mismatch','0'.repeat(64),'ARTIFACT_MISMATCH']])test(name,async t=>{const dir=await mkdtemp(join(tmpdir(),'mio-id-'));t.after(()=>rm(dir,{recursive:true,force:true}));const path=join(dir,'artifact');await writeFile(path,'fixture');assert.deepEqual(await verifyRuntimeArtifact({path,expectedSha256:expected}),{status,serverAuthenticated:false,offlineVerified:false});});
+test('invalid digest rejected',async()=>assert.rejects(verifyRuntimeArtifact({path:'fixture',expectedSha256:'bad'}),TypeError));
+test('missing artifact fails closed',async t=>{const dir=await mkdtemp(join(tmpdir(),'mio-id-'));t.after(()=>rm(dir,{recursive:true,force:true}));assert.equal((await verifyRuntimeArtifact({path:join(dir,'missing'),expectedSha256:digest})).status,'UNAVAILABLE');});
+test('pre-aborted verification',async()=>{assert.equal((await verifyRuntimeArtifact({path:'fixture',expectedSha256:digest,signal:AbortSignal.abort()})).status,'ABORTED');});
