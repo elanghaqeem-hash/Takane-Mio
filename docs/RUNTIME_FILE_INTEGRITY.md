@@ -1,0 +1,5 @@
+# Runtime file integrity — T-19.10.07
+
+`verifyRuntimeFile` checks a caller-selected absolute path against an independently obtained SHA-256 digest after explicit consent. It reads incrementally (1 MiB buffer, 16 GiB file limit), checks file metadata before and after reading, and never marks a server authenticated, offline verified or release approved. Use trusted paths only; parent symlink/reparse points, TOCTOU, file provenance, OS process identity and vendor signature verification remain outside this check. Do not connect to a model based solely on a digest match.
+
+Six fixture tests passed in Node 22.16.0 Linux. Git blobs verified: implementation 51b72cf9f868cd1ebddff982b40e42f6aeb52dd5; tests 016cbe651d2bfe831cfc13a89f138fbf02cde1e8. Test commit 4fec2d7d67855b5f815f0b8e34954b6abd96fadd. No real runtime binary, Windows, full regression or endpoint authentication tested. Separate identity.mjs implementation and existing tests were not overwritten; reconcile the two APIs before integration. Prior CLI regression pass claim not independently reconfirmed by this run. No deployment change.
