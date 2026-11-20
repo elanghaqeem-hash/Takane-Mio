@@ -22,12 +22,12 @@ export class TaskScheduler{
     if(j.dependsOn.some(d=>this.#jobs.get(d).status!=='SUCCESS'))continue;
     const t=this.#registry.get(j.tool);const op={level:t.level,scope:t.scope,purpose:t.purpose};j.status='RUNNING';
     let entered=false;
-    try{await this.#gate.execute(op,signal=>{entered=true;signal.throwIfAborted();return t.run(j.args,signal);});j.status='SUCCESS';}
+    try{await this.#gate.execute(op,signal=>{entered=true;signal.throwIfAborted();return t.run(j.args,signal);});j.status=this.#stopped?'STOPPED':'SUCCESS';}
     catch{j.status=this.#stopped?'STOPPED':entered?'FAILED':'DENIED';}
     j.runs++;this.#record(j,now,outcomes);
     if(j.status==='SUCCESS'&&j.intervalMs!==null){const next=now+j.intervalMs;if(time(next)){j.dueAt=next;j.status='PENDING';}}
   }return outcomes;}finally{this.#busy=false;}
  }
  #record(j,at,out){const row={id:j.id,status:j.status,at,run:j.runs};this.#history.push(row);if(this.#history.length>1000)this.#history.shift();out.push({...row});}
- stop(){this.#stopped=true;this.#gate.stop();for(const j of this.#jobs.values())if(j.status==='PENDING')j.status='STOPPED';}
+ stop(){this.#stopped=true;this.#gate.stop();for(const j of this.#jobs.values())if(j.status==='PENDING'||j.status==='RUNNING')j.status='STOPPED';}
 }
